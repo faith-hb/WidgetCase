@@ -22,7 +22,8 @@
 ##### 峰值图>>>
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)
 
-
+##### 渐变曲线>>>
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientLine.gif)
 
 
 #### 自定义控件分布如下
