@@ -87,7 +87,7 @@ implementation(name: 'hawkeye_widget-release', ext: 'aar')
 
 #### 联系方式：
 微信：faith-hb<br>
-QQ:907167515
+QQ：907167515
 
 #### 参与贡献
 
