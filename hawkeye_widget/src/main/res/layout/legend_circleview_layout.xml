@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <!--android:background="#FF4081"-->
+    <com.doyou.cv.widget.circle.CircleView
+        android:id="@+id/circle_view"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="360"
+        app:cv_boderW="7dp"
+        app:cv_center_style="txt"
+        app:cv_center_txt="风格"
+        app:cv_center_txt_color="#2a2a2a"
+        app:cv_center_txt_size="14sp"/>
+
+    <LinearLayout
+        android:id="@+id/lrv_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:gravity="center"
+        android:orientation="vertical"/>
+
+</LinearLayout>

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--RingView控件样式-->
+    <declare-styleable name="RingView">
+        <!-- 进度条样式，默认值为 system -->
+        <attr name="rv_mode" format="enum">
+            <!-- 圆形进度条 -->
+            <enum name="circle" value="0"/>
+            <!-- 圆形进度条-多段 -->
+            <enum name="more" value="1"/>
+            <!-- 圆形进度条-客群 -->
+            <enum name="group" value="2"/>
+        </attr>
+        <!--中间内容类型(文字|图标|二者都有)-->
+        <attr name="rv_center_style" format="enum">
+            <!--图标-->
+            <enum name="icon" value="0"/>
+            <!--文案-->
+            <enum name="txt" value="1"/>
+            <!--双行文字-->
+            <enum name="double_txt" value="2" />
+            <!--二者都有-->
+            <enum name="all" value="3"/>
+        </attr>
+        <!--中间图资源文件-->
+        <attr name="rv_center_bmp" format="reference"/>
+        <!--中间图文案-->
+        <attr name="rv_center_txt" format="string"/>
+        <!--中间图文案字体大小-->
+        <attr name="rv_center_txt_size" format="dimension"/>
+        <!--中间图文案字体颜色-->
+        <attr name="rv_center_txt_color" format="color" />
+        <!--中间图文结合，两者之间的间距-->
+        <attr name="rv_center_imgtxt_margin" format="dimension" />
+        <!-- 文字颜色，默认值为 #70A800 -->
+        <attr name="rv_textColor" format="reference|color"/>
+        <!-- 文字大小，默认值为 10sp -->
+        <attr name="rv_textSize" format="dimension"/>
+        <!-- 文字和进度条之间的间距，默认值为 4dp -->
+        <attr name="rv_textMargin" format="dimension"/>
+        <!-- 已完成进度的颜色，默认值为 #70A800 -->
+        <attr name="rv_reachedColor" format="reference|color"/>
+        <!-- 已完成进度的高度，默认值为 2dp -->
+        <attr name="rv_reachedHeight" format="dimension"/>
+        <!-- 未完成进度的颜色，默认值为 #CCCCCC -->
+        <attr name="rv_unReachedColor" format="reference|color"/>
+        <!-- 未完成进度的高度，默认值为 1dp -->
+        <attr name="rv_unReachedHeight" format="dimension"/>
+        <!-- 圆形进度条半径，默认值为 16dp -->
+        <attr name="rv_radius" format="dimension"/>
+        <!--边线是否可点击-->
+        <attr name="rv_outer_enable" format="boolean"/>
+        <!--是否需要分割-->
+        <attr name="rv_need_cut" format="boolean"/>
+    </declare-styleable>
+
+    <!--CircleView控件样式-->
+    <declare-styleable name="CircleView">
+        <!--中间内容类型(文字|图标|二者都有)-->
+        <attr name="cv_center_style" format="enum">
+            <!--图标-->
+            <enum name="icon" value="0"/>
+            <!--文案-->
+            <enum name="txt" value="1"/>
+            <!--两行文案-->
+            <enum name="double_txt" value="2"/>
+            <!--二者都有-->
+            <enum name="all" value="3"/>
+        </attr>
+        <!--中间图资源文件-->
+        <attr name="cv_center_bmp" format="reference"/>
+        <!--中间图文案-->
+        <attr name="cv_center_txt" format="string"/>
+        <!--中间图文案字体大小-->
+        <attr name="cv_center_txt_size" format="dimension"/>
+        <!--中间图文案字体颜色-->
+        <attr name="cv_center_txt_color" format="color" />
+        <!--中间图文案字体两行文本间的间距-->
+        <attr name="cv_cengter_txt_margin" format="dimension"/>
+        <!-- 圆环宽度，默认值为 2dp -->
+        <attr name="cv_boderW" format="dimension"/>
+        <!-- 圆形进度条半径，默认值为 16dp -->
+        <attr name="cv_radius" format="dimension"/>
+    </declare-styleable>
+
+    <!--图例样式-->
+    <declare-styleable name="LegendView">
+        <!--图例列宽-->
+        <attr name="lv_legend_columnW" format="dimension"/>
+        <!--图例行间距-->
+        <attr name="lv_legend_vertical_margin" format="dimension" />
+        <!--图例和圆环的间距，默认为0-->
+        <attr name="lv_legend_circle_margin" format="dimension"/>
+        <!--图例文字大小-->
+        <attr name="lv_legend_font_size" format="dimension"/>
+        <!--图例文字颜色-->
+        <attr name="lv_legend_font_color" format="color"/>
+        <!--图例文案和圆点的间距-->
+        <attr name="lv_legend_labelAndPoint_margin" format="dimension"/>
+        <!--图例每行第一个左侧偏移量-->
+        <attr name="lv_legend_offset_left" format="dimension"/>
+        <!--图例样式-->
+        <attr name="lv_legend_style" format="enum">
+            <!--圆点-->
+            <enum name="circle" value="0"/>
+            <!--方点-->
+            <enum name="square" value="1"/>
+            <!--横线-->
+            <enum name="line" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <!--自带图例的圆环控件样式-->
+    <declare-styleable name="LegendRingView">
+        <!--中间内容类型(文字|图标|二者都有)-->
+        <attr name="lrv_circle_center_style" format="enum">
+            <!--图标-->
+            <enum name="icon" value="0"/>
+            <!--文案-->
+            <enum name="txt" value="1"/>
+            <!--两行文案-->
+            <enum name="double_txt" value="2"/>
+            <!--二者都有-->
+            <enum name="all" value="3"/>
+        </attr>
+        <!--圆环视图高度-->
+        <attr name="lrv_circle_height" format="dimension"/>
+        <!-- 圆环宽度，默认值为 2dp -->
+        <attr name="lrv_circle_boderW" format="dimension"/>
+        <!--圆环内间距-上，默认为0-->
+        <attr name="lrv_circle_paddingTop" format="dimension"/>
+        <!--圆环内间距-下，默认为0-->
+        <attr name="lrv_circle_paddingBottom" format="dimension"/>
+        <!--圆环中间图文案-->
+        <attr name="lrv_circle_center_txt" format="string"/>
+        <!--中间图文案字体大小-->
+        <attr name="lrv_circle_center_txt_size" format="dimension"/>
+        <!--中间图文案字体颜色-->
+        <attr name="lrv_circle_center_txt_color" format="color" />
+        <!--图例列宽-->
+        <attr name="lrv_legend_columnW" format="dimension"/>
+        <!--图例行间距-->
+        <attr name="lrv_legend_vertical_margin" format="dimension" />
+        <!--图例和圆环的间距，默认为0-->
+        <attr name="lrv_legend_circle_margin" format="dimension"/>
+        <!--图例文字大小-->
+        <attr name="lrv_legend_font_size" format="dimension"/>
+        <!--图例文字颜色-->
+        <attr name="lrv_legend_font_color" format="color"/>
+        <!--图例文案和圆点的间距-->
+        <attr name="lrv_legend_labelAndPoint_margin" format="dimension"/>
+        <!--图例每行第一个左侧偏移量-->
+        <attr name="lrv_offset_left" format="dimension"/>
+        <!--图例样式-->
+        <attr name="lrv_legend_style" format="enum">
+            <!--圆点-->
+            <enum name="circle" value="0"/>
+            <!--方点-->
+            <enum name="square" value="1"/>
+            <!--横线-->
+            <enum name="line" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <!--HorBarView控件样式-->
+    <declare-styleable name="SectionProBar">
+        <!-- 已完成进度的颜色，默认值为 #70A800 -->
+        <attr name="hbv_reachedColor" format="reference|color"/>
+        <!-- 已完成进度的高度，默认值为 2dp -->
+        <attr name="hbv_reachedHeight" format="dimension"/>
+        <!-- 未完成进度的颜色，默认值为 #CCCCCC -->
+        <attr name="hbv_unReachedColor" format="reference|color"/>
+        <!-- 未完成进度的高度，默认值为 1dp -->
+        <attr name="hbv_unReachedHeight" format="dimension"/>
+    </declare-styleable>
+
+    <!--TaperChart控件样式-->
+    <declare-styleable name="TaperChart">
+        <!-- 图形样式，默认值为 system -->
+        <attr name="tc_mode" format="enum">
+            <!-- 2张图，2个label -->
+            <enum name="first" value="0"/>
+            <!-- 3张图，3个label -->
+            <enum name="second" value="1"/>
+            <!-- 4张图，4个label -->
+            <enum name="third" value="2"/>
+            <!-- 4张图，2个label -->
+            <enum name="fourth" value="3"/>
+            <!-- 6张图，3个label -->
+            <enum name="fifth" value="4"/>
+        </attr>
+        <!--y轴是否是百分制-->
+        <attr name="tc_yaxis_percent" format="boolean"/>
+        <!--文字大小-->
+        <attr name="tc_axis_txtsize" format="dimension"/>
+        <!--图形相交长度-->
+        <attr name="tc_inner_space" format="dimension"/>
+        <!--图表控制点的偏移量-->
+        <attr name="tc_quad_x_offset" format="dimension"/>
+        <!--是否绘制峰值顶尖值-->
+        <attr name="is_draw_topvalue" format="boolean"></attr>
+    </declare-styleable>
+
+    <!--GradientLine控件样式-->
+    <declare-styleable name="GradientLine">
+        <!-- 渐变曲线样式，默认值为 flat -->
+        <attr name="gl_mode" format="enum">
+            <enum name="flat" value="0"/>
+            <enum name="up" value="1"/>
+            <enum name="down" value="2"/>
+        </attr>
+        <!--曲线宽度-->
+        <attr name="gl_line_width" format="dimension"/>
+    </declare-styleable>
+
+    <!--CircleProgressBarView控件样式-->
+    <declare-styleable name="CircleProgressBarView">
+
+        <attr name="circleBgStrokeWidth" format="dimension" />
+        <attr name="progressStrokeWidth" format="dimension" />
+
+        <attr name="circleBgColor" format="color" />
+        <attr name="progressColor" format="color" />
+
+        <attr name="circleAnimationDuration" format="integer" />
+
+        <attr name="isDrawCenterProgressText" format="boolean" />
+
+        <attr name="centerProgressTextColor" format="color" />
+        <attr name="centerProgressTextSize" format="dimension" />
+        <attr name="targetNumColor" format="color" />
+        <attr name="targetNumSize" format="dimension" />
+        <attr name="targetTextColor" format="color" />
+        <attr name="targetTextSize" format="integer" />
+        <attr name="lineWidth" format="integer" />
+        <attr name="lineColor" format="color" />
+        <attr name="target_text" format="string" />
+
+        <attr name="round_color" format="color" />
+        <attr name="round_progress_color" format="color" />
+        <attr name="round_width" format="dimension" />
+        <attr name="max_" format="integer" />
+        <attr name="text_isDisplayable" format="boolean" />
+        <attr name="style_">
+            <enum name="STROKE" value="0" />
+            <enum name="FILL" value="1" />
+        </attr>
+
+    </declare-styleable>
+
+    <!--横向渐变进度条控件样式-->
+    <declare-styleable name="ShadowProBar">
+        <attr name="progress_color" format="color|reference"/>
+    </declare-styleable>
+
+    <!--仪表盘控件样式-->
+    <declare-styleable name="HalfCircleProView">
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="txtColor" format="color" />
+        <attr name="txtSize" format="dimension" />
+    </declare-styleable>
+
+    <!--横向进度条颜色-->
+    <declare-styleable name="HorProBar">
+        <attr name="pro_color" format="color|reference"/>
+        <attr name="pro_width" format="dimension" />
+        <attr name="pro_height" format="dimension" />
+    </declare-styleable>
+
+    <!--环形带刻度的颜色渐变进度条-->
+    <declare-styleable name="CircleProgress">
+        <!--是否开启抗锯齿-->
+        <attr name="antiAlias" format="boolean" />
+        <!--圆弧起始角度，3点钟方向为0，小于0或大于360进行取余-->
+        <attr name="startAngle" format="float" />
+        <!--圆弧度数-->
+        <attr name="sweepAngle" format="float" />
+        <!--设置动画时间-->
+        <attr name="animTime" format="integer" />
+        <!--设置内容的数值-->
+        <attr name="maxValue" format="float" />
+        <attr name="value" format="float" />
+        <!--设置内容的单位-->
+        <attr name="unit" format="string|reference" />
+        <attr name="unitSize" format="dimension" />
+        <attr name="unitColor" format="color|reference" />
+        <!--绘制内容相应的提示语-->
+        <attr name="hint" format="string|reference" />
+        <attr name="hintSize" format="dimension" />
+        <attr name="hintColor" format="color|reference" />
+        <!--精度，默认为0-->
+        <attr name="precision" format="integer" />
+        <attr name="valueSize" format="dimension" />
+        <attr name="valueColor" format="color|reference" />
+        <!--背景圆弧颜色，默认白色-->
+        <attr name="bgArcColor" format="color|reference" />
+        <!--圆弧宽度-->
+        <attr name="arcWidth" format="dimension" />
+        <!--圆弧颜色-->
+        <attr name="arcColors" format="color|reference" />
+        <!--文字的偏移量 相对于圆半径而言，默认三分之一 -->
+        <attr name="textOffsetPercentInRadius" format="float" />
+        <!--背景圆弧宽度-->
+        <attr name="bgArcWidth" format="dimension"/>
+        <!--线条数-->
+        <attr name="dottedLineCount" format="integer"/>
+        <!--圆弧跟虚线之间的距离-->
+        <attr name="lineDistance" format="integer" />
+        <!--线条宽度-->
+        <attr name="dottedLineWidth" format="dimension" />
+        <!--进度条的前景色 起始颜色-->
+        <attr name="foreStartColor" format="color" />
+        <!--进度条的前景色 结束颜色-->
+        <attr name="foreEndColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="HorScrollSelectedView">
+        <!--可见数目-->
+        <attr name="seeSize" format="integer" />
+        <!--被选择文字的大小和颜色-->
+        <attr name="selectedTextSize" format="float" />
+        <attr name="selectedTextColor" format="color" />
+        <!--未被选择文字的大小和颜色-->
+        <attr name="textSize" format="float"/>
+        <attr name="textColor" format="color|reference" />
+    </declare-styleable>
+</resources>

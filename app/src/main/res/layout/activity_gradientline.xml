@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            xmlns:tools="http://schemas.android.com/tools"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:overScrollMode="never"
+                                            android:scrollbars="none">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24dp"
+        tools:context=".release.GradientLineActivity">
+
+        <com.doyou.cv.widget.GradientLine
+            android:id="@+id/gLineUp"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:gl_mode="down"/>
+
+        <com.doyou.cv.widget.GradientLine
+            android:id="@+id/gLineFlat"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:gl_mode="flat"/>
+
+        <com.doyou.cv.widget.GradientLine
+            android:id="@+id/gLineDown"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tchartLayout"
+            tools:gl_mode="up"/>
+
+
+        <Button
+            android:id="@+id/gLineBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="32dp"
+            android:text="动画再来一次"
+            app:layout_constraintTop_toBottomOf="@id/gLineDown"/>
+
+
+        <com.doyou.cv.widget.GradientLine
+            android:id="@+id/gLineAgain"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gLineBtn"
+            tools:gl_mode="up"/>
+
+        <Button
+            android:id="@+id/gLineBtn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="32dp"
+            android:text="快速点击切换图形模式"
+            app:layout_constraintTop_toBottomOf="@id/gLineAgain"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/gLineBtn2"/>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

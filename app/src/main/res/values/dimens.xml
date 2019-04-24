@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--峰值图图高-->
+    <dimen name="taper_chart_h">240dp</dimen>
+    <!--峰值图字体大小-->
+    <dimen name="taper_text_size">10sp</dimen>
+    <!--环形图上下间距-->
+    <dimen name="ringv_pading">24dp</dimen>
+
+</resources>

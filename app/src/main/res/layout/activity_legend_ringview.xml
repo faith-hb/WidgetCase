@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:overScrollMode="never"
+                                            android:scrollbars="none">
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".release.LegendRingViewActivity">
+
+        <!--android:background="@color/colorAccent"-->
+        <com.doyou.cv.widget.circle.CircleView
+            android:id="@+id/lrv_one"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="168dp"
+            android:max="360"
+            android:paddingBottom="@dimen/ringv_pading"
+            android:paddingTop="@dimen/ringv_pading"
+            app:cv_boderW="7dp"
+            app:cv_center_style="txt"
+            app:cv_center_txt="风格"
+            app:cv_center_txt_color="#2a2a2a"
+            app:cv_center_txt_size="14sp"/>
+
+        <com.doyou.cv.widget.circle.CircleView
+            android:id="@+id/lrv_two"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="168dp"
+            android:layout_marginTop="24dp"
+            android:max="360"
+            android:paddingBottom="@dimen/ringv_pading"
+            android:paddingTop="@dimen/ringv_pading"
+            app:cv_boderW="7dp"
+            app:cv_cengter_txt_margin="2dp"
+            app:cv_center_style="double_txt"
+            app:cv_center_txt="风格 样式"
+            app:cv_center_txt_color="#2a2a2a"
+            app:cv_center_txt_size="14sp"/>
+
+        <com.doyou.cv.widget.ring.LegendRingView
+            android:id="@+id/lrv_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:lrv_circle_center_txt="哈哈"
+            app:lrv_circle_center_txt_color="@color/colorAccent"
+            app:lrv_circle_center_txt_size="15sp"
+            app:lrv_circle_height="168dp"
+            app:lrv_circle_paddingBottom="@dimen/ringv_pading"
+            app:lrv_circle_paddingTop="@dimen/ringv_pading"
+            app:lrv_legend_font_color="#2a2a2a"
+            app:lrv_legend_font_size="12sp"
+            app:lrv_legend_labelAndPoint_margin="4dp"/>
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="再来一次"/>
+
+        <LinearLayout
+            android:id="@+id/lrv_wgtLl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="24dp">
+
+            <com.doyou.cv.widget.ring.LegendRingView
+                android:id="@+id/lrv_left"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:lrv_circle_boderW="5dp"
+                app:lrv_circle_center_style="double_txt"
+                app:lrv_circle_center_txt="看货 材质"
+                app:lrv_circle_center_txt_size="10sp"
+                app:lrv_circle_height="128dp"
+                app:lrv_circle_paddingBottom="12dp"
+                app:lrv_circle_paddingTop="12dp"
+                app:lrv_legend_circle_margin="4dp"
+                app:lrv_legend_columnW="36dp"
+                app:lrv_legend_font_size="10sp"
+                app:lrv_legend_vertical_margin="6dp"
+                app:lrv_offset_left="6dp"/>
+
+            <com.doyou.cv.widget.ring.LegendRingView
+                android:id="@+id/lrv_right"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:lrv_circle_boderW="5dp"
+                app:lrv_circle_center_style="txt"
+                app:lrv_circle_center_txt="材质"
+                app:lrv_circle_center_txt_size="10sp"
+                app:lrv_circle_height="128dp"
+                app:lrv_circle_paddingBottom="12dp"
+                app:lrv_circle_paddingTop="12dp"
+                app:lrv_legend_circle_margin="4dp"
+                app:lrv_legend_columnW="36dp"
+                app:lrv_legend_font_size="10sp"
+                app:lrv_legend_vertical_margin="6dp"
+                app:lrv_offset_left="6dp"/>
+
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp"/>
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

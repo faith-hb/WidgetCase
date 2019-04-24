@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="taper_chart_margin">12dp</dimen>
+    <dimen name="taper_chart_height">240dp</dimen>
+    <!--峰值图字体大小-->
+    <dimen name="taper_text_size">10sp</dimen>
+</resources>

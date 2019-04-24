@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            xmlns:tools="http://schemas.android.com/tools"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:overScrollMode="never"
+                                            android:scrollbars="none">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24dp"
+        tools:context=".release.GradientProBarActivity">
+
+
+        <com.doyou.cv.widget.circle.CircleProgress
+            android:id="@+id/circlePro"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="24dp"
+            app:antiAlias="true"
+            app:arcWidth="15dp"
+            app:bgArcColor="@android:color/darker_gray"
+            app:bgArcWidth="2dp"
+            app:dottedLineWidth="12dp"
+            app:foreEndColor="#F4F200"
+            app:foreStartColor="#FE6615"
+            app:hintSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:maxValue="100"
+            app:startAngle="135"
+            app:sweepAngle="270"
+            app:textOffsetPercentInRadius="0.5"
+            app:unit="目标100KM"
+            app:unitColor="@android:color/darker_gray"
+            app:unitSize="15sp"
+            app:value="75"
+            app:valueColor="#FFCC1E"
+            app:valueSize="80sp"/>
+
+        <Button
+            android:id="@+id/refeshPro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="点我刷新进度"
+            app:layout_constraintTop_toBottomOf="@id/circlePro"/>
+
+        <com.doyou.cv.widget.circle.GradientProBar
+            android:id="@+id/gpb"
+            android:layout_width="340dp"
+            android:layout_height="340dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/refeshPro"/>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

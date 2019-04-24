@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".release.ShadowProBarActivity">
+
+    <com.doyou.cv.widget.horbar.HorProBar
+        android:id="@+id/hbBar1"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp" />
+
+    <com.doyou.cv.widget.horbar.HorProBar
+        android:id="@+id/hbBar2"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:pro_height="5dp"
+        android:layout_marginTop="24dp" />
+
+    <com.doyou.cv.widget.horbar.HorProBar
+        android:id="@+id/hbBar3"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        app:pro_width="80dp"/>
+
+    <Button
+        android:id="@+id/refeshBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="24dp"
+        android:text="刷新"
+        app:layout_constraintTop_toBottomOf="@id/spbIng" />
+
+</LinearLayout>

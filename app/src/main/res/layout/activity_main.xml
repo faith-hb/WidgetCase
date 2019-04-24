@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
+    <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".release.MainActivity">
+
+        <com.doyou.cv.widget.horbar.SectionProBar
+            android:id="@+id/horbarV"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:paddingLeft="24dp"
+            android:paddingTop="32dp"
+            android:paddingRight="24dp"
+            app:hbv_reachedColor="#FF6853"
+            app:hbv_reachedHeight="5dp"
+            app:hbv_unReachedColor="#58b5fa"
+            app:hbv_unReachedHeight="5dp" />
+
+        <Button
+            android:id="@+id/ringvBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="RingView"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/horbarV" />
+
+        <Button
+            android:id="@+id/tcBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TaperChart"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/ringvBtn" />
+
+        <Button
+            android:id="@+id/gradientBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GradientLine"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/tcBtn" />
+
+        <Button
+            android:id="@+id/lrvBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LegendRingView"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/gradientBtn" />
+
+        <Button
+            android:id="@+id/cpbvBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CircleProgressBarView"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/lrvBtn" />
+
+        <Button
+            android:id="@+id/spbBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ShadowProBar"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/cpbvBtn" />
+
+        <Button
+            android:id="@+id/hcpvBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HalfCircleProView"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/spbBtn" />
+
+        <Button
+            android:id="@+id/matrixBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MatrixImageView"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/hcpvBtn" />
+
+        <Button
+            android:id="@+id/gpbBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GradientProBar"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/matrixBtn" />
+
+        <Button
+            android:id="@+id/hssvBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HorScrollSelectedView"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/gpbBtn" />
+
+        <Button
+            android:id="@+id/horBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HorProBar"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/hssvBtn" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/horBtn" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

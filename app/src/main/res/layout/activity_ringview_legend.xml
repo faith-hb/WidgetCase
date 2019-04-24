@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:overScrollMode="never"
+                                            android:scrollbars="none">
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".release.ringview.LegendActivity">
+
+        <!--android:background="#ccc"-->
+        <com.doyou.cv.widget.ring.RingView
+            android:id="@+id/legendRv"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="168dp"
+            android:layout_marginTop="@dimen/ringv_pading"
+            android:max="360"
+            android:paddingBottom="12dp"
+            android:progress="32"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rv_center_style="double_txt"
+            app:rv_center_txt_color="@color/colorPrimary"
+            app:rv_center_txt_size="14sp"
+            app:rv_mode="more"
+            app:rv_outer_enable="true"
+            app:rv_reachedColor="@color/colorAccent"
+            app:rv_reachedHeight="6dp"
+            app:rv_textColor="#2a2a2a"
+            app:rv_textSize="10sp"
+            app:rv_unReachedColor="@color/colorPrimary"
+            app:rv_unReachedHeight="6dp"/>
+
+        <!--android:background="#cfcfcf"-->
+        <com.doyou.cv.widget.legend.LegendView
+            android:id="@+id/legendLv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/legendRv"
+            app:lv_legend_circle_margin="4dp"
+            app:lv_legend_columnW="36dp"
+            app:lv_legend_font_size="10sp"
+            app:lv_legend_offset_left="6dp"
+            app:lv_legend_vertical_margin="6dp"/>
+
+        <Button
+            android:id="@+id/legendRefBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ringv_pading"
+            android:text="刷新下"
+            app:layout_constraintTop_toBottomOf="@id/legendLv"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/legendRefBtn"/>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

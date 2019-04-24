@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:overScrollMode="never"
+                                            android:scrollbars="none">
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".release.taperchart.TaperChartActivity">
+
+        <TextView
+            android:id="@+id/label1"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="#cfcfcf"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:text="3张图，3个label"
+            android:textColor="#2a2a2a"/>
+
+        <com.doyou.cv.widget.TaperChart
+            android:id="@+id/tchartV"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/taper_chart_h"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            app:is_draw_topvalue="true"
+            app:layout_constraintTop_toBottomOf="@id/label1"
+            app:tc_axis_txtsize="@dimen/taper_text_size"
+            app:tc_inner_space="28dp"
+            app:tc_quad_x_offset="42dp"/>
+
+        <TextView
+            android:id="@+id/label2"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="#cfcfcf"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:text="4张图，2个label"
+            android:textColor="#2a2a2a"
+            app:layout_constraintTop_toBottomOf="@id/tchartV"/>
+
+        <com.doyou.cv.widget.TaperChart
+            android:id="@+id/tchartV1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/taper_chart_h"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            app:is_draw_topvalue="true"
+            app:layout_constraintTop_toBottomOf="@id/label2"
+            app:tc_inner_space="28dp"
+            app:tc_mode="fourth"
+            app:tc_quad_x_offset="42dp"/>
+
+        <TextView
+            android:id="@+id/label3"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="#cfcfcf"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:text="4张图，2个label(y轴百分比)"
+            android:textColor="#2a2a2a"
+            app:layout_constraintTop_toBottomOf="@id/tchartV1"/>
+
+        <com.doyou.cv.widget.TaperChart
+            android:id="@+id/tchartV2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/taper_chart_h"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/label3"
+            app:tc_inner_space="28dp"
+            app:tc_mode="fourth"
+            app:tc_quad_x_offset="42dp"
+            app:tc_yaxis_percent="true"/>
+
+        <TextView
+            android:id="@+id/label4"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="#cfcfcf"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:text="6张图，3个label"
+            android:textColor="#2a2a2a"
+            app:layout_constraintTop_toBottomOf="@id/tchartV2"/>
+
+        <com.doyou.cv.widget.TaperChart
+            android:id="@+id/tchartV3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/taper_chart_h"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/label4"
+            app:tc_inner_space="28dp"
+            app:tc_mode="fifth"
+            app:tc_quad_x_offset="42dp"/>
+
+        <TextView
+            android:id="@+id/label5"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="#cfcfcf"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:text="3张图，3个label(两行)"
+            android:textColor="#2a2a2a"
+            app:layout_constraintTop_toBottomOf="@id/tchartV3"/>
+
+        <com.doyou.cv.widget.TaperChartLayout
+            android:id="@+id/tchartLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/label5"/>
+
+        <TextView
+            android:id="@+id/label6"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="#cfcfcf"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:text="3张图，3个label(两行 + 自定义颜色 + 单位显示)"
+            android:textColor="#2a2a2a"
+            app:layout_constraintTop_toBottomOf="@id/tchartLayout"/>
+
+        <com.doyou.cv.widget.TaperChartLayout
+            android:id="@+id/tchartLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/label6"/>
+
+        <TextView
+            android:id="@+id/label7"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="#cfcfcf"
+            android:gravity="center_vertical"
+            android:paddingLeft="24dp"
+            android:text="3张图，6个label(两行 + 自定义颜色 + 单位显示)"
+            android:textColor="#2a2a2a"
+            app:layout_constraintTop_toBottomOf="@id/tchartLayout1"/>
+
+        <com.doyou.cv.widget.TaperChartLayout
+            android:id="@+id/tchartLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/label7"/>
+
+        <Button
+            android:id="@+id/contrastBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="对比峰值图"
+            app:layout_constraintTop_toBottomOf="@id/tchartLayout2"/>
+
+        <Button
+            android:id="@+id/horTaperBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="水平滑动峰值图"
+            app:layout_constraintTop_toBottomOf="@id/contrastBtn"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/horTaperBtn"/>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>
