@@ -26,7 +26,7 @@
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientLine.gif)
 
 ##### 圆环进度>>>
-<img src="screenshots/ringview_123.jpeg" width="360" height="640"/> <img src="screenshots/ringview_456.png" width="360" height="640"/><img src="screenshots/ringview_789.png" width="360" height="640"/>
+<img src="screenshots/ringview_123.jpeg" width="240" height="427"/> <img src="screenshots/ringview_456.png" width="240" height="427"/> <img src="screenshots/ringview_789.png" width="240" height="427"/>
 
 #### 自定义控件分布如下
 
