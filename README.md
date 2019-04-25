@@ -29,14 +29,14 @@
 #### 自定义控件分布如下
 
 ##### 峰值图
-1. [TaperChart](#taperchart.java)
-2. [TaperChartLayout](#TaperChartLayout.java)
+1. [TaperChart](TaperChart.java)
+2. [TaperChartLayout](TaperChartLayout.java)
 3. [HorTaperChart(还有问题)](HorTaperChart.java)
 
 ##### 圆形进度条
-1. [CircleProgress](circleprogress.java)
-2. [GradientProBar](GradientProBar)
-3. [CircleProgressBarView](circleprogressbarview)
+1. [CircleProgress](CircleProgress.java)
+2. [GradientProBar](GradientProBar.java)
+3. [CircleProgressBarView](CircleProgressBarView.java)
 4. CircleView = #CircleView.java
 
 ##### 环形进度条
@@ -66,6 +66,22 @@ PathMorphBezier
 
 
 #### Download
+
+Step 1.
+
+``` groovy
+allprojects {
+    repositories {
+        ...
+        maven {
+            url 'http://47.93.38.184:8081/nexus/content/repositories/faithhb/'
+        }
+    }
+}
+```
+
+Step 2.
+
 Gradle:
 ``` groovy
 implementation 'com.faithhb:toolslib:1.7.8'
