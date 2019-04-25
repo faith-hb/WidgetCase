@@ -34,9 +34,9 @@
 3. [HorTaperChart(还有问题)](HorTaperChart.java)
 
 ##### 圆形进度条
-1. CircleProgress
-2. GradientProBar
-3. CircleProgressBarView
+1. [CircleProgress](circleprogress.java)
+2. [GradientProBar](GradientProBar)
+3. [CircleProgressBarView](circleprogressbarview)
 4. CircleView
 
 ##### 环形进度条
