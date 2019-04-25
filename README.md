@@ -29,9 +29,9 @@
 #### 自定义控件分布如下
 
 ##### 峰值图
-1. [TaperChart][taperchart.java]
-2. [TaperChartLayout][TaperChartLayout.java]
-3. HorTaperChart(还有问题)
+1. [TaperChart](#taperchart.java)
+2. [TaperChartLayout](#TaperChartLayout.java)
+3. [HorTaperChart(还有问题)](HorTaperChart.java)
 
 ##### 圆形进度条
 1. CircleProgress
