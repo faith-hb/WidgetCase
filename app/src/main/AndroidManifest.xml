@@ -26,6 +26,7 @@
         <activity android:name=".test.LegendRingViewActivity" />
         <activity android:name=".release.CircleProgressBarViewActivity" />
         <activity android:name=".release.ShadowProBarActivity" />
+        <activity android:name=".release.GradientProBarScaleActivity" />
         <activity android:name=".release.HalfCircleProViewActivity" />
         <activity android:name=".release.MatrixImageViewActivity" />
         <activity android:name=".release.GradientProBarActivity" />

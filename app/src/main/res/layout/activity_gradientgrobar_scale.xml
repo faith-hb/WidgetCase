@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            xmlns:tools="http://schemas.android.com/tools"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:overScrollMode="never"
+                                            android:scrollbars="none">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24dp"
+        tools:context=".release.GradientProBarActivity">
+
+        <com.doyou.cv.widget.circle.GradientProBar
+            android:id="@+id/gpb"
+            android:layout_width="340dp"
+            android:layout_height="340dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <Button
+            android:id="@+id/refeshtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="点我刷新进度"
+            app:layout_constraintTop_toBottomOf="@id/gpb"/>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>
