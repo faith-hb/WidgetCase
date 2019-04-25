@@ -19,13 +19,13 @@
 ##### 功能目录>>>
 <img src="screenshots/main.jpg" width="360" height="640"/>
 
-##### 峰值图>>>TaperChart & TaperChartLayout
+##### 峰值图>>>[TaperChart & TaperChartLayout]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)
 
-##### 渐变曲线>>>GradientLine
+##### 渐变曲线>>>[GradientLine]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientLine.gif)
 
-##### 圆环进度>>>RingView & LegendRingView
+##### 圆环进度>>>[RingView & LegendRingView]
 <img src="screenshots/ringview_123.jpeg" width="280" height="497"/>   <img src="screenshots/ringview_456.png" width="280" height="497"/>   <img src="screenshots/ringview_789.png" width="280" height="497"/>
 
 #### 自定义控件分布如下
