@@ -29,7 +29,7 @@
 #### 自定义控件分布如下
 
 ##### 峰值图
-1. TaperChart
+1. TaperChart[TaperChart.java]
 2. TaperChartLayout
 3. HorTaperChart(还有问题)
 
