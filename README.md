@@ -37,7 +37,7 @@
 1. [CircleProgress](CircleProgress.java)
 2. [GradientProBar](GradientProBar.java)
 3. [CircleProgressBarView](CircleProgressBarView.java)
-4. CircleView = #CircleView.java
+4. [CircleView](CircleView.java)
 
 ##### 环形进度条
 1. [RingView](RingView.java)
@@ -53,16 +53,16 @@
 4. [LoadingLineView](LoadingLineView.java)
 
 ##### 渐变曲线
-GradientLine
+[GradientLine](GradientLine.java)
 
 
 ##### 系统控件重写
-1. FixGridView
-2. FixListView
-3. NoScrollViewPager
+1. [FixGridView](FixGridView.java)
+2. [FixListView](FixListView.java)
+3. [NoScrollViewPager](NoScrollViewPager.java)
 
 ##### 贝塞尔曲线练练手
-PathMorphBezier
+[PathMorphBezier](PathMorphBezier.java)
 
 
 #### Download
