@@ -84,8 +84,10 @@ Step 2.
 
 Gradle:
 ``` groovy
-implementation 'com.faithhb:toolslib:1.7.8'
+implementation 'com.faithhb:widgetcase:1.7.8'
 ```
+
+widgetcase最新版本：![](https://img.shields.io/badge/widget-1.7.8-green.svg)
 
 or
 
