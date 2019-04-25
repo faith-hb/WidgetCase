@@ -37,10 +37,10 @@
 1. [CircleProgress](circleprogress.java)
 2. [GradientProBar](GradientProBar)
 3. [CircleProgressBarView](circleprogressbarview)
-4. CircleView
+4. CircleView = #CircleView.java
 
 ##### 环形进度条
-1. RingView
+1. RingView = #RingView
 2. LegendRingView(内含图例)
 
 ##### 半圆/油表
@@ -89,9 +89,18 @@ implementation(name: 'hawkeye_widget-release', ext: 'aar')
 微信：faith-hb<br>
 QQ：907167515
 
-#### 参与贡献
+#### License
 
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
+   Copyright 2019 faith-hb
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
