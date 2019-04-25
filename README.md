@@ -107,7 +107,6 @@ implementation(name: 'hawkeye_widget-release', ext: 'aar')
 -keep class com.doyou.cv.bean.**{*; }
 -keep class com.doyou.cv.WLogger{*; }
 
-
 -keep class com.doyou.cv.widget.**
 -keepclassmembers class com.doyou.cv.widget.** {
     public *;
