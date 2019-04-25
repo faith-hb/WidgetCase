@@ -99,7 +99,6 @@ implementation(name: 'hawkeye_widget-release', ext: 'aar')
 ```
 
 #### Proguard(项目启用混淆的配置)
-Gradle:
 ``` groovy
 -dontwarn com.dongni.**
 -keep class com.dongni.** { *; }
