@@ -3,12 +3,12 @@
 <!--https://shields.io/-->
 <!--[![auc][aucsvg]][auc] [![api][apisvg]][api] [![License][licensesvg]][license]-->
 
-[![](https://img.shields.io/badge/widget-1.7.8-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase)
+[![](https://img.shields.io/badge/widget-1.7.8-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase)![](https://img.shields.io/badge/Gradle-4.4-orange.svg)
 
 
 
 #### 项目介绍
-跟着公司项目走了一年之久的自定义控件Library，由于公司项目偏向统计类，所以项目里控件更多的是这方面的控件，但既然把库都抽出来了，就绝不可能只是狭隘到这么一丢丢。因此此库会一直维护下去，直至Android倒下，本人倒下(决心表的很大)。当然一个人的力量是有限的，期待更多的志同道合的朋友加入，大家在一起干点轰轰烈烈的事情。
+跟着公司项目走了一年之久的自定义控件Library，稳定性和兼容性已有所保障。由于公司项目偏向统计类，所以项目里控件更多的是这方面的控件，但既然把库都抽出来了，就绝不可能只是狭隘到这么一丢丢。因此此库会一直维护下去，直至Android倒下，本人倒下(决心表的很大)。当然一个人的力量是有限的，期待更多的志同道合的朋友加入，大家在一起干点轰轰烈烈的事情。
 
 
 #### 效果刷一波，毕竟是靠脸吃饭的年代
@@ -40,17 +40,17 @@
 4. CircleView = #CircleView.java
 
 ##### 环形进度条
-1. RingView = #RingView
-2. LegendRingView(内含图例)
+1. [RingView](RingView.java)
+2. [LegendRingView(内含图例)](LegendRingView.java)
 
 ##### 半圆/油表
-1. HalfCircleProView
+1. [HalfCircleProView](HalfCircleProView.java)
 
 ##### 横向进度条
-1. HorProBar
-2. SectionProBar
-3. ShadowProBar
-4. LoadingLineView
+1. [HorProBar](HorProBar.java)
+2. [SectionProBar](SectionProBar.java)
+3. [ShadowProBar](ShadowProBar.java)
+4. [LoadingLineView](LoadingLineView.java)
 
 ##### 渐变曲线
 GradientLine
@@ -87,7 +87,7 @@ Gradle:
 implementation 'com.faithhb:widgetcase:1.7.8'
 ```
 
-widgetcase最新版本：![](https://img.shields.io/badge/widget-1.7.8-green.svg)
+widgetcase最新版本：[![](https://img.shields.io/badge/widget-1.7.8-green.svg)](http://47.93.38.184:8081/nexus/service/local/repositories/faithhb/content/com/faithhb/widgetcase/1.7.8/widgetcase-1.7.8.pom)
 
 or
 

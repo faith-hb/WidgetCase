@@ -174,6 +174,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="水平滑动峰值图"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/contrastBtn"/>
 
         <Space
