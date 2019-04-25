@@ -98,6 +98,23 @@ aar:
 implementation(name: 'hawkeye_widget-release', ext: 'aar')
 ```
 
+#### Proguard(项目启用混淆的配置)
+Gradle:
+``` groovy
+-dontwarn com.dongni.**
+-keep class com.dongni.** { *; }
+
+# 页面modle避免混淆
+-keep class com.doyou.cv.bean.**{*; }
+-keep class com.doyou.cv.WLogger{*; }
+
+
+-keep class com.doyou.cv.widget.**
+-keepclassmembers class com.doyou.cv.widget.** {
+    public *;
+}
+```
+
 #### 有问题怎么办？
 首先有问题的话，可以提issue，我会经常去看的，能解决的肯定会及时解决，不能解决的会想办法解决的。
 
