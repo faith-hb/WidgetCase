@@ -24,7 +24,6 @@ import com.doyou.cv.R;
 /**自定义view实现环形带刻度颜色渐变的进度条
  * @autor hongbing
  * @date 2019/2/14
- * 仿：https://www.jianshu.com/p/0c7dca38207c
  */
 public class CircleProgress extends View {
 
