@@ -40,4 +40,4 @@ dependencies {
     implementation 'com.faithhb:toolslib:1.5.1'
 }
 
-apply from: './upload.gradle'
+//apply from: './upload.gradle'

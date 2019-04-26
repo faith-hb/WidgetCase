@@ -23,7 +23,7 @@ allprojects {
             url 'http://47.93.38.184:8081/nexus/content/repositories/faithhb/'
         }
         maven {
-            url 'http://47.93.38.184:8081/nexus/content/repositories/github/' // widget发布版本已切换到该目录
+            url 'http://47.93.38.184:8081/nexus/content/repositories/github/' // widget发布版本已切换到该地址
         }
     }
 }
