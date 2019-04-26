@@ -25,6 +25,9 @@
 ##### 渐变曲线>>>[GradientLine]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientLine.gif)
 
+##### 渐变圆环进度>>>[GradientProBar]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/GradientProBar.gif)
+
 ##### 圆环进度>>>[RingView & LegendRingView]
 <img src="screenshots/ringview_123.jpeg" width="280" height="497"/>   <img src="screenshots/ringview_456.png" width="280" height="497"/>   <img src="screenshots/ringview_789.png" width="280" height="497"/>
 
