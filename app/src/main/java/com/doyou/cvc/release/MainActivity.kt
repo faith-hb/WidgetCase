@@ -56,18 +56,4 @@ class MainActivity : AppCompatActivity() {
         Utils.logD("201811211646","(one / total) = " + (one / total))
         horbarV.progress = ((one / total) * 100).toInt() // 注意：不要忘记设置xml中的style，不然进度没有效果
     }
-
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    external fun stringFromJNI(): String
-
-    companion object {
-
-        // Used to load the 'native-lib' library on application startup.
-        init {
-            System.loadLibrary("native-lib")
-        }
-    }
 }
