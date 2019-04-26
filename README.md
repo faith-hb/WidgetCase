@@ -16,7 +16,7 @@
 
 <!--![功能目录](screenshots/main.jpg = 100*)-->
 
-##### 功能目录>>>图文混排>>>[ImgTxtMixtureView]
+##### 功能目录 & 图文混排>>>[ImgTxtMixtureView]
 <img src="screenshots/main.jpg" width="280" height="497"/>   <img src="screenshots/imgtxtmixture.png" width="280" height="497"/>
 
 ##### 峰值图>>>[TaperChart & TaperChartLayout] & 渐变曲线>>>[GradientLine]
