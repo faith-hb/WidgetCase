@@ -19,11 +19,8 @@
 ##### 功能目录>>>图文混排>>>[ImgTxtMixtureView]
 <img src="screenshots/main.jpg" width="280" height="497"/>   <img src="screenshots/imgtxtmixture.png" width="280" height="497"/>
 
-##### 峰值图>>>[TaperChart & TaperChartLayout]
-![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)
-
-##### 渐变曲线>>>[GradientLine]
-![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientLine.gif)
+##### 峰值图>>>[TaperChart & TaperChartLayout] & 渐变曲线>>>[GradientLine]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientLine.gif)
 
 ##### 渐变圆环进度>>>[GradientProBar]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/GradientProBar.gif)
