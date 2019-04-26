@@ -35,41 +35,41 @@
 
 ##### 峰值图
 1. [TaperChart](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/TaperChart.java)
-2. [TaperChartLayout](TaperChartLayout.java)
-3. [HorTaperChart(还有问题)](HorTaperChart.java)
+2. [TaperChartLayout](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/TaperChartLayout.java)
+3. [HorTaperChart(还有问题)](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/HorTaperChart.java)
 
 ##### 圆形进度条
-1. [CircleProgress](CircleProgress.java)
-2. [GradientProBar](GradientProBar.java)
-3. [CircleProgressBarView](CircleProgressBarView.java)
-4. [CircleView](CircleView.java)
+1. [CircleProgress](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/circle/CircleProgress.java)
+2. [GradientProBar](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/circle/GradientProBar.java)
+3. [CircleProgressBarView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/circle/CircleProgressBarView.java)
+4. [CircleView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/circle/CircleView.java)
 
 ##### 环形进度条
-1. [RingView](RingView.java)
-2. [LegendRingView(内含图例)](LegendRingView.java)
+1. [RingView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/ring/RingView.java)
+2. [LegendRingView(内含图例)](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/ring/LegendRingView.java)
 
 ##### 半圆/油表
-1. [HalfCircleProView](HalfCircleProView.java)
+1. [HalfCircleProView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/HalfCircleProView.java)
 
 ##### 横向进度条
-1. [HorProBar](HorProBar.java)
-2. [SectionProBar](SectionProBar.java)
-3. [ShadowProBar](ShadowProBar.java)
-4. [LoadingLineView](LoadingLineView.java)
+1. [HorProBar](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/horbar/HorProBar.java)
+2. [SectionProBar](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/horbar/SectionProBar.java)
+3. [ShadowProBar](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/horbar/ShadowProBar.java)
+4. [LoadingLineView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/horbar/LoadingLineView.java)
 
 ##### 渐变曲线
-[GradientLine](GradientLine.java)
+[GradientLine](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/GradientLine.java)
 
 ##### 图文混排
-[ImgTxtMixtureView](ImgTxtMixtureView.java)
+[ImgTxtMixtureView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/view/ImgTxtMixtureView.java)
 
 ##### 系统控件重写
-1. [FixGridView](FixGridView.java)
-2. [FixListView](FixListView.java)
-3. [NoScrollViewPager](NoScrollViewPager.java)
+1. [FixGridView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/sys/FixGridView.java)
+2. [FixListView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/sys/FixListView.java)
+3. [NoScrollViewPager](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/sys/NoScrollViewPager.java)
 
 ##### 贝塞尔曲线练练手
-[PathMorphBezier](PathMorphBezier.java)
+[PathMorphBezier](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/PathMorphBezier.java)
 
 
 #### Download
