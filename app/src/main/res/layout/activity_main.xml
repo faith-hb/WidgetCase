@@ -26,13 +26,20 @@
             app:hbv_unReachedHeight="5dp"/>
 
         <Button
-            android:id="@+id/ringvBtn"
+            android:id="@+id/imgTxtBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:text="图文混排"
+            app:layout_constraintTop_toBottomOf="@id/horbarV"/>
+
+        <Button
+            android:id="@+id/ringvBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="RingView"
             android:textAllCaps="false"
-            app:layout_constraintTop_toBottomOf="@id/horbarV"/>
+            app:layout_constraintTop_toBottomOf="@id/imgTxtBtn"/>
 
         <Button
             android:id="@+id/tcBtn"

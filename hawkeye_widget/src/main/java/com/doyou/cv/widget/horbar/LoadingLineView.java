@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import com.doyou.cv.utils.Utils;
+import com.dongni.tools.DensityUtil;
 
 /**
  * Created by Allen on 2018/1/31.
@@ -110,7 +110,7 @@ public class LoadingLineView extends View {
     }
 
     private void init() {
-        paintWidth = Utils.dp2px(mContext, 2);
+        paintWidth = DensityUtil.dp2px(2);
         mViewHeight = paintWidth;
         bgPaint = getPaint(paintWidth, bgColor, Paint.Style.FILL);
         loadingPaint = getPaint(paintWidth, loadingColor, Paint.Style.FILL);

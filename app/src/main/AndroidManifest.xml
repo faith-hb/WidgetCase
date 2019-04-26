@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
+        <activity android:name=".release.ImgTxtMixtureActivity" />
         <activity android:name=".release.RingViewActivity" />
         <activity android:name=".release.taperchart.TaperChartActivity" />
         <activity android:name=".release.taperchart.ContrastActivity" />

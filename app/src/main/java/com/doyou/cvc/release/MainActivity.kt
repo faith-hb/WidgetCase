@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         syncHorBarViewData()
+        imgTxtBtn.setOnClickListener{
+            DispatchManager.showAct(this, ImgTxtMixtureActivity::class.java)
+        }
         ringvBtn.setOnClickListener{
             DispatchManager.showAct(this, RingViewActivity::class.java)
         }

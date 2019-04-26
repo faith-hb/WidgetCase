@@ -16,6 +16,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
+import com.dongni.tools.DensityUtil;
 import com.doyou.cv.R;
 import com.doyou.cv.utils.Utils;
 
@@ -155,9 +156,9 @@ public class HalfCircleProView extends View {
 
     private void getAttr(AttributeSet attrs) {
         TypedArray typedArray = mContext.obtainStyledAttributes(attrs, R.styleable.HalfCircleProView);
-        mPaintWidth = typedArray.getDimensionPixelOffset(R.styleable.HalfCircleProView_strokeWidth, Utils.dp2px(mContext,2));
+        mPaintWidth = typedArray.getDimensionPixelOffset(R.styleable.HalfCircleProView_strokeWidth, DensityUtil.dp2px(2));
         mTxtColor = typedArray.getColor(R.styleable.HalfCircleProView_txtColor, getResources().getColor(R.color.txt_black));
-        mTxtSize = typedArray.getDimensionPixelSize(R.styleable.HalfCircleProView_txtSize, Utils.dp2px(mContext,12));
+        mTxtSize = typedArray.getDimensionPixelSize(R.styleable.HalfCircleProView_txtSize, DensityUtil.dp2px(12));
         typedArray.recycle();
     }
 

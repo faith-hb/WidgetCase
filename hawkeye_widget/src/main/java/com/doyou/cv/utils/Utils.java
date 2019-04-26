@@ -1,10 +1,12 @@
 package com.doyou.cv.utils;
 
-import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
-import android.util.TypedValue;
 
 import com.doyou.cv.BuildConfig;
+import com.doyou.cv.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,25 +37,6 @@ public final class Utils {
         return result;
     }
 
-    /**
-     * dp 2 px
-     * @param dpVal
-     */
-    public static int dp2px(Context context, int dpVal) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                dpVal, context.getResources().getDisplayMetrics());
-    }
-
-    /**
-     * sp 2 px
-     * @param spVal
-     * @return
-     */
-    public static int sp2px(Context context,int spVal) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-                spVal, context.getResources().getDisplayMetrics());
-    }
-
     public static void logD(String tag, String msg) {
         if (isDebug) {
             Log.d(tag, msg);
@@ -64,5 +47,15 @@ public final class Utils {
         if(isDebug){
             Log.e(tag,msg);
         }
+    }
+
+    public static Bitmap getAvatar(Resources resources, int width){
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeResource(resources, R.drawable.hb,options);
+        options.inJustDecodeBounds = false;
+        options.inDensity = options.outWidth;
+        options.inTargetDensity = width;
+        return BitmapFactory.decodeResource(resources,R.drawable.hb,options);
     }
 }
