@@ -107,6 +107,13 @@ aar:
 implementation(name: 'hawkeye_widget-release', ext: 'aar')
 ```
 
+or
+
+添加本地依赖：
+``` groovy
+implementation project(':hawkeye_widget')
+```
+
 #### Proguard
 ``` groovy
 -dontwarn com.dongni.**
