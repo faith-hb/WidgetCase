@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import com.doyou.cv.Utils;
+import com.doyou.cv.utils.Utils;
 
 /**
  * Created by Allen on 2018/1/31.

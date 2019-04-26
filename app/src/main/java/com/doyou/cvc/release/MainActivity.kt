@@ -2,7 +2,7 @@ package com.doyou.cvc.release
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.doyou.cv.Utils
+import com.doyou.cv.utils.Utils
 import com.doyou.cvc.DispatchManager
 import com.doyou.cvc.R
 import com.doyou.cvc.release.taperchart.TaperChartActivity

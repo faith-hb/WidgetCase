@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 import com.dongni.tools.DensityUtil;
 import com.dongni.tools.EmptyUtils;
 import com.doyou.cv.R;
-import com.doyou.cv.Utils;
+import com.doyou.cv.utils.Utils;
 import com.doyou.cv.bean.CircleBean;
 import com.doyou.cv.widget.base.CircleCenterStyle;
 

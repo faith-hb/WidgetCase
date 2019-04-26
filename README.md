@@ -84,6 +84,9 @@ allprojects {
         maven {
             url 'http://47.93.38.184:8081/nexus/content/repositories/faithhb/'
         }
+        maven {
+            url 'http://47.93.38.184:8081/nexus/content/repositories/github/' // widget发布版本已切换到该目录
+        }
     }
 }
 ```
@@ -92,10 +95,10 @@ Step 2.
 
 Gradle:
 ``` groovy
-implementation 'com.faithhb:widgetcase:1.7.8'
+implementation 'com.faithhb:widgetcase:1.0.2'
 ```
 
-widgetcase最新版本：[![](https://img.shields.io/badge/widget-1.7.8-green.svg)](http://47.93.38.184:8081/nexus/service/local/repositories/faithhb/content/com/faithhb/widgetcase/1.7.8/widgetcase-1.7.8.pom)
+widgetcase最新版本：[![](https://img.shields.io/badge/widget-1.0.2-green.svg)](http://47.93.38.184:8081/nexus/service/local/repositories/github/content/com/github/widgetcase/1.0.2/widgetcase-1.0.2.aar)
 
 or
 
@@ -115,6 +118,12 @@ implementation(name: 'hawkeye_widget-release', ext: 'aar')
 
 -keep class com.doyou.cv.widget.**
 -keepclassmembers class com.doyou.cv.widget.** {
+    public *;
+}
+
+# 工具类避免混淆
+-keep class com.doyou.cv.utils.**
+-keepclassmembers class com.doyou.cv.utils.** {
     public *;
 }
 ```

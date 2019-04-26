@@ -1,8 +1,10 @@
-package com.doyou.cv;
+package com.doyou.cv.utils;
 
 import android.content.Context;
 import android.util.Log;
 import android.util.TypedValue;
+
+import com.doyou.cv.BuildConfig;
 
 import java.util.ArrayList;
 import java.util.List;

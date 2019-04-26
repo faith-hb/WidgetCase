@@ -38,8 +38,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation 'com.faithhb:toolslib:1.5.1' // aar中依赖的库，主项目也必须依赖，因为aar中依赖的库不会被打进aar包中
-//    implementation 'com.faithhb:widgetcase:1.0.3'
+    implementation 'com.github:widgetcase:1.0.2'
 
-    implementation project(':hawkeye_widget')
+//    implementation project(':hawkeye_widget')
 //    implementation(name: 'hawkeye_widget-release', ext: 'aar')
 }

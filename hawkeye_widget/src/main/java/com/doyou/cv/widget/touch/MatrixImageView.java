@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 import com.doyou.cv.R;
-import com.doyou.cv.Utils;
+import com.doyou.cv.utils.Utils;
 
 import java.util.Arrays;
 

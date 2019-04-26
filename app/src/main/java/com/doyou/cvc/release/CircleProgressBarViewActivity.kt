@@ -12,7 +12,7 @@ class CircleProgressBarViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_circle_progress_barview)
 
-        oneCpbv.setProgressWithAnimation(0 / 0f)
+        oneCpbv.setProgressWithAnimation(0 / 1f)
         oneCpbv.setTargetNum(2345.00f.toString())
 
         twoCpbv.setProgressWithAnimation(249.0f)

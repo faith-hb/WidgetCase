@@ -124,8 +124,13 @@
 -keep class com.doyou.cv.bean.**{*; }
 -keep class com.doyou.cv.WLogger{*; }
 
-
 -keep class com.doyou.cv.widget.**
 -keepclassmembers class com.doyou.cv.widget.** {
+    public *;
+}
+
+# 工具类避免混淆
+-keep class com.doyou.cv.utils.**
+-keepclassmembers class com.doyou.cv.utils.** {
     public *;
 }

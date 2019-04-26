@@ -21,7 +21,7 @@ import com.dongni.tools.DensityUtil;
 import com.dongni.tools.EmptyUtils;
 import com.dongni.tools.ToastUtils;
 import com.doyou.cv.R;
-import com.doyou.cv.Utils;
+import com.doyou.cv.utils.Utils;
 import com.doyou.cv.bean.TaperChartBean;
 
 import java.text.DecimalFormat;
