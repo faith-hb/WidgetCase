@@ -16,8 +16,8 @@
 
 <!--![功能目录](screenshots/main.jpg = 100*)-->
 
-##### 功能目录>>>
-<img src="screenshots/main.jpg" width="360" height="640"/>
+##### 功能目录>>>图文混排>>>[ImgTxtMixtureView]
+<img src="screenshots/main.jpg" width="280" height="497"/>   <img src="screenshots/imgtxtmixture.png" width="280" height="497"/>
 
 ##### 峰值图>>>[TaperChart & TaperChartLayout]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)
@@ -63,6 +63,8 @@
 ##### 渐变曲线
 [GradientLine](GradientLine.java)
 
+##### 图文混排
+[ImgTxtMixtureView](ImgTxtMixtureView.java)
 
 ##### 系统控件重写
 1. [FixGridView](FixGridView.java)
