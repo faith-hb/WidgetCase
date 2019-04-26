@@ -1,9 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
+
     compileSdkVersion 27
-
-
 
     defaultConfig {
         minSdkVersion 17
@@ -11,14 +10,11 @@ android {
         versionCode 1
         versionName "1.0"
 
-//        consumerProguardFiles 'proguard-rules.pro'
     }
 
     buildTypes {
         debug {
             minifyEnabled false
-//            minifyEnabled true
-//            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
