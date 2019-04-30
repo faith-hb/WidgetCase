@@ -37,7 +37,7 @@ in this look forward to more like-minded code friends to join, we work together 
 ##### Peak figure
 1. [TaperChart](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/TaperChart.java)
 2. [TaperChartLayout](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/TaperChartLayout.java)
-3. [HorTaperChart(还有问题)](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/HorTaperChart.java)
+3. [HorTaperChart(developing)](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/HorTaperChart.java)
 
 ##### Circular progress bar
 1. [CircleProgress](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/circle/CircleProgress.java)
@@ -47,7 +47,7 @@ in this look forward to more like-minded code friends to join, we work together 
 
 ##### Ring progress bar
 1. [RingView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/ring/RingView.java)
-2. [LegendRingView(内含图例)](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/ring/LegendRingView.java)
+2. [LegendRingView(It contains legend)](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/ring/LegendRingView.java)
 
 ##### semicircle/Fuel meter
 1. [HalfCircleProView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/HalfCircleProView.java)
@@ -144,7 +144,7 @@ I will invite him to be the developer of this project. He will be really conveni
 
 #### contact me：
 WeChat：faith-hb<br>
-QQ：907167515
+QQ：907167515<br>
 Email:hongbinghp@gmail.com
 
 #### License
