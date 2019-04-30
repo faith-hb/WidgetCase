@@ -5,7 +5,7 @@
 
 [![](https://img.shields.io/badge/widget-1.0.2-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-4.4-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
 
-> [中文文档](ERADME.md)
+> [中文文档](https://github.com/faith-hb/WidgetCase/blob/master/README.md)
 
 #### project introduction
 With a year of custom control Library, stability and compatibility have been guaranteed. Because the company projects tend to statistics,
