@@ -5,7 +5,7 @@
 
 [![](https://img.shields.io/badge/widget-1.0.2-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-4.4-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
 
-
+> [中文文档](ERADME.md)
 
 #### project introduction
 With a year of custom control Library, stability and compatibility have been guaranteed. Because the company projects tend to statistics,
@@ -15,9 +15,7 @@ in this look forward to more like-minded code friends to join, we work together 
 
 
 #### Effect brush a wave, after all, is to see the face to eat
-<!--![功能目录](screenshots/main.jpg){:height="960px" width="540px"}-->
 
-<!--![功能目录](screenshots/main.jpg = 100*)-->
 
 ##### Function directory & Graphic mixed>>>[ImgTxtMixtureView]
 <img src="screenshots/main.jpg" width="280" height="497"/>   <img src="screenshots/imgtxtmixture.png" width="280" height="497"/>
