@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             DispatchManager.showAct(this,HalfCircleProViewActivity::class.java)
         }
         matrixBtn.setOnClickListener {
-            DispatchManager.showAct(this,MatrixImageViewActivity::class.java)
+            DispatchManager.showAct(this,MatrixViewActivity::class.java)
         }
         gpbBtn.setOnClickListener {
             DispatchManager.showAct(this,GradientProBarActivity::class.java)

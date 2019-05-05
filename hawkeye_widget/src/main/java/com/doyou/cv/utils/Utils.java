@@ -58,4 +58,14 @@ public final class Utils {
         options.inTargetDensity = width;
         return BitmapFactory.decodeResource(resources,R.drawable.hb,options);
     }
+
+    public static Bitmap getAvatar(Resources resources, int resId,int width){
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeResource(resources, resId,options);
+        options.inJustDecodeBounds = false;
+        options.inDensity = options.outWidth;
+        options.inTargetDensity = width;
+        return BitmapFactory.decodeResource(resources,resId,options);
+    }
 }

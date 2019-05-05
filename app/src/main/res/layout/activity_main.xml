@@ -93,9 +93,9 @@
             android:id="@+id/matrixBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MatrixImageView"
+            android:text="MatrixView"
             android:textAllCaps="false"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintTop_toBottomOf="@id/hcpvBtn"/>
 
         <Button

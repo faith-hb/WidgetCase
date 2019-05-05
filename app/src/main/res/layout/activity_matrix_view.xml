@@ -4,12 +4,11 @@
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
-                                             tools:context=".release.MatrixImageViewActivity">
+                                             tools:context=".release.MatrixViewActivity">
 
-    <com.doyou.cv.widget.touch.MatrixImageView
+    <com.doyou.cv.widget.touch.MatrixView
         android:id="@+id/miv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="matrix"/>
+        android:layout_height="match_parent"/>
 
 </android.support.constraint.ConstraintLayout>

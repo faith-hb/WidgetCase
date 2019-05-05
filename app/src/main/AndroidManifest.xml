@@ -3,6 +3,7 @@
           package="com.doyou.cvc">
 
     <application
+        android:name=".release.WidgetApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -28,7 +29,7 @@
         <activity android:name=".release.ShadowProBarActivity" />
         <activity android:name=".release.GradientProBarScaleActivity" />
         <activity android:name=".release.HalfCircleProViewActivity" />
-        <activity android:name=".release.MatrixImageViewActivity" />
+        <activity android:name=".release.MatrixViewActivity" />
         <activity android:name=".release.GradientProBarActivity" />
         <activity android:name=".release.ringview.DoubleTxtActivity" />
         <activity android:name=".release.ringview.LegendActivity" />
