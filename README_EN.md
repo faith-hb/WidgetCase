@@ -3,7 +3,7 @@
 <!--https://shields.io/-->
 <!--[![auc][aucsvg]][auc] [![api][apisvg]][api] [![License][licensesvg]][license]-->
 
-[![](https://img.shields.io/badge/widget-1.0.2-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-4.4-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
+[![](https://img.shields.io/badge/widget-1.0.3-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-4.4-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
 
 > [中文文档](https://github.com/faith-hb/WidgetCase/blob/master/README.md)
 
@@ -23,8 +23,8 @@ in this look forward to more like-minded code friends to join, we work together 
 ##### Peak figure>>>[TaperChart & TaperChartLayout] & The gradient curve>>>[GradientLine]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientLine.gif)
 
-##### Graded ring progress>>>[GradientProBar]
-![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/GradientProBar.gif)
+##### Graded ring progress>>>[GradientProBar] & Gestures zoom view>>>[MatrixView]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientprobar.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)
 
 ##### Circle the progress>>>[RingView & LegendRingView]
 <img src="screenshots/ringview_123.jpeg" width="280" height="497"/>   <img src="screenshots/ringview_456.png" width="280" height="497"/>   <img src="screenshots/ringview_789.png" width="280" height="497"/>
@@ -95,10 +95,10 @@ Step 2.
 
 Gradle:
 ``` groovy
-implementation 'com.faithhb:widgetcase:1.0.2'
+implementation 'com.faithhb:widgetcase:1.0.3'
 ```
 
-widgetcase The latest version：[![](https://img.shields.io/badge/widget-1.0.2-green.svg)](http://47.93.38.184:8081/nexus/service/local/repositories/github/content/com/github/widgetcase/1.0.2/widgetcase-1.0.2.aar)
+widgetcase The latest version：[![](https://img.shields.io/badge/widget-1.0.3-green.svg)](http://47.93.38.184:8081/nexus/service/local/repositories/github/content/com/github/widgetcase/1.0.3/widgetcase-1.0.3.aar)
 
 or
 

@@ -3,7 +3,7 @@
 <!--https://shields.io/-->
 <!--[![auc][aucsvg]][auc] [![api][apisvg]][api] [![License][licensesvg]][license]-->
 
-[![](https://img.shields.io/badge/widget-1.0.2-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-4.4-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
+[![](https://img.shields.io/badge/widget-1.0.3-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-4.4-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
 
 > [English Introduction](https://github.com/faith-hb/WidgetCase/blob/master/README_EN.md)
 
@@ -97,10 +97,10 @@ Step 2.
 
 Gradle:
 ``` groovy
-implementation 'com.faithhb:widgetcase:1.0.2'
+implementation 'com.faithhb:widgetcase:1.0.3'
 ```
 
-widgetcase最新版本：[![](https://img.shields.io/badge/widget-1.0.2-green.svg)](http://47.93.38.184:8081/nexus/service/local/repositories/github/content/com/github/widgetcase/1.0.2/widgetcase-1.0.2.aar)
+widgetcase最新版本：[![](https://img.shields.io/badge/widget-1.0.3-green.svg)](http://47.93.38.184:8081/nexus/service/local/repositories/github/content/com/github/widgetcase/1.0.3/widgetcase-1.0.3.aar)
 
 or
 
