@@ -12,6 +12,18 @@
                                                        android:layout_height="match_parent"
                                                        tools:context=".release.MainActivity">
 
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="功能分布如下"
+            android:textColor="#666666"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -19,7 +31,8 @@
             app:alignContent="stretch"
             app:alignItems="stretch"
             app:flexDirection="row"
-            app:flexWrap="wrap">
+            app:flexWrap="wrap"
+            app:layout_constraintTop_toBottomOf="@id/titleTv">
 
             <TextView
                 android:id="@+id/selPtoBarTv"
