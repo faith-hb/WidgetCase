@@ -1,7 +1,7 @@
 package com.doyou.cvc.release
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.doyou.cvc.R
 
 class ImgTxtMixtureActivity : AppCompatActivity() {

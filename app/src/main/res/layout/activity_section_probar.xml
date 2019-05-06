@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".release.SectionProBarActivity">
+
+    <com.doyou.cv.widget.horbar.SectionProBar
+        android:id="@+id/horbarV"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:max="100"
+        android:paddingLeft="24dp"
+        android:paddingTop="32dp"
+        android:paddingRight="24dp"
+        app:hbv_reachedColor="#FF6853"
+        app:hbv_reachedHeight="5dp"
+        app:hbv_unReachedColor="#58b5fa"
+        app:hbv_unReachedHeight="5dp"/>
+</FrameLayout>

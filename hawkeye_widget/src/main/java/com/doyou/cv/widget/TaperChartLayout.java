@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +18,8 @@ import com.doyou.cv.R;
 import com.doyou.cv.bean.TaperChartBean;
 
 import java.util.List;
+
+import androidx.annotation.Nullable;
 
 /**
  * 锥形图容器布局

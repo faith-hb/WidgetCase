@@ -14,8 +14,6 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +24,9 @@ import com.doyou.cv.R;
 import com.doyou.cv.utils.Utils;
 
 import java.text.DecimalFormat;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 /**
  * Created by Allen on 2017/5/14.

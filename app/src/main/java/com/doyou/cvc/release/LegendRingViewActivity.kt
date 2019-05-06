@@ -2,7 +2,7 @@ package com.doyou.cvc.release
 
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.dongni.tools.Common
 import com.doyou.cv.bean.CircleBean
 import com.doyou.cvc.R

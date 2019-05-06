@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:overScrollMode="never"
-                                            android:scrollbars="none">
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="match_parent"
+                                       android:overScrollMode="never"
+                                       android:scrollbars="none">
 
     <LinearLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -118,4 +118,4 @@
             android:layout_height="32dp"/>
     </LinearLayout>
 
-</android.support.v4.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>

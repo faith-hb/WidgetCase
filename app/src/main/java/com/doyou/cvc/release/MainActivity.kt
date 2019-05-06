@@ -1,8 +1,7 @@
 package com.doyou.cvc.release
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import com.doyou.cv.utils.Utils
+import androidx.appcompat.app.AppCompatActivity
 import com.doyou.cvc.DispatchManager
 import com.doyou.cvc.R
 import com.doyou.cvc.release.taperchart.TaperChartActivity
@@ -13,39 +12,40 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        syncHorBarViewData()
-        imgTxtBtn.setOnClickListener{
+        selPtoBarTv.setOnClickListener{
+            DispatchManager.showAct(this, SectionProBarActivity::class.java)
+        }
+        imgTxtTv.setOnClickListener{
             DispatchManager.showAct(this, ImgTxtMixtureActivity::class.java)
         }
-        ringvBtn.setOnClickListener{
+        ringvTv.setOnClickListener{
             DispatchManager.showAct(this, RingViewActivity::class.java)
         }
-        tcBtn.setOnClickListener {
+        tcTv.setOnClickListener {
             DispatchManager.showAct(this, TaperChartActivity::class.java)
         }
-        gradientBtn.setOnClickListener {
+        gradientTv.setOnClickListener {
             DispatchManager.showAct(this, GradientLineActivity::class.java)
         }
-        lrvBtn.setOnClickListener {
-//            DispatchManager.showAct(this, LegendRingViewActivity::class.java)
+        lrvTv.setOnClickListener {
             DispatchManager.showAct(this, LegendRingViewActivity::class.java)
         }
-        cpbvBtn.setOnClickListener {
+        cpbvTv.setOnClickListener {
             DispatchManager.showAct(this,CircleProgressBarViewActivity::class.java)
         }
-        spbBtn.setOnClickListener {
+        spbTv.setOnClickListener {
             DispatchManager.showAct(this,ShadowProBarActivity::class.java)
         }
-        hcpvBtn.setOnClickListener {
+        hcpvTv.setOnClickListener {
             DispatchManager.showAct(this,HalfCircleProViewActivity::class.java)
         }
-        matrixBtn.setOnClickListener {
+        matrixTv.setOnClickListener {
             DispatchManager.showAct(this,MatrixViewActivity::class.java)
         }
-        gpbBtn.setOnClickListener {
+        gpbTv.setOnClickListener {
             DispatchManager.showAct(this,GradientProBarActivity::class.java)
         }
-        hssvBtn.setOnClickListener {
+        hssvTv.setOnClickListener {
             DispatchManager.showAct(this,HorScrollSelecteViewActivity::class.java)
         }
         horBtn.setOnClickListener{
@@ -53,10 +53,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun syncHorBarViewData(){
-        var one = 24.5f
-        var total = 49
-        Utils.logD("201811211646","(one / total) = " + (one / total))
-        horbarV.progress = ((one / total) * 100).toInt() // 注意：不要忘记设置xml中的style，不然进度没有效果
-    }
+//    private fun syncHorBarViewData(){
+//        var one = 24.5f
+//        var total = 49
+//        Utils.logD("201811211646","(one / total) = " + (one / total))
+//        horbarV.progress = ((one / total) * 100).toInt() // 注意：不要忘记设置xml中的style，不然进度没有效果
+//    }
 }

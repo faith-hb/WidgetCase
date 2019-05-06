@@ -35,6 +35,7 @@
         <activity android:name=".release.ringview.LegendActivity" />
         <activity android:name=".release.HorScrollSelecteViewActivity" />
         <activity android:name=".release.HorProBarActivity" />
+        <activity android:name=".release.SectionProBarActivity" />
     </application>
 
 </manifest>

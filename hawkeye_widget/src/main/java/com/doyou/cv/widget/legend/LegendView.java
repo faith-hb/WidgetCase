@@ -3,8 +3,6 @@ package com.doyou.cv.widget.legend;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -19,6 +17,9 @@ import com.doyou.cv.utils.Utils;
 import com.doyou.cv.widget.PointView;
 
 import java.util.List;
+
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 /**
  * 图例控件

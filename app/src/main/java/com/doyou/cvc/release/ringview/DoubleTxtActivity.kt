@@ -1,7 +1,7 @@
 package com.doyou.cvc.release.ringview
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.doyou.cv.bean.CircleBean
 import com.doyou.cvc.R
 import kotlinx.android.synthetic.main.activity_ringview_doubletxt.*

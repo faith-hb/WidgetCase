@@ -4,13 +4,14 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 
 import com.dongni.tools.DensityUtil;
 import com.doyou.cv.utils.Utils;
+
+import androidx.annotation.Nullable;
 
 /**
  * 自定义图文混排控件

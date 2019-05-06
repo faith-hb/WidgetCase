@@ -11,7 +11,6 @@ import android.graphics.Point;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.Typeface;
-import android.support.annotation.Nullable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -20,6 +19,8 @@ import android.view.View;
 import com.dongni.tools.DensityUtil;
 import com.doyou.cv.BuildConfig;
 import com.doyou.cv.R;
+
+import androidx.annotation.Nullable;
 
 /**自定义view实现环形带刻度颜色渐变的进度条
  * @autor hongbing

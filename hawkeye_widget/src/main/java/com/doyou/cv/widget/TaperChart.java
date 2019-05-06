@@ -9,7 +9,6 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -21,12 +20,14 @@ import com.dongni.tools.DensityUtil;
 import com.dongni.tools.EmptyUtils;
 import com.dongni.tools.ToastUtils;
 import com.doyou.cv.R;
-import com.doyou.cv.utils.Utils;
 import com.doyou.cv.bean.TaperChartBean;
+import com.doyou.cv.utils.Utils;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.Nullable;
 
 /**
  * 锥形统计图

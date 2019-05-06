@@ -3,8 +3,6 @@ package com.doyou.cv.widget.ring;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -15,13 +13,16 @@ import android.widget.TextView;
 import com.dongni.tools.DensityUtil;
 import com.dongni.tools.EmptyUtils;
 import com.doyou.cv.R;
-import com.doyou.cv.utils.Utils;
 import com.doyou.cv.bean.CircleBean;
+import com.doyou.cv.utils.Utils;
 import com.doyou.cv.widget.PointView;
 import com.doyou.cv.widget.base.CircleCenterStyle;
 import com.doyou.cv.widget.circle.CircleView;
 
 import java.util.List;
+
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 /**
  * 自定义分段圆环（内含图例）

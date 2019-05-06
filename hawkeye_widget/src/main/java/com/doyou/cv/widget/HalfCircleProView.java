@@ -11,7 +11,6 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -21,6 +20,8 @@ import com.doyou.cv.R;
 import com.doyou.cv.utils.Utils;
 
 import java.text.DecimalFormat;
+
+import androidx.annotation.Nullable;
 
 /**
  * 油表控件

@@ -9,13 +9,14 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
 import android.graphics.Shader;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
 import com.dongni.tools.DensityUtil;
 import com.doyou.cv.widget.base.BaseGradientView;
 
 import java.util.List;
+
+import androidx.annotation.Nullable;
 
 /**
  * 渐变曲线自定义

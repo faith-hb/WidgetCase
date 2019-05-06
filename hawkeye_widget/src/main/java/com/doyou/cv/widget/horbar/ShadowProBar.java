@@ -9,12 +9,14 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+
 import com.dongni.tools.DensityUtil;
 import com.doyou.cv.R;
+
+import androidx.annotation.Nullable;
 
 /**
  * 横向渐变进度条

@@ -1,12 +1,12 @@
 package com.doyou.cv.widget.touch;
 
 import android.content.Context;
-import android.support.design.widget.FloatingActionButton;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 
 import com.dongni.tools.Common;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * 自定义可拖拽的FloatingActionButton(悬浮按钮)
