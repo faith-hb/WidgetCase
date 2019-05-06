@@ -7,14 +7,15 @@
                                        android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                xmlns:tools="http://schemas.android.com/tools"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent"
-                                                tools:context=".release.MainActivity">
+                                                       xmlns:tools="http://schemas.android.com/tools"
+                                                       android:layout_width="match_parent"
+                                                       android:layout_height="match_parent"
+                                                       tools:context=".release.MainActivity">
 
         <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="12dp"
             app:alignContent="stretch"
             app:alignItems="stretch"
             app:flexDirection="row"
@@ -88,17 +89,17 @@
         </com.google.android.flexbox.FlexboxLayout>
 
         <!--<com.doyou.cv.widget.horbar.SectionProBar-->
-            <!--android:id="@+id/horbarV"-->
-            <!--style="@android:style/Widget.ProgressBar.Horizontal"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:max="100"-->
-            <!--android:paddingLeft="24dp"-->
-            <!--android:paddingRight="24dp"-->
-            <!--android:paddingTop="32dp"-->
-            <!--app:hbv_reachedColor="#FF6853"-->
-            <!--app:hbv_reachedHeight="5dp"-->
-            <!--app:hbv_unReachedColor="#58b5fa"-->
-            <!--app:hbv_unReachedHeight="5dp"/>-->
+        <!--android:id="@+id/horbarV"-->
+        <!--style="@android:style/Widget.ProgressBar.Horizontal"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:max="100"-->
+        <!--android:paddingLeft="24dp"-->
+        <!--android:paddingRight="24dp"-->
+        <!--android:paddingTop="32dp"-->
+        <!--app:hbv_reachedColor="#FF6853"-->
+        <!--app:hbv_reachedHeight="5dp"-->
+        <!--app:hbv_unReachedColor="#58b5fa"-->
+        <!--app:hbv_unReachedHeight="5dp"/>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
