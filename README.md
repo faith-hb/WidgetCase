@@ -20,7 +20,7 @@
 <img src="screenshots/main.jpg" width="280" height="497"/>   <img src="screenshots/imgtxtmixture.png" width="280" height="497"/>
 
 ##### 峰值图>>>[TaperChart & TaperChartLayout & HorTaperChart] & 渐变曲线>>>[GradientLine]
-![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/hortaperchart.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientline.gif)
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/hortapercharts.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientline.gif)
 
 ##### 渐变圆环进度>>>[GradientProBar] & 手势放大缩小图片>>>[MatrixView]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientprobar.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)
