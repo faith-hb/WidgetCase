@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.doyou.cvc.DispatchManager
 import com.doyou.cvc.R
+import com.doyou.cvc.release.taperchart.ScrollTaperChartActivity
 import com.doyou.cvc.release.taperchart.TaperChartActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         }
         tcTv.setOnClickListener {
             DispatchManager.showAct(this, TaperChartActivity::class.java)
+        }
+        htcTv.setOnClickListener {
+            DispatchManager.showAct(this, ScrollTaperChartActivity::class.java)
         }
         gradientTv.setOnClickListener {
             DispatchManager.showAct(this, GradientLineActivity::class.java)

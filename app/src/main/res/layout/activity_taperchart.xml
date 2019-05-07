@@ -169,18 +169,9 @@
             android:text="对比峰值图"
             app:layout_constraintTop_toBottomOf="@id/tchartLayout2"/>
 
-        <Button
-            android:id="@+id/horTaperBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="水平滑动峰值图"
-            android:visibility="visible"
-            app:layout_constraintTop_toBottomOf="@id/contrastBtn"/>
-
         <Space
             android:layout_width="match_parent"
             android:layout_height="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/horTaperBtn"/>
+            app:layout_constraintTop_toBottomOf="@+id/contrastBtn"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

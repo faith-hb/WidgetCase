@@ -27,7 +27,7 @@
         <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="12dp"
+            android:paddingTop="16dp"
             app:alignContent="stretch"
             app:alignItems="stretch"
             app:flexDirection="row"
@@ -53,6 +53,11 @@
                 android:id="@+id/tcTv"
                 style="@style/TextViewStyle"
                 android:text="TaperChart"/>
+
+            <TextView
+                android:id="@+id/htcTv"
+                style="@style/TextViewStyle"
+                android:text="HorTaperChart"/>
 
             <TextView
                 android:id="@+id/gradientTv"

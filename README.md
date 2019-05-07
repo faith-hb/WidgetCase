@@ -17,7 +17,7 @@
 <!--![功能目录](screenshots/main.jpg = 100*)-->
 
 ##### 功能目录 & 图文混排>>>[ImgTxtMixtureView]
-<img src="screenshots/main.jpg" width="280" height="497"/>   <img src="screenshots/imgtxtmixture.png" width="280" height="497"/>
+<img src="screenshots/main.jpeg" width="280" height="497"/>   <img src="screenshots/imgtxtmixture.png" width="280" height="497"/>
 
 ##### 峰值图>>>[TaperChart & TaperChartLayout & HorTaperChart] & 渐变曲线>>>[GradientLine]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/hortapercharts.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientline.gif)

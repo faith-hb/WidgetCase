@@ -35,9 +35,6 @@ class TaperChartActivity : AppCompatActivity() {
         contrastBtn.setOnClickListener {
             startActivity(Intent(this, ContrastActivity::class.java))
         }
-        horTaperBtn.setOnClickListener {
-            startActivity(Intent(this,ScrollTaperChartActivity::class.java))
-        }
     }
 
     private fun syncTaperChartData(type: Int) {

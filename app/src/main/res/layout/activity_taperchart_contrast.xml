@@ -5,7 +5,7 @@
                                        android:overScrollMode="never"
                                        android:scrollbars="none">
 
-    <androidx.constraintlayout.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -21,15 +21,16 @@
             android:gravity="center_vertical"
             android:paddingLeft="24dp"
             android:text="6张图，3个label"
-            android:textColor="#2a2a2a"/>
+            android:textColor="#2a2a2a"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        <com.doyou.cv.widget.TaperChart
+        <com.doyou.cv.widget.taperchart.TaperChart
             android:id="@+id/cont_tchart"
             android:layout_width="match_parent"
             android:layout_height="@dimen/taper_chart_h"
             android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
             android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
             app:is_draw_topvalue="true"
             app:layout_constraintTop_toBottomOf="@id/cont_label"
             app:tc_inner_space="28dp"
@@ -48,5 +49,5 @@
             android:layout_width="match_parent"
             android:layout_height="32dp"
             app:layout_constraintTop_toBottomOf="@+id/cont_RefeshBtn"/>
-    </androidx.constraintlayout.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
