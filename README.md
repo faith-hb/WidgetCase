@@ -29,7 +29,7 @@
 <img src="screenshots/ringview_123.jpeg" width="280" height="497"/>   <img src="screenshots/ringview_456.png" width="280" height="497"/>   <img src="screenshots/ringview_789.png" width="280" height="497"/>
 
 ##### LFT：圆环进度带底部角标>>>[CircleProgressBarView]  MID：带刻度的圆环>>>[GradientProBar]  RGT：横向进度-带进度提示>>>[HorProBar]
-<img src="screenshots/CircleProgressBarView.jpeg" width="280" height="497"/>   <img src="screenshots/GradientProBar.jpeg" width="280" height="497"/>   <img src="screenshots/HorProBar.png" width="280" height="497"/>
+<img src="screenshots/circleprogressbarview.jpeg" width="280" height="497"/>   <img src="screenshots/GradientProBar.jpeg" width="280" height="497"/>   <img src="screenshots/HorProBar.png" width="280" height="497"/>
 
 #### 自定义控件分布如下
 
