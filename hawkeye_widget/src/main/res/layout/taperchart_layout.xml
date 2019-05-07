@@ -5,7 +5,7 @@
              android:layout_height="wrap_content">
 
     <!--android:background="#303F9F"-->
-    <com.doyou.cv.widget.TaperChart
+    <com.doyou.cv.widget.taperchart.TaperChart
         android:id="@+id/tchart"
         android:layout_width="match_parent"
         android:layout_height="@dimen/taper_chart_height"

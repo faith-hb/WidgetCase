@@ -4,7 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.doyou.cv.widget.TaperChart
+import com.doyou.cv.widget.taperchart.TaperChart
 import com.doyou.cvc.R
 import kotlinx.android.synthetic.main.activity_taperchart.*
 import java.util.*

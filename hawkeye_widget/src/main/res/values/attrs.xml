@@ -198,7 +198,21 @@
         <!--图表控制点的偏移量-->
         <attr name="tc_quad_x_offset" format="dimension"/>
         <!--是否绘制峰值顶尖值-->
-        <attr name="is_draw_topvalue" format="boolean"></attr>
+        <attr name="is_draw_topvalue" format="boolean"/>
+    </declare-styleable>
+
+    <!--TaperChart控件样式-->
+    <declare-styleable name="HorTaperChart">
+        <!--y轴是否是百分制-->
+        <attr name="htc_yaxis_percent" format="boolean"/>
+        <!--文字大小-->
+        <attr name="htc_axis_txtsize" format="dimension"/>
+        <!--图形相交长度-->
+        <attr name="htc_inner_space" format="dimension"/>
+        <!--图表控制点的偏移量-->
+        <attr name="htc_quad_x_offset" format="dimension"/>
+        <!--是否绘制峰值顶尖值-->
+        <attr name="htc_is_draw_topValue" format="boolean"/>
     </declare-styleable>
 
     <!--GradientLine控件样式-->

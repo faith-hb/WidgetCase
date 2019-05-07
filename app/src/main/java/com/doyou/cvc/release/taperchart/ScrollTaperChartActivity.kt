@@ -1,6 +1,5 @@
 package com.doyou.cvc.release.taperchart
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.doyou.cvc.R
@@ -23,8 +22,6 @@ class ScrollTaperChartActivity : AppCompatActivity() {
 
     private fun syncTaperChartData() {
         hor_tchart.offSetXy(48f)
-        hor_tchart.isShowDebugView(true)
-        hor_tchart.setTaperColors(Color.GREEN,Color.DKGRAY,Color.RED)
 
         var keys: MutableList<String> = ArrayList()
         for (i in 0 until 12) {
@@ -33,7 +30,7 @@ class ScrollTaperChartActivity : AppCompatActivity() {
 
         var values: MutableList<Float> = ArrayList()
         for (i in 0 until 12) {
-            values.add((i + 1) * Random().nextInt(100).toFloat())
+            values.add(Random().nextInt(100).toFloat())
         }
         hor_tchart.setData(keys, values)
     }

@@ -20,15 +20,16 @@
             android:gravity="center_vertical"
             android:paddingLeft="24dp"
             android:text="3张图，3个label"
-            android:textColor="#2a2a2a"/>
+            android:textColor="#2a2a2a"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        <com.doyou.cv.widget.TaperChart
+        <com.doyou.cv.widget.taperchart.TaperChart
             android:id="@+id/tchartV"
             android:layout_width="match_parent"
             android:layout_height="@dimen/taper_chart_h"
             android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
             android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
             app:is_draw_topvalue="true"
             app:layout_constraintTop_toBottomOf="@id/label1"
             app:tc_axis_txtsize="@dimen/taper_text_size"
@@ -46,13 +47,13 @@
             android:textColor="#2a2a2a"
             app:layout_constraintTop_toBottomOf="@id/tchartV"/>
 
-        <com.doyou.cv.widget.TaperChart
+        <com.doyou.cv.widget.taperchart.TaperChart
             android:id="@+id/tchartV1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/taper_chart_h"
             android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
             android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
             app:is_draw_topvalue="true"
             app:layout_constraintTop_toBottomOf="@id/label2"
             app:tc_inner_space="28dp"
@@ -70,13 +71,13 @@
             android:textColor="#2a2a2a"
             app:layout_constraintTop_toBottomOf="@id/tchartV1"/>
 
-        <com.doyou.cv.widget.TaperChart
+        <com.doyou.cv.widget.taperchart.TaperChart
             android:id="@+id/tchartV2"
             android:layout_width="match_parent"
             android:layout_height="@dimen/taper_chart_h"
             android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
             android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
             app:layout_constraintTop_toBottomOf="@id/label3"
             app:tc_inner_space="28dp"
             app:tc_mode="fourth"
@@ -94,13 +95,13 @@
             android:textColor="#2a2a2a"
             app:layout_constraintTop_toBottomOf="@id/tchartV2"/>
 
-        <com.doyou.cv.widget.TaperChart
+        <com.doyou.cv.widget.taperchart.TaperChart
             android:id="@+id/tchartV3"
             android:layout_width="match_parent"
             android:layout_height="@dimen/taper_chart_h"
             android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
             android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
             app:layout_constraintTop_toBottomOf="@id/label4"
             app:tc_inner_space="28dp"
             app:tc_mode="fifth"
@@ -117,7 +118,7 @@
             android:textColor="#2a2a2a"
             app:layout_constraintTop_toBottomOf="@id/tchartV3"/>
 
-        <com.doyou.cv.widget.TaperChartLayout
+        <com.doyou.cv.widget.taperchart.TaperChartLayout
             android:id="@+id/tchartLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -135,7 +136,7 @@
             android:textColor="#2a2a2a"
             app:layout_constraintTop_toBottomOf="@id/tchartLayout"/>
 
-        <com.doyou.cv.widget.TaperChartLayout
+        <com.doyou.cv.widget.taperchart.TaperChartLayout
             android:id="@+id/tchartLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -153,7 +154,7 @@
             android:textColor="#2a2a2a"
             app:layout_constraintTop_toBottomOf="@id/tchartLayout1"/>
 
-        <com.doyou.cv.widget.TaperChartLayout
+        <com.doyou.cv.widget.taperchart.TaperChartLayout
             android:id="@+id/tchartLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -174,7 +175,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="水平滑动峰值图"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintTop_toBottomOf="@id/contrastBtn"/>
 
         <Space

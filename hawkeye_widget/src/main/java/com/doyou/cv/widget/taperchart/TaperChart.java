@@ -1,4 +1,4 @@
-package com.doyou.cv.widget;
+package com.doyou.cv.widget.taperchart;
 
 import android.content.Context;
 import android.content.res.TypedArray;
