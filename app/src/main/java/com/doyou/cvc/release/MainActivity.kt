@@ -1,5 +1,6 @@
 package com.doyou.cvc.release
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.doyou.cvc.DispatchManager
@@ -12,6 +13,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // 避免通过系统安装器打开app，进入到子页面，点击home键导致的启动页重启的问题
+        if (!isTaskRoot && intent != null) {
+            if (intent.hasCategory(Intent.CATEGORY_LAUNCHER)
+                    && intent.action == Intent.ACTION_MAIN) {
+                finish()
+                return
+            }
+        }
         setContentView(R.layout.activity_main)
         selPtoBarTv.setOnClickListener{
             DispatchManager.showAct(this, SectionProBarActivity::class.java)
