@@ -23,13 +23,13 @@
 ![image](http://47.93.38.184/github/widgetcase/taperchart.gif)  ![image](http://47.93.38.184/github/widgetcase/hortapercharts.gif)  ![image](http://47.93.38.184/github/widgetcase/gradientline.gif)
 
 ##### 渐变圆环进度>>>[GradientProBar] & 手势放大缩小图片>>>[MatrixView]
-![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientprobar.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)
+![image](http://47.93.38.184/github/widgetcase/gradientprobar.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)
 
 ##### 圆环进度>>>[RingView & LegendRingView]
 <img src="screenshots/ringview_123.jpeg" width="280" height="497"/>   <img src="screenshots/ringview_456.png" width="280" height="497"/>   <img src="screenshots/ringview_789.png" width="280" height="497"/>
 
 ##### LFT：圆环进度带底部角标>>>[CircleProgressBarView]  MID：带刻度的圆环>>>[GradientProBar]  RGT：横向进度-带进度提示>>>[HorProBar]
-<img src="screenshots/circleprogressbarview.jpeg" width="280" height="497"/>   <img src="screenshots/GradientProBar.jpeg" width="280" height="497"/>   <img src="screenshots/HorProBar.png" width="280" height="497"/>
+<img src="screenshots/circleprogressbarview.jpeg" width="280" height="497"/>   <img src="screenshots/gradientprobar.jpeg" width="280" height="497"/>   <img src="screenshots/horprobar.png" width="280" height="497"/>
 
 #### 自定义控件分布如下
 
