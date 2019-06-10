@@ -141,8 +141,8 @@ implementation project(':hawkeye_widget')
 首先有问题的话，可以提issue，我会经常去看的，能解决的肯定会及时解决，不能解决的会想办法解决的。
 
 #### 快速尝鲜
-1.点击release进入assets目录下载apk安装体验
-2.直接下载安装包：https://github.com/faith-hb/WidgetCase/releases/download/1.0.0/app-release.apk
+1. 点击release进入assets目录下载apk安装体验
+2. 直接下载安装包：https://github.com/faith-hb/WidgetCase/releases/download/1.0.0/app-release.apk
 
 #### 想加入一起来维护这个开源项目，该怎么操作？
 你可以先fork下来这个项目然后自己去修改一些网友的问题或者自己发现的问题和需要优化的地方，再通过发pr的形式给我，我会第一时间查看代码并进行测试及合并代码。
