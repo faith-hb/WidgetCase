@@ -20,6 +20,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:gl_mode="down"/>
 
         <com.doyou.cv.widget.GradientLine
@@ -30,16 +31,17 @@
             android:layout_marginTop="24dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:gl_mode="flat"/>
 
         <com.doyou.cv.widget.GradientLine
             android:id="@+id/gLineDown"
             android:layout_width="80dp"
             android:layout_height="30dp"
-            android:layout_marginRight="16dp"
             android:layout_marginTop="24dp"
+            android:layout_marginRight="16dp"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tchartLayout"
+            app:layout_constraintTop_toTopOf="parent"
             tools:gl_mode="up"/>
 
 
@@ -48,8 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
             android:text="动画再来一次"
             app:layout_constraintTop_toBottomOf="@id/gLineDown"/>
 
@@ -70,8 +72,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
             android:text="快速点击切换图形模式"
             app:layout_constraintTop_toBottomOf="@id/gLineAgain"/>
 
