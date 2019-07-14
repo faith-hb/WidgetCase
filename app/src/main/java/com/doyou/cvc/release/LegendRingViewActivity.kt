@@ -2,6 +2,7 @@ package com.doyou.cvc.release
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.dongni.tools.Common
 import com.doyou.cv.bean.CircleBean
@@ -16,6 +17,8 @@ class LegendRingViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_legend_ringview)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setTitle(R.string.title_legend_ring_view)
         syncRingViewData()
     }
 
@@ -100,6 +103,16 @@ class LegendRingViewActivity : AppCompatActivity() {
         lrv_right.setData(mList, labels)
 //        lrv_right.setData(null, null)
 
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
 

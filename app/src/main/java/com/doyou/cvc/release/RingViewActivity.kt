@@ -3,6 +3,7 @@ package com.doyou.cvc.release
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.dongni.tools.Common
 import com.dongni.tools.ToastUtils
@@ -20,6 +21,8 @@ class RingViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ringview)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setTitle(R.string.title_ring_view)
         syncRingViewData()
         refeshBtn.setOnClickListener {
             ToastUtils.showShortToast(applicationContext,"刷新下")
@@ -176,6 +179,15 @@ class RingViewActivity : AppCompatActivity() {
         }
         ringv4.setCenterTxt("20~29岁","男性")
         ringv4.setData(mList)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
 

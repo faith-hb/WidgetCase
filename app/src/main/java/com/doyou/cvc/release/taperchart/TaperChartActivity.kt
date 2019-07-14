@@ -3,6 +3,7 @@ package com.doyou.cvc.release.taperchart
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.doyou.cv.widget.taperchart.TaperChart
 import com.doyou.cvc.R
@@ -14,6 +15,8 @@ class TaperChartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_taperchart)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setTitle(R.string.title_taper_chart)
         syncTaperChartData(1)
         syncTaperChartData(2)
         syncTaperChartData(3)
@@ -177,5 +180,14 @@ class TaperChartActivity : AppCompatActivity() {
 
         tchartLayout2.setData(keys, values, labels, "次", btmLabels,true)
 //        tchartLayout2.setData(keys, values)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

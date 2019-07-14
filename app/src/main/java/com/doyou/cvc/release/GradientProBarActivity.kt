@@ -1,6 +1,7 @@
 package com.doyou.cvc.release
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.doyou.cvc.DispatchManager
 import com.doyou.cvc.R
@@ -14,6 +15,8 @@ class GradientProBarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gradientgrobar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setTitle(R.string.title_gradient_probar)
 
         refeshPro.setOnClickListener {
             circlePro.setValue(mRandom.nextFloat() * circlePro.maxValue)
@@ -21,5 +24,14 @@ class GradientProBarActivity : AppCompatActivity() {
         showScalebtn.setOnClickListener {
             DispatchManager.showAct(this,GradientProBarScaleActivity::class.java)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
