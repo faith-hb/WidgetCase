@@ -24,7 +24,6 @@
         <activity android:name=".release.taperchart.ScrollTaperChartActivity" />
         <activity android:name=".release.GradientLineActivity" />
         <activity android:name=".release.LegendRingViewActivity" />
-        <activity android:name=".test.LegendRingViewActivity" />
         <activity android:name=".release.CircleProgressBarViewActivity" />
         <activity android:name=".release.ShadowProBarActivity" />
         <activity android:name=".release.GradientProBarScaleActivity" />

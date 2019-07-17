@@ -5,7 +5,7 @@
                                        android:overScrollMode="never"
                                        android:scrollbars="none">
 
-    <androidx.constraintlayout.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -46,5 +46,5 @@
             android:layout_width="match_parent"
             android:layout_height="32dp"
             app:layout_constraintTop_toBottomOf="@+id/refeshBtn"/>
-    </androidx.constraintlayout.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

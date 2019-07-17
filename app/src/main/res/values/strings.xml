@@ -6,7 +6,10 @@
     <string name="title_section_probar">SectionProBar</string>
     <string name="title_imgtxt_mixture">图文混排</string>
     <string name="title_ring_view">RingView</string>
+    <string name="title_ring_view_double">RingView-两行</string>
+    <string name="title_ring_view_legend">RingView-图例</string>
     <string name="title_taper_chart">TaperChart</string>
+    <string name="title_taper_chart_campair">对比峰值图</string>
     <string name="title_hor_taper_chart">HorTaperChart</string>
     <string name="title_gradient_line">GradientLine</string>
     <string name="title_legend_ring_view">LegendRingView</string>

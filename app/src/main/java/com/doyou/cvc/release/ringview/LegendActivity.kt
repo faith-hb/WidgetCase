@@ -1,6 +1,7 @@
 package com.doyou.cvc.release.ringview
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.dongni.tools.ToastUtils
 import com.doyou.cv.bean.CircleBean
@@ -20,6 +21,8 @@ class LegendActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ringview_legend)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setTitle(R.string.title_ring_view_legend)
         showRingView()
         setLegendData()
         legendRefBtn.setOnClickListener {
@@ -36,7 +39,7 @@ class LegendActivity : AppCompatActivity() {
         }
     }
 
-    private fun showRingView(){
+    private fun showRingView() {
         legendRv.showDebugView(false)
         var valueSum = 60
         var mList: MutableList<CircleBean> = ArrayList<CircleBean>()
@@ -60,7 +63,7 @@ class LegendActivity : AppCompatActivity() {
             mList.add(cb)
         }
         legendRv.setData(mList)
-        legendRv.setCenterTxt("20~29岁","女性")
+        legendRv.setCenterTxt("20~29岁", "女性")
         legendRv.setListener { label ->
             ToastUtils.showShortToast(this, label)
         }
@@ -72,6 +75,15 @@ class LegendActivity : AppCompatActivity() {
         labels.add("戒指")
         labels.add("男你拿")
         legendLv.setData(labels, legendRv.colors)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }
