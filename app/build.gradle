@@ -12,10 +12,37 @@ android {
         versionName release.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        autoSigning {
+            // 加载properties
+            def properties = new Properties()
+            def inputStream = project.rootProject.file('local.properties').newDataInputStream()
+            properties.load(inputStream)
+
+            keyAlias 'widgetcase'
+            keyPassword properties.getProperty('certificates.password')
+            storeFile file('../widgetcase')
+            storePassword properties.getProperty('certificates.password')
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
+            multiDexEnabled true
+            zipAlignEnabled true
+            signingConfig signingConfigs.autoSigning
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            variant.packageApplicationProvider.get().outputDirectory = new File(project.rootDir.absolutePath + "/apk")
+            def outName = "WidgetCase"
+            def fileName = outName + '-v' + variant.versionName + '-' + variant.buildType.name + '.apk'
+            output.outputFileName = fileName
         }
     }
 }
