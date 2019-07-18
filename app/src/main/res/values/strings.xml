@@ -20,4 +20,20 @@
     <string name="title_gradient_probar">GradientProBar</string>
     <string name="title_hor_scroll_selected_view">HorScrollSelectedView</string>
     <string name="title_hor_probar">HorProBar</string>
+
+
+    <string name="title_activity_menu_main">MenuMainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">景 阳</string>
+    <string name="nav_header_subtitle">hongbinghp@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_wechat">微信：faith-hb</string>
+    <string name="menu_qq">QQ：907167515</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
 </resources>
