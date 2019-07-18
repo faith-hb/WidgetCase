@@ -39,7 +39,7 @@ android {
 
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
-            variant.packageApplicationProvider.get().outputDirectory = new File(project.rootDir.absolutePath + "/apk")
+//            variant.packageApplicationProvider.get().outputDirectory = new File(project.rootDir.absolutePath + "/apk")
             def outName = "WidgetCase"
             def fileName = outName + '-v' + variant.versionName + '-' + variant.buildType.name + '.apk'
             output.outputFileName = fileName
