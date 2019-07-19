@@ -17,13 +17,13 @@
 <!--![功能目录](screenshots/main.jpg = 100*)-->
 
 ##### 功能目录
-<img src="screenshots/main.jpg" width="280" height="497"/>   <img src="screenshots/main_menu.jpg" width="280" height="497"/>   <img src="screenshots/main_btm.jpg" width="280" height="497"/>
+<img src="screenshots/main.jpg" width="280" height="540"/>   <img src="screenshots/main_menu.jpg" width="280" height="540"/>   <img src="screenshots/main_btm.jpg" width="280" height="540"/>
 
 ##### 峰值图>>>[TaperChart & TaperChartLayout & HorTaperChart] & 渐变曲线>>>[GradientLine]
 ![image](http://47.93.38.184/github/widgetcase/taperchart.gif)  ![image](http://47.93.38.184/github/widgetcase/hortapercharts.gif)  ![image](http://47.93.38.184/github/widgetcase/gradientline.gif)
 
 #####  图文混排>>>[ImgTxtMixtureView] & 手势放大缩小图片>>>[MatrixView]
-<img src="screenshots/imgtxtmixture.png" width="280" height="497"/>  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)
+<img src="screenshots/imgtxtmixture.png" width="300" height="540"/>  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)
 
 ##### 圆环进度>>>[RingView & LegendRingView]
 <img src="screenshots/ringview_123.jpeg" width="280" height="497"/>   <img src="screenshots/ringview_456.png" width="280" height="497"/>   <img src="screenshots/ringview_789.png" width="280" height="497"/>
