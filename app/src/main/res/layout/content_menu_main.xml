@@ -110,6 +110,11 @@
                 style="@style/TextViewStyle"
                 android:text="WaveView"/>
 
+            <TextView
+                android:id="@+id/colorFilterBtn"
+                style="@style/TextViewStyle"
+                android:text="ColorFilter"/>
+
         </com.google.android.flexbox.FlexboxLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

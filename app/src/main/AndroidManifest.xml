@@ -38,6 +38,7 @@
         <activity android:name=".release.HorProBarActivity"/>
         <activity android:name=".release.SectionProBarActivity"/>
         <activity android:name=".release.WaveViewActivity"/>
+        <activity android:name=".release.colorfilter.ColorFilterActivity"/>
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.doyou.cvc.DispatchManager
 import com.doyou.cvc.R
+import com.doyou.cvc.release.colorfilter.ColorFilterActivity
 import com.doyou.cvc.release.taperchart.ScrollTaperChartActivity
 import com.doyou.cvc.release.taperchart.TaperChartActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -68,6 +69,7 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
         hssvTv.setOnClickListener(this)
         horBtn.setOnClickListener(this)
         waveBtn.setOnClickListener(this)
+        colorFilterBtn.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -116,6 +118,9 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
             }
             R.id.waveBtn -> {
                 DispatchManager.showAct(this, WaveViewActivity::class.java)
+            }
+            R.id.colorFilterBtn -> {
+                DispatchManager.showAct(this, ColorFilterActivity::class.java)
             }
         }
     }
