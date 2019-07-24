@@ -37,6 +37,7 @@
         <activity android:name=".release.HorScrollSelecteViewActivity"/>
         <activity android:name=".release.HorProBarActivity"/>
         <activity android:name=".release.SectionProBarActivity"/>
+        <activity android:name=".release.WaveViewActivity"/>
     </application>
 
 </manifest>

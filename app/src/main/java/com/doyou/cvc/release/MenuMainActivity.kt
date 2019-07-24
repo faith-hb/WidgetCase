@@ -67,6 +67,7 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
         gpbTv.setOnClickListener(this)
         hssvTv.setOnClickListener(this)
         horBtn.setOnClickListener(this)
+        waveBtn.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -112,6 +113,9 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
             }
             R.id.horBtn -> {
                 DispatchManager.showAct(this, HorProBarActivity::class.java)
+            }
+            R.id.waveBtn -> {
+                DispatchManager.showAct(this, WaveViewActivity::class.java)
             }
         }
     }

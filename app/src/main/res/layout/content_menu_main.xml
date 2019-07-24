@@ -105,6 +105,11 @@
                 style="@style/TextViewStyle"
                 android:text="HorProBar"/>
 
+            <TextView
+                android:id="@+id/waveBtn"
+                style="@style/TextViewStyle"
+                android:text="WaveView"/>
+
         </com.google.android.flexbox.FlexboxLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

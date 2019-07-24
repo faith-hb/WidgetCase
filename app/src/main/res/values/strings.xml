@@ -20,6 +20,7 @@
     <string name="title_gradient_probar">GradientProBar</string>
     <string name="title_hor_scroll_selected_view">HorScrollSelectedView</string>
     <string name="title_hor_probar">HorProBar</string>
+    <string name="title_wave_view">WaveView</string>
 
 
     <string name="title_activity_menu_main">MenuMainActivity</string>
