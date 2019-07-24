@@ -56,7 +56,7 @@ public class CircleWaveView extends View {
     /**
      * 弧长高度
      */
-    private static final int ARC_H = DensityUtil.dp2px(26);
+    private static final int ARC_H = DensityUtil.dp2px(24);
 
     private static final String TAG = "CircleWaveView";
     private Paint mCirclePaint;

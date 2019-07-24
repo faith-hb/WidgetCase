@@ -111,9 +111,9 @@
                 android:text="WaveView"/>
 
             <TextView
-                android:id="@+id/colorFilterBtn"
+                android:id="@+id/colorMainBtn"
                 style="@style/TextViewStyle"
-                android:text="ColorFilter"/>
+                android:text="图片滤镜"/>
 
         </com.google.android.flexbox.FlexboxLayout>
 

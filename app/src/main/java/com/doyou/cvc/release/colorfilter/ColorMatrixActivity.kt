@@ -7,22 +7,22 @@ import android.view.MenuItem
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.doyou.cvc.R
-import kotlinx.android.synthetic.main.activity_color_filter.*
+import kotlinx.android.synthetic.main.activity_color_matrix.*
 
 /**
  * 图片滤镜
  * @autor hongbing
  * @date 2019-07-24
  */
-class ColorFilterActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
+class ColorMatrixActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
 
     private var colorMatrix: ColorMatrix? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_color_filter)
+        setContentView(R.layout.activity_color_matrix)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setTitle(R.string.title_color_filter)
+        supportActionBar?.setTitle(R.string.title_color_matrix)
         colorMatrix = ColorMatrix()
         colorMatrix!!.setScale(calculate(128), calculate(128), calculate(128), calculate(128))
         jingyIv.colorFilter = ColorMatrixColorFilter(colorMatrix)
