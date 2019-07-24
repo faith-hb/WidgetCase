@@ -11,6 +11,7 @@ import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.dongni.tools.DensityUtil;
 import com.doyou.cv.utils.Utils;
 
 import androidx.annotation.Nullable;
@@ -55,7 +56,7 @@ public class CircleWaveView extends View {
     /**
      * 弧长高度
      */
-    private static final int ARC_H = 40;
+    private static final int ARC_H = DensityUtil.dp2px(26);
 
     private static final String TAG = "CircleWaveView";
     private Paint mCirclePaint;
@@ -128,23 +129,35 @@ public class CircleWaveView extends View {
                 // (mWidth * mPercent / 50f) 计算进度横向长度
                 mStart = (int) (mWidth / 2 - (mWidth * mPercent / 50f) / 2);
                 target = mWidth * mPercent / 50f;
+                if (mX > target + ARC_H * 2 + 4) { // ARC_H * 2 弧长,mX在经度横切面不断的更新控制点x坐标，起到动画效果
+                    isLft = true;
+                } else if (mX < -ARC_H * 2 - 4) {
+                    isLft = false;
+                }
             } else if (mPercent == 50) {
                 mStart = 0;
                 target = mWidth;
+                if (mX > target + 4) { // ARC_H * 2 弧长,mX在经度横切面不断的更新控制点x坐标，起到动画效果
+                    isLft = true;
+                } else if (mX < -4) {
+                    isLft = false;
+                }
             } else {
                 mStart = (int) (mWidth / 2 - (mWidth - mWidth * mPercent / 100f) / 2);
                 target = mWidth - mWidth * mPercent / 100f;
+                if (mX > target + ARC_H * 2 + 4) { // ARC_H * 2 弧长,mX在经度横切面不断的更新控制点x坐标，起到动画效果
+                    isLft = true;
+                } else if (mX < -ARC_H * 2 - 4) {
+                    isLft = false;
+                }
             }
             Utils.logD(TAG, "mWidth = " + mWidth + "->百分比 = " + mPercent + "->target = " + target + "->mStart = " + mStart + "->mX = " + mX);
-            if (mX > target + ARC_H * 2 + 2) { // ARC_H * 2 弧长,mX在经度横切面不断的更新控制点x坐标，起到动画效果
-                isLft = true;
-            } else if (mX < -ARC_H * 2 - 2) {
-                isLft = false;
-            }
+
+
             if (isLft) {
-                mX = mX - 2;
+                mX = mX - 4;
             } else {
-                mX = mX + 2;
+                mX = mX + 4;
             }
             mY = (int) ((1 - mPercent / 100f) * mHeight);
 
@@ -165,7 +178,7 @@ public class CircleWaveView extends View {
 
             mPath2.reset();
             mPath2.moveTo(0, mY);
-            mPath2.cubicTo(mStart + mX, mY + ARC_H  * 2, mStart + mX, mY - ARC_H * 2, mWidth, mY);
+            mPath2.cubicTo(mStart + mX, mY + ARC_H * 2, mStart + mX, mY - ARC_H * 2, mWidth, mY);
             mPath2.lineTo(mWidth, mHeight);
             mPath2.lineTo(0, mHeight);
             mPath2.close();

@@ -26,6 +26,7 @@ class WaveViewActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
 
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
         circleWv.setPercent(progress)
+        proTv.text = progress.toString().plus("%")
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar?) {
