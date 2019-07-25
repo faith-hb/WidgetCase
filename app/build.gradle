@@ -16,14 +16,19 @@ android {
     signingConfigs {
         autoSigning {
             // 加载properties
-            def properties = new Properties()
-            def inputStream = project.rootProject.file('local.properties').newDataInputStream()
-            properties.load(inputStream)
+//            def properties = new Properties()
+//            def inputStream = project.rootProject.file('local.properties').newDataInputStream()
+//            properties.load(inputStream)
+//
+//            keyAlias 'widgetcase'
+//            keyPassword properties.getProperty('certificates.password')
+//            storeFile file('../widgetcase')
+//            storePassword properties.getProperty('certificates.password')
 
             keyAlias 'widgetcase'
-            keyPassword properties.getProperty('certificates.password')
+            keyPassword '2019888'
             storeFile file('../widgetcase')
-            storePassword properties.getProperty('certificates.password')
+            storePassword '2019888'
         }
     }
 

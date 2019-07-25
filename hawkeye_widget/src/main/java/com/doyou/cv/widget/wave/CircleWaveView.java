@@ -61,6 +61,7 @@ public class CircleWaveView extends View {
     private static final String TAG = "CircleWaveView";
     private Paint mCirclePaint;
     private Paint mWavePaint;
+    private PorterDuffXfermode mXfermode = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
 
     private Canvas mCanvas;
     private Bitmap mBitmap;
@@ -172,7 +173,7 @@ public class CircleWaveView extends View {
             mCanvas.drawCircle(mWidth / 2, mHeight / 2, mWidth / 2, mCirclePaint);
 
             mWavePaint.setColor(Color.parseColor("#B20000FF"));
-            mWavePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            mWavePaint.setXfermode(mXfermode);
             mCanvas.drawPath(mPath, mWavePaint);
             mWavePaint.setXfermode(null);
 
@@ -184,7 +185,7 @@ public class CircleWaveView extends View {
             mPath2.close();
 
             mWavePaint.setColor(Color.parseColor("#990000FF"));
-            mWavePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            mWavePaint.setXfermode(mXfermode);
             mCanvas.drawPath(mPath2, mWavePaint);
             mWavePaint.setXfermode(null);
         }
