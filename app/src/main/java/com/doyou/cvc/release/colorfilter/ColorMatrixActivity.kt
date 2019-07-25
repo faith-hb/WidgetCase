@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_color_matrix.*
 
 /**
  * 图片滤镜
+ * @desc 通过修改颜色矩阵来改变它的颜色效果
  * @autor hongbing
  * @date 2019-07-24
  */
