@@ -22,9 +22,8 @@
 ##### 峰值图>>>[TaperChart & TaperChartLayout & HorTaperChart] & 渐变曲线>>>[GradientLine]
 ![image](http://47.93.38.184/github/widgetcase/taperchart.gif)  ![image](http://47.93.38.184/github/widgetcase/hortapercharts.gif)  ![image](http://47.93.38.184/github/widgetcase/gradientline.gif)
 
-#####  波浪加载控件>>>[CircleWaveView] & 图片滤镜>>>[ColorMatrixActivity & ColorHueActivity]
+#####  波浪加载控件>>>[CircleWaveView]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/circlewaveview.gif)
-
 
 #####  图文混排>>>[ImgTxtMixtureView] & 手势放大缩小图片>>>[MatrixView]
 <img src="screenshots/imgtxtmixture.png" width="320" height="565"/>  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)
@@ -34,6 +33,9 @@
 
 ##### LFT：圆环进度带底部角标>>>[CircleProgressBarView]  MID：带刻度的圆环>>>[GradientProBar]  RGT：横向进度-带进度提示>>>[HorProBar]
 <img src="screenshots/circleprogressbarview.jpeg" width="280" height="497"/>   <img src="screenshots/gradientprobar.jpeg" width="280" height="497"/>   <img src="screenshots/horprobar.png" width="280" height="497"/>
+
+#####  图片滤镜>>>[ColorMatrixActivity & ColorHueActivity]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/colormartix.gif)
 
 #### 自定义控件分布如下
 
