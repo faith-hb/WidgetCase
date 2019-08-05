@@ -17,7 +17,7 @@
 <!--![功能目录](screenshots/main.jpg = 100*)-->
 
 ##### 功能目录
-<img src="screenshots/main.jpg" width="280" height="560"/>   <img src="screenshots/main_menu.jpg" width="280" height="560"/>   <img src="screenshots/main_btm.jpg" width="280" height="560"/>
+<img src="screenshots/main.jpg" width="280" height="606"/>   <img src="screenshots/main_menu.jpg" width="280" height="606"/>   <img src="screenshots/main_btm.jpg" width="280" height="560"/>
 
 ##### 峰值图>>>[TaperChart & TaperChartLayout & HorTaperChart] & 渐变曲线>>>[GradientLine]
 ![image](http://47.93.38.184/github/widgetcase/taperchart.gif)  ![image](http://47.93.38.184/github/widgetcase/hortapercharts.gif)  ![image](http://47.93.38.184/github/widgetcase/gradientline.gif)
