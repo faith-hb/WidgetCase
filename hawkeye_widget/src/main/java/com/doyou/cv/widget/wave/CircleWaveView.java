@@ -56,7 +56,7 @@ public class CircleWaveView extends View {
     /**
      * 弧长高度
      */
-    private static final int ARC_H = DensityUtil.dp2px(24);
+    private static final int ARC_H = DensityUtil.dp2px(32);
 
     private static final String TAG = "CircleWaveView";
     private Paint mCirclePaint;
@@ -80,10 +80,10 @@ public class CircleWaveView extends View {
     public CircleWaveView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
-        mCirclePaint.setColor(Color.parseColor("#7F0000FF"));
+        mCirclePaint.setColor(Color.parseColor("#990000FF"));
         mCirclePaint.setStrokeWidth(10);
         mWavePaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
-        mWavePaint.setColor(Color.parseColor("#B20000FF"));
+        mWavePaint.setColor(Color.parseColor("#7F0000FF"));
 
         mPath = new Path();
         mPath2 = new Path();
@@ -156,9 +156,9 @@ public class CircleWaveView extends View {
 
 
             if (isLft) {
-                mX = mX - 4;
+                mX = mX - 8;
             } else {
-                mX = mX + 4;
+                mX = mX + 8;
             }
             mY = (int) ((1 - mPercent / 100f) * mHeight);
 
@@ -172,22 +172,23 @@ public class CircleWaveView extends View {
             mBitmap.eraseColor(Color.parseColor("#00000000"));
             mCanvas.drawCircle(mWidth / 2, mHeight / 2, mWidth / 2, mCirclePaint);
 
-            mWavePaint.setColor(Color.parseColor("#B20000FF"));
+//            mWavePaint.setColor(Color.parseColor("#B20000FF"));
+            mWavePaint.setColor(Color.parseColor("#990000FF"));
             mWavePaint.setXfermode(mXfermode);
             mCanvas.drawPath(mPath, mWavePaint);
             mWavePaint.setXfermode(null);
 
-            mPath2.reset();
-            mPath2.moveTo(0, mY);
-            mPath2.cubicTo(mStart + mX, mY + ARC_H * 2, mStart + mX, mY - ARC_H * 2, mWidth, mY);
-            mPath2.lineTo(mWidth, mHeight);
-            mPath2.lineTo(0, mHeight);
-            mPath2.close();
-
-            mWavePaint.setColor(Color.parseColor("#990000FF"));
-            mWavePaint.setXfermode(mXfermode);
-            mCanvas.drawPath(mPath2, mWavePaint);
-            mWavePaint.setXfermode(null);
+//            mPath2.reset();
+//            mPath2.moveTo(0, mY);
+//            mPath2.cubicTo(mStart + mX, mY + ARC_H * 2, mStart + mX, mY - ARC_H * 2, mWidth, mY);
+//            mPath2.lineTo(mWidth, mHeight);
+//            mPath2.lineTo(0, mHeight);
+//            mPath2.close();
+//
+//            mWavePaint.setColor(Color.parseColor("#990000FF"));
+//            mWavePaint.setXfermode(mXfermode);
+//            mCanvas.drawPath(mPath2, mWavePaint);
+//            mWavePaint.setXfermode(null);
         }
         canvas.drawBitmap(mBitmap, 0, 0, null);
         postInvalidateDelayed(10);

@@ -22,6 +22,12 @@
 ##### 峰值图>>>[TaperChart & TaperChartLayout & HorTaperChart] & 渐变曲线>>>[GradientLine]
 ![image](http://47.93.38.184/github/widgetcase/taperchart.gif)  ![image](http://47.93.38.184/github/widgetcase/hortapercharts.gif)  ![image](http://47.93.38.184/github/widgetcase/gradientline.gif)
 
+#####  波浪加载控件>>>[CircleWaveView] & 图片滤镜>>>[ColorMatrixActivity & ColorHueActivity]
+<video id="video" preload="none" poster="screenshots/circlewaveview_cover.jpg">
+    <source id="mp4" src="screenshots/circlewaveview.mp4" type="video / mp4">
+</video>
+
+
 #####  图文混排>>>[ImgTxtMixtureView] & 手势放大缩小图片>>>[MatrixView]
 <img src="screenshots/imgtxtmixture.png" width="320" height="565"/>  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)
 
