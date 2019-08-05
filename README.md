@@ -44,6 +44,9 @@
 2. [TaperChartLayout](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/taperchart/TaperChartLayout.java)
 3. [HorTaperChart](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/taperchart/HorTaperChart.java)
 
+##### 波浪加载控件
+[CircleWaveView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/wave/CircleWaveView.java)
+
 ##### 圆形进度条
 1. [CircleProgress](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/circle/CircleProgress.java)
 2. [GradientProBar](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/circle/GradientProBar.java)
@@ -80,6 +83,9 @@
 ##### 贝塞尔曲线练练手
 [PathMorphBezier](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/PathMorphBezier.java)
 
+##### 图片滤镜
+1. [ColorMatrix](https://github.com/faith-hb/WidgetCase/blob/master/app/src/main/java/com/doyou/cvc/release/colorfilter/ColorMatrixActivity.kt)
+2. [ColorHue](https://github.com/faith-hb/WidgetCase/blob/master/app/src/main/java/com/doyou/cvc/release/colorfilter/ColorHueActivity.kt)
 
 #### Download
 
