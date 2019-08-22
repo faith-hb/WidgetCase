@@ -3,7 +3,7 @@
 <!--https://shields.io/-->
 <!--[![auc][aucsvg]][auc] [![api][apisvg]][api] [![License][licensesvg]][license]-->
 
-[![](https://img.shields.io/badge/widget-1.0.3-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-4.4-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
+[![](https://img.shields.io/badge/widget-1.1.2-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-5.1.1-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
 
 > [中文文档](https://github.com/faith-hb/WidgetCase/blob/master/README.md)
 
@@ -17,11 +17,17 @@ in this look forward to more like-minded code friends to join, we work together 
 #### Effect brush a wave, after all, is to see the face to eat
 
 
-##### Function directory & Graphic mixed>>>[ImgTxtMixtureView]
-<img src="screenshots/main.jpg" width="280" height="497"/>   <img src="screenshots/imgtxtmixture.png" width="280" height="497"/>
+##### Function directory
+<img src="screenshots/main.jpg" width="280" height="606"/>   <img src="screenshots/main_menu.jpg" width="280" height="606"/>   <img src="screenshots/main_btm.jpg" width="280" height="606"/>
 
-##### Peak figure>>>[TaperChart & TaperChartLayout] & The gradient curve>>>[GradientLine]
-![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientLine.gif)
+##### Peak figure>>>[TaperChart & TaperChartLayout & HorTaperChart] & The gradient curve>>>[GradientLine]
+![image](http://47.93.38.184/github/widgetcase/taperchart.gif)  ![image](http://47.93.38.184/github/widgetcase/hortapercharts.gif)  ![image](http://47.93.38.184/github/widgetcase/gradientline.gif)
+
+#####  (Wave loading view)[CircleWaveView] & (The drop-down effect)[RefreshView]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/circlewaveview.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/refreshview.gif)
+
+#####  Graphic mixed>>>[ImgTxtMixtureView] & Gestures to zoom>>>[MatrixView]
+<img src="screenshots/imgtxtmixture.png" width="320" height="565"/>  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)
 
 ##### Graded ring progress>>>[GradientProBar] & Gestures zoom view>>>[MatrixView]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientprobar.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)
@@ -37,7 +43,13 @@ in this look forward to more like-minded code friends to join, we work together 
 ##### Peak figure
 1. [TaperChart](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/TaperChart.java)
 2. [TaperChartLayout](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/TaperChartLayout.java)
-3. [HorTaperChart(developing)](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/HorTaperChart.java)
+3. [HorTaperChart](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/HorTaperChart.java)
+
+##### Wave loading view
+[CircleWaveView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/wave/CircleWaveView.java)
+
+##### The drop-down effect
+[RefreshView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/touch/RefreshView.java)
 
 ##### Circular progress bar
 1. [CircleProgress](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/circle/CircleProgress.java)
@@ -75,6 +87,9 @@ in this look forward to more like-minded code friends to join, we work together 
 ##### Learn the bezier curve
 [PathMorphBezier](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/PathMorphBezier.java)
 
+##### Image filter
+1. [ColorMatrix](https://github.com/faith-hb/WidgetCase/blob/master/app/src/main/java/com/doyou/cvc/release/colorfilter/ColorMatrixActivity.kt)
+2. [ColorHue](https://github.com/faith-hb/WidgetCase/blob/master/app/src/main/java/com/doyou/cvc/release/colorfilter/ColorHueActivity.kt)
 
 #### Download
 
