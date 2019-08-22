@@ -41,6 +41,7 @@
         <activity android:name=".release.colorfilter.ColorMainActivity" />
         <activity android:name=".release.colorfilter.ColorMatrixActivity"/>
         <activity android:name=".release.colorfilter.ColorHueActivity"/>
+        <activity android:name=".release.touch.RefreshViewActivity" />
     </application>
 
 </manifest>

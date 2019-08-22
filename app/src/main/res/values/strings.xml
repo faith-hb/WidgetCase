@@ -25,6 +25,7 @@
     <string name="title_color_matrix">ColorMatrix</string>
     <string name="title_color_hue">ColorHue</string>
     <string name="title_color_filter">ColorFilter</string>
+    <string name="title_refresh_view">RefreshView</string>
 
 
     <string name="title_activity_menu_main">MenuMainActivity</string>

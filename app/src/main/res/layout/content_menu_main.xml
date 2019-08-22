@@ -101,19 +101,24 @@
                 android:text="HorScrollSelectedView"/>
 
             <TextView
-                android:id="@+id/horBtn"
+                android:id="@+id/horTv"
                 style="@style/TextViewStyle"
                 android:text="HorProBar"/>
 
             <TextView
-                android:id="@+id/waveBtn"
+                android:id="@+id/waveTv"
                 style="@style/TextViewStyle"
                 android:text="WaveView"/>
 
             <TextView
-                android:id="@+id/colorMainBtn"
+                android:id="@+id/colorMainTv"
                 style="@style/TextViewStyle"
                 android:text="图片滤镜"/>
+
+            <TextView
+                android:id="@+id/refreshTv"
+                style="@style/TextViewStyle"
+                android:text="RefreshView"/>
 
         </com.google.android.flexbox.FlexboxLayout>
 

@@ -15,6 +15,7 @@ import com.doyou.cvc.R
 import com.doyou.cvc.release.colorfilter.ColorMainActivity
 import com.doyou.cvc.release.taperchart.ScrollTaperChartActivity
 import com.doyou.cvc.release.taperchart.TaperChartActivity
+import com.doyou.cvc.release.touch.RefreshViewActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -67,9 +68,10 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
         matrixTv.setOnClickListener(this)
         gpbTv.setOnClickListener(this)
         hssvTv.setOnClickListener(this)
-        horBtn.setOnClickListener(this)
-        waveBtn.setOnClickListener(this)
-        colorMainBtn.setOnClickListener(this)
+        horTv.setOnClickListener(this)
+        waveTv.setOnClickListener(this)
+        colorMainTv.setOnClickListener(this)
+        refreshTv.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -113,14 +115,17 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
             R.id.hssvTv -> {
                 DispatchManager.showAct(this, HorScrollSelecteViewActivity::class.java)
             }
-            R.id.horBtn -> {
+            R.id.horTv -> {
                 DispatchManager.showAct(this, HorProBarActivity::class.java)
             }
-            R.id.waveBtn -> {
+            R.id.waveTv -> {
                 DispatchManager.showAct(this, WaveViewActivity::class.java)
             }
-            R.id.colorMainBtn -> {
+            R.id.colorMainTv -> {
                 DispatchManager.showAct(this, ColorMainActivity::class.java)
+            }
+            R.id.refreshTv -> {
+                DispatchManager.showAct(this, RefreshViewActivity::class.java)
             }
         }
     }
