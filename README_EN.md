@@ -36,7 +36,10 @@ in this look forward to more like-minded code friends to join, we work together 
 <img src="screenshots/ringview_123.jpeg" width="280" height="497"/>   <img src="screenshots/ringview_456.png" width="280" height="497"/>   <img src="screenshots/ringview_789.png" width="280" height="497"/>
 
 ##### LFT：Circular progress with bottom corner marks>>>[CircleProgressBarView]  MID：Ring with scale>>>[GradientProBar]  RGT：Horizontal progress-Progress indicator>>>[HorProBar]
-<img src="screenshots/CircleProgressBarView.jpeg" width="280" height="497"/>   <img src="screenshots/GradientProBar.jpeg" width="280" height="497"/>   <img src="screenshots/HorProBar.png" width="280" height="497"/>
+<img src="screenshots/circleprogressbarview.jpeg" width="280" height="497"/>   <img src="screenshots/gradientprobar.jpeg" width="280" height="497"/>   <img src="screenshots/horprobar.png" width="280" height="497"/>
+
+#####  Image filter>>>[ColorMatrixActivity & ColorHueActivity]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/colormartix.gif)
 
 #### The custom controls are distributed as follows
 
