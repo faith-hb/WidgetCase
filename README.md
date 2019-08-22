@@ -47,6 +47,9 @@
 ##### 波浪加载控件
 [CircleWaveView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/wave/CircleWaveView.java)
 
+##### 仿网易一元夺宝下拉刷新控件
+[RefreshView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/touch/RefreshView.java)
+
 ##### 圆形进度条
 1. [CircleProgress](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/circle/CircleProgress.java)
 2. [GradientProBar](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/circle/GradientProBar.java)
