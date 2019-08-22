@@ -22,8 +22,8 @@
 ##### 峰值图>>>[TaperChart & TaperChartLayout & HorTaperChart] & 渐变曲线>>>[GradientLine]
 ![image](http://47.93.38.184/github/widgetcase/taperchart.gif)  ![image](http://47.93.38.184/github/widgetcase/hortapercharts.gif)  ![image](http://47.93.38.184/github/widgetcase/gradientline.gif)
 
-#####  波浪加载控件>>>[CircleWaveView]
-![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/circlewaveview.gif)
+#####  波浪加载控件>>>[CircleWaveView] & (仿网易一元夺宝下拉效果)[RefreshView]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/circlewaveview.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/refreshview.gif)
 
 #####  图文混排>>>[ImgTxtMixtureView] & 手势放大缩小图片>>>[MatrixView]
 <img src="screenshots/imgtxtmixture.png" width="320" height="565"/>  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)

@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
+import com.dongni.tools.DensityUtil;
 import com.doyou.cv.R;
 
 public class RefreshView extends FrameLayout {
@@ -37,7 +38,7 @@ public class RefreshView extends FrameLayout {
 	private int mMoveY;
 	private int mUpY; // 抬手时已滑动的高度值
 	private int mRadius = 10;// 小圆点半径,默认为10
-	private int mScrDistance; // 下滑截至高度
+	private int mScrDistance = DensityUtil.dp2px(180); // 下滑最大高度
 	private int mInitLeftPX,mInitRightPX;
 	private int mBmpL,mBmpT; // 头部位图左上值
 	private Scroller mScroller; // 图片控件滚动器
@@ -79,7 +80,7 @@ public class RefreshView extends FrameLayout {
 		mScreenH = dm.heightPixels;
 		mHeadBmp = BitmapFactory.decodeResource(getResources(), R.drawable.load_more_1);
 
-		mScrDistance = mScreenH / 3 - 46;
+//		mScrDistance = mScreenH / 3 - 46;
 		mHeadW = mHeadBmp.getWidth();
 		mHeadH = mHeadBmp.getHeight();
 		mInitLeftPX = mScreenW / 2 - mHeadW;
