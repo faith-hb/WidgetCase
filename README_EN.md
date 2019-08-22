@@ -29,9 +29,6 @@ in this look forward to more like-minded code friends to join, we work together 
 #####  Graphic mixed>>>[ImgTxtMixtureView] & Gestures to zoom>>>[MatrixView]
 <img src="screenshots/imgtxtmixture.png" width="320" height="565"/>  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)
 
-##### Graded ring progress>>>[GradientProBar] & Gestures zoom view>>>[MatrixView]
-![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientprobar.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/matrixview.gif)
-
 ##### Circle the progress>>>[RingView & LegendRingView]
 <img src="screenshots/ringview_123.jpeg" width="280" height="497"/>   <img src="screenshots/ringview_456.png" width="280" height="497"/>   <img src="screenshots/ringview_789.png" width="280" height="497"/>
 
