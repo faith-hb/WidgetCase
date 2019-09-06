@@ -22,7 +22,8 @@ import com.doyou.cv.R;
 
 import androidx.annotation.Nullable;
 
-/**自定义view实现环形带刻度颜色渐变的进度条
+/**
+ * 自定义view实现环形带刻度颜色渐变的进度条
  * @autor hongbing
  * @date 2019/2/14
  */
@@ -104,19 +105,19 @@ public class CircleProgress extends View {
 
 
     public CircleProgress(Context context) {
-        super(context,null);
+        super(context, null);
     }
 
     public CircleProgress(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public CircleProgress(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context,attrs);
+        init(context, attrs);
     }
 
-    private void init(Context context,AttributeSet attrs){
+    private void init(Context context, AttributeSet attrs) {
         mContext = context;
         mDefaultSize = DensityUtil.dp2px(150);
         mAnimator = new ValueAnimator();
@@ -132,31 +133,31 @@ public class CircleProgress extends View {
         antiAlias = typedArray.getBoolean(R.styleable.CircleProgress_antiAlias, true);
         mHint = typedArray.getString(R.styleable.CircleProgress_hint);
         mHintColor = typedArray.getColor(R.styleable.CircleProgress_hintColor, Color.BLACK);
-        mHintSize = typedArray.getDimension(R.styleable.CircleProgress_hintSize,15);
-        mValue = typedArray.getFloat(R.styleable.CircleProgress_value,50);
-        mMaxValue = typedArray.getFloat(R.styleable.CircleProgress_maxValue,50);
+        mHintSize = typedArray.getDimension(R.styleable.CircleProgress_hintSize, 15);
+        mValue = typedArray.getFloat(R.styleable.CircleProgress_value, 50);
+        mMaxValue = typedArray.getFloat(R.styleable.CircleProgress_maxValue, 50);
         // 内容数值精度格式
-        mPrecision = typedArray.getInt(R.styleable.CircleProgress_precision,0);
+        mPrecision = typedArray.getInt(R.styleable.CircleProgress_precision, 0);
         mPrecisionFormat = getPrecisionFormat(mPrecision);
-        mValueColor = typedArray.getColor(R.styleable.CircleProgress_valueColor,Color.BLACK);
-        mValueSize = typedArray.getDimension(R.styleable.CircleProgress_valueSize,15);
+        mValueColor = typedArray.getColor(R.styleable.CircleProgress_valueColor, Color.BLACK);
+        mValueSize = typedArray.getDimension(R.styleable.CircleProgress_valueSize, 15);
         mUnit = typedArray.getString(R.styleable.CircleProgress_unit);
-        mUnitColor = typedArray.getColor(R.styleable.CircleProgress_unitColor,Color.BLACK);
-        mUnitSize = typedArray.getDimension(R.styleable.CircleProgress_unitSize,30);
-        mArcWidth = typedArray.getDimension(R.styleable.CircleProgress_arcWidth,15);
-        mStartAngle = typedArray.getFloat(R.styleable.CircleProgress_startAngle,270);
-        mSweepAngle = typedArray.getFloat(R.styleable.CircleProgress_sweepAngle,360);
+        mUnitColor = typedArray.getColor(R.styleable.CircleProgress_unitColor, Color.BLACK);
+        mUnitSize = typedArray.getDimension(R.styleable.CircleProgress_unitSize, 30);
+        mArcWidth = typedArray.getDimension(R.styleable.CircleProgress_arcWidth, 15);
+        mStartAngle = typedArray.getFloat(R.styleable.CircleProgress_startAngle, 270);
+        mSweepAngle = typedArray.getFloat(R.styleable.CircleProgress_sweepAngle, 360);
 
-        mBgArcColor = typedArray.getColor(R.styleable.CircleProgress_bgArcColor,Color.WHITE);
-        mArcColor = typedArray.getColor(R.styleable.CircleProgress_arcColors,Color.RED);
-        mBgArcWidth = typedArray.getDimension(R.styleable.CircleProgress_bgArcWidth,15);
-        mTextOffsetPercentInRadius = typedArray.getFloat(R.styleable.CircleProgress_textOffsetPercentInRadius,0.33f);
-        mAnimTime = typedArray.getInt(R.styleable.CircleProgress_animTime,1000);
-        mDottedLineCount = typedArray.getInteger(R.styleable.CircleProgress_dottedLineCount,mDottedLineCount);
-        mLineDistance = typedArray.getInteger(R.styleable.CircleProgress_lineDistance,mLineDistance);
-        mDottedLineWidth = typedArray.getDimension(R.styleable.CircleProgress_dottedLineWidth,mDottedLineWidth);
-        foreStartColor = typedArray.getColor(R.styleable.CircleProgress_foreStartColor,Color.BLUE);
-        foreEndColcor = typedArray.getColor(R.styleable.CircleProgress_foreEndColor,Color.BLUE);
+        mBgArcColor = typedArray.getColor(R.styleable.CircleProgress_bgArcColor, Color.WHITE);
+        mArcColor = typedArray.getColor(R.styleable.CircleProgress_arcColors, Color.RED);
+        mBgArcWidth = typedArray.getDimension(R.styleable.CircleProgress_bgArcWidth, 15);
+        mTextOffsetPercentInRadius = typedArray.getFloat(R.styleable.CircleProgress_textOffsetPercentInRadius, 0.33f);
+        mAnimTime = typedArray.getInt(R.styleable.CircleProgress_animTime, 1000);
+        mDottedLineCount = typedArray.getInteger(R.styleable.CircleProgress_dottedLineCount, mDottedLineCount);
+        mLineDistance = typedArray.getInteger(R.styleable.CircleProgress_lineDistance, mLineDistance);
+        mDottedLineWidth = typedArray.getDimension(R.styleable.CircleProgress_dottedLineWidth, mDottedLineWidth);
+        foreStartColor = typedArray.getColor(R.styleable.CircleProgress_foreStartColor, Color.BLUE);
+        foreEndColcor = typedArray.getColor(R.styleable.CircleProgress_foreEndColor, Color.BLUE);
 
         typedArray.recycle();
     }
@@ -212,24 +213,25 @@ public class CircleProgress extends View {
 
     /**
      * 测量view
+     *
      * @param measureSpec
      * @param defaultSize view的默认大小
      * @return
      */
-    private static int measureView(int measureSpec,int defaultSize){
+    private static int measureView(int measureSpec, int defaultSize) {
         int result = defaultSize;
         int specMode = View.MeasureSpec.getMode(measureSpec);
         int specSize = View.MeasureSpec.getSize(measureSpec);
 
-        if(specMode == MeasureSpec.EXACTLY){
+        if (specMode == MeasureSpec.EXACTLY) {
             result = specSize;
-        }else if(specMode == MeasureSpec.AT_MOST){
-            result = Math.min(result,specSize);
+        } else if (specMode == MeasureSpec.AT_MOST) {
+            result = Math.min(result, specSize);
         }
         return result;
     }
 
-    private float getBaselineOffsetFromY(Paint paint){
+    private float getBaselineOffsetFromY(Paint paint) {
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
         return ((Math.abs(fontMetrics.ascent) - fontMetrics.descent)) / 2;
     }
@@ -240,7 +242,7 @@ public class CircleProgress extends View {
         mArcCenterX = (int) (w / 2.f);
         Log.d(TAG, "onSizeChanged: w = " + w + "; h = " + h + "; oldw = " + oldw + "; oldh = " + oldh);
         // 求圆弧和背景圆弧的最大宽度
-        float maxArcWidth = Math.max(mArcWidth,mBgArcWidth);
+        float maxArcWidth = Math.max(mArcWidth, mBgArcWidth);
         // 求最小值作为实际值
         int minSize = Math.min(w - getPaddingLeft() - getPaddingRight() - 2 * (int) maxArcWidth,
                 h - getPaddingTop() - getPaddingBottom() - 2 * (int) maxArcWidth);
@@ -287,7 +289,7 @@ public class CircleProgress extends View {
         drawText(canvas);
     }
 
-    private void drawArc(Canvas canvas){
+    private void drawArc(Canvas canvas) {
         // 从进度圆弧结束的地方开始重新绘制，优化性能
         canvas.save();
 
@@ -379,32 +381,33 @@ public class CircleProgress extends View {
     /**
      * 重置
      */
-    public void reset(){
-        startAnimator(mPercent,0.0f,1000L);
+    public void reset() {
+        startAnimator(mPercent, 0.0f, 1000L);
     }
 
     /**
      * 设置当前值
+     *
      * @param value
      */
     public void setValue(float value) {
-        if(value > mMaxValue){
+        if (value > mMaxValue) {
             value = mMaxValue;
         }
         float start = mPercent;
         float end = value / mMaxValue;
-        startAnimator(start,end,mAnimTime);
+        startAnimator(start, end, mAnimTime);
     }
 
-    private void startAnimator(float start,float end,long animTime){
-        mAnimator = ValueAnimator.ofFloat(start,end);
+    private void startAnimator(float start, float end, long animTime) {
+        mAnimator = ValueAnimator.ofFloat(start, end);
         mAnimator.setDuration(animTime);
         mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 mPercent = (float) animation.getAnimatedValue();
                 mValue = mPercent * mMaxValue;
-                if(BuildConfig.DEBUG){
+                if (BuildConfig.DEBUG) {
                     Log.d(TAG, "onAnimationUpdate: percent = " + mPercent
                             + ";currentAngle = " + (mSweepAngle * mPercent)
                             + ";value = " + mValue);
@@ -417,6 +420,7 @@ public class CircleProgress extends View {
 
     /**
      * 获取数值精度格式化字符串
+     *
      * @param precision
      * @return
      */
