@@ -93,6 +93,9 @@ Library中部分控件来自HenCoder plus 3期课程内容，HenCoder是一个�
 1. [ColorMatrix](https://github.com/faith-hb/WidgetCase/blob/master/app/src/main/java/com/doyou/cvc/release/colorfilter/ColorMatrixActivity.kt)
 2. [ColorHue](https://github.com/faith-hb/WidgetCase/blob/master/app/src/main/java/com/doyou/cvc/release/colorfilter/ColorHueActivity.kt)
 
+##### 时间刻度尺（支持缩放）
+1.[TimeRulerView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/timeruler/TimeRulerView.java)
+
 #### Download
 
 Step 1.
