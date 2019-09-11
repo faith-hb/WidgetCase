@@ -92,7 +92,7 @@ in this look forward to more like-minded code friends to join, we work together 
 2. [ColorHue](https://github.com/faith-hb/WidgetCase/blob/master/app/src/main/java/com/doyou/cvc/release/colorfilter/ColorHueActivity.kt)
 
 ##### Time Ruler
-1.[TimeRulerView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/timeruler/TimeRulerView.java)
+[TimeRulerView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/timeruler/TimeRulerView.java)
 
 #### Download
 
