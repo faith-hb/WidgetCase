@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--时间刻度缩放View-->
+    <declare-styleable name="TimeRulerPickScaleView">
+        <attr name="maxTotalTimePerCell" format="float|reference"/>
+        <attr name="minTotalTimePerCell" format="float|reference"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.doyou.cvc.release.timeruler.TimeRulerActivity">
+
+    <com.doyou.cv.widget.timeruler.TimeRulerView
+        android:id="@+id/ruler_id_timeRulerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        app:bottomLineColor="#D7D7D7"
+        app:bottomLineStrokeWidth="1dp"
+        app:contentHeight="@dimen/timerulerview_contentheight"
+        app:middleLineColor="#50AC37"
+        app:scaleColor="#D7D7D7"
+        app:scaleLineStrokeWidth="1dp"
+        app:selectBackgroundColor="#E2FCD9"
+        app:showtimeHeight="@dimen/timerulerview_showtimeheight"
+        app:textColors="#626262"
+        app:textFontSize="10sp"
+        app:topLineColor="#D7D7D7"
+        app:topLineStrokeWidth="1dp"
+        app:widthPerScale="35dp" /><!--app:totalTimePerCell="halfHour"-->
+
+    <FrameLayout
+        android:id="@+id/ruler_id_timerulerpick"
+        android:layout_width="24dp"
+        android:layout_height="144dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="14dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/timerulerpick_bg" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@mipmap/timerulerview_plus" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="bottom"
+            android:src="@mipmap/timerulerview_minus" />
+
+        <com.doyou.cvc.release.timeruler.TimeRulerPickScaleView
+            android:id="@+id/ruler_id_timeRulerPickView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/ruler_id_timeRulerView"/>
+
+
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time_tv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="重置"/>
+
+</RelativeLayout>

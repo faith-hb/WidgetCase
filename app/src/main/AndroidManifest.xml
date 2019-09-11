@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.doyou.cvc">
+    package="com.doyou.cvc">
 
     <application
         android:name=".release.WidgetApplication"
@@ -14,34 +14,35 @@
             android:name=".release.MenuMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".release.ImgTxtMixtureActivity"/>
-        <activity android:name=".release.RingViewActivity"/>
-        <activity android:name=".release.taperchart.TaperChartActivity"/>
-        <activity android:name=".release.taperchart.ContrastActivity"/>
-        <activity android:name=".release.taperchart.ScrollTaperChartActivity"/>
-        <activity android:name=".release.GradientLineActivity"/>
-        <activity android:name=".release.LegendRingViewActivity"/>
-        <activity android:name=".release.CircleProgressBarViewActivity"/>
-        <activity android:name=".release.ShadowProBarActivity"/>
-        <activity android:name=".release.GradientProBarScaleActivity"/>
-        <activity android:name=".release.HalfCircleProViewActivity"/>
-        <activity android:name=".release.MatrixViewActivity"/>
-        <activity android:name=".release.GradientProBarActivity"/>
-        <activity android:name=".release.ringview.DoubleTxtActivity"/>
-        <activity android:name=".release.ringview.LegendActivity"/>
-        <activity android:name=".release.HorScrollSelecteViewActivity"/>
-        <activity android:name=".release.HorProBarActivity"/>
-        <activity android:name=".release.SectionProBarActivity"/>
-        <activity android:name=".release.WaveViewActivity"/>
+        <activity android:name=".release.ImgTxtMixtureActivity" />
+        <activity android:name=".release.RingViewActivity" />
+        <activity android:name=".release.taperchart.TaperChartActivity" />
+        <activity android:name=".release.taperchart.ContrastActivity" />
+        <activity android:name=".release.taperchart.ScrollTaperChartActivity" />
+        <activity android:name=".release.GradientLineActivity" />
+        <activity android:name=".release.LegendRingViewActivity" />
+        <activity android:name=".release.CircleProgressBarViewActivity" />
+        <activity android:name=".release.ShadowProBarActivity" />
+        <activity android:name=".release.GradientProBarScaleActivity" />
+        <activity android:name=".release.HalfCircleProViewActivity" />
+        <activity android:name=".release.MatrixViewActivity" />
+        <activity android:name=".release.GradientProBarActivity" />
+        <activity android:name=".release.ringview.DoubleTxtActivity" />
+        <activity android:name=".release.ringview.LegendActivity" />
+        <activity android:name=".release.HorScrollSelecteViewActivity" />
+        <activity android:name=".release.HorProBarActivity" />
+        <activity android:name=".release.SectionProBarActivity" />
+        <activity android:name=".release.WaveViewActivity" />
         <activity android:name=".release.colorfilter.ColorMainActivity" />
-        <activity android:name=".release.colorfilter.ColorMatrixActivity"/>
-        <activity android:name=".release.colorfilter.ColorHueActivity"/>
+        <activity android:name=".release.colorfilter.ColorMatrixActivity" />
+        <activity android:name=".release.colorfilter.ColorHueActivity" />
         <activity android:name=".release.touch.RefreshViewActivity" />
+        <activity android:name=".release.timeruler.TimeRulerActivity"/>
     </application>
 
 </manifest>

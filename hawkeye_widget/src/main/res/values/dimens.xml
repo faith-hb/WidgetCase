@@ -4,4 +4,16 @@
     <dimen name="taper_chart_height">240dp</dimen>
     <!--峰值图字体大小-->
     <dimen name="taper_text_size">10sp</dimen>
+
+    <!--时间刻度选择器-->
+    <dimen name="timerulerview_height">60dp</dimen>
+    <dimen name="timerulerview_showtimewidth">48dp</dimen>
+    <dimen name="timerulerview_showtimeheight">28dp</dimen>
+    <dimen name="timerulerview_showtime_marginbottom">1dp</dimen>
+    <dimen name="timerulerview_showtime_corner">2dp</dimen>
+    <dimen name="timerulerview_showtime_textsize">14sp</dimen>
+    <dimen name="timerulerview_contentheight">36dp</dimen>
+    <dimen name="timerulerview_arrowheight">6dp</dimen>
+    <dimen name="timerulerview_arrowheight_margin">1dp</dimen>
+    <dimen name="timerulerview_scaleheight">5dp</dimen>
 </resources>

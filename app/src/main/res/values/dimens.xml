@@ -14,4 +14,8 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <dimen name="timerulerpick_width">24dp</dimen>
+    <dimen name="timerulerpick_height">144dp</dimen>
+    <dimen name="timerulerpick_cornerwidth">20dp</dimen>
+    <dimen name="timerulerpick_edgewidth">2px</dimen>
 </resources>

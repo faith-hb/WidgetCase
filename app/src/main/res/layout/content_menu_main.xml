@@ -120,6 +120,11 @@
                 style="@style/TextViewStyle"
                 android:text="RefreshView"/>
 
+            <TextView
+                android:id="@+id/timeRulerTv"
+                style="@style/TextViewStyle"
+                android:text="TimeRulerView"/>
+
         </com.google.android.flexbox.FlexboxLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

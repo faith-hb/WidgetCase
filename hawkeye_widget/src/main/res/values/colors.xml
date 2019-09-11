@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="txt_black">#2A2A2A</color>
+
+    <color name="ruler_line_color">#9E9E9E</color>
+    <color name="ruler_text_color">#909090</color>
+    <color name="ruler_indicator_color">#E64D14</color>
+
+
+    <color name="timeruler_showtime_bg_color">#000000</color>
+    <color name="timeruler_showtime_text_color">#E6FFFFFF</color>
 </resources>

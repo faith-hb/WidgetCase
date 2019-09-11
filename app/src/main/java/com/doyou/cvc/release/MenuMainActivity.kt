@@ -15,6 +15,7 @@ import com.doyou.cvc.R
 import com.doyou.cvc.release.colorfilter.ColorMainActivity
 import com.doyou.cvc.release.taperchart.ScrollTaperChartActivity
 import com.doyou.cvc.release.taperchart.TaperChartActivity
+import com.doyou.cvc.release.timeruler.TimeRulerActivity
 import com.doyou.cvc.release.touch.RefreshViewActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -72,6 +73,7 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
         waveTv.setOnClickListener(this)
         colorMainTv.setOnClickListener(this)
         refreshTv.setOnClickListener(this)
+        timeRulerTv.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -126,6 +128,9 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
             }
             R.id.refreshTv -> {
                 DispatchManager.showAct(this, RefreshViewActivity::class.java)
+            }
+            R.id.timeRulerTv -> {
+                DispatchManager.showAct(this, TimeRulerActivity::class.java)
             }
         }
     }
