@@ -1,5 +1,8 @@
 package com.doyou.cvc.release
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -10,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.dongni.tools.EmptyUtils
+import com.dongni.tools.ToastUtils
 import com.doyou.cvc.DispatchManager
 import com.doyou.cvc.R
 import com.doyou.cvc.release.colorfilter.ColorMainActivity
@@ -74,6 +79,14 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
         colorMainTv.setOnClickListener(this)
         refreshTv.setOnClickListener(this)
         timeRulerTv.setOnClickListener(this)
+    }
+
+    private fun copyContent(str:String?){
+        if (EmptyUtils.isNotEmpty(str)){
+            var cm = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            var clipData = ClipData.newPlainText("Label",str)
+            cm.primaryClip = clipData
+        }
     }
 
     override fun onClick(v: View?) {
@@ -176,14 +189,17 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
 //
 //            }
             R.id.nav_share -> {
-
+                ToastUtils.showShortToast(this,"敬请期待...")
             }
-            R.id.nav_send -> {
-
+            R.id.nav_github -> {
+                copyContent("https://github.com/faith-hb/WidgetCase")
+                ToastUtils.showShortToast(this, "开源库地址已复制")
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
+
+
 }

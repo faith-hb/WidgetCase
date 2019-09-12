@@ -3,6 +3,7 @@ apply plugin: 'com.android.library'
 android {
 
     compileSdkVersion setup.compileSdk
+    buildToolsVersion = setup.buildTools
 
     defaultConfig {
         minSdkVersion setup.minSdk
@@ -29,17 +30,19 @@ android {
         targetCompatibility = '1.8'
     }
 
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "androidx.appcompat:appcompat:${versions.appcompat}"
+    implementation "androidx.annotation:annotation:${versions.appcompat}"
     implementation 'com.google.android.material:material:1.0.0'
     implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation "com.faithhb:toolslib:${outer.toolslib}"
 }
