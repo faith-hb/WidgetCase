@@ -40,6 +40,9 @@ Library中部分控件来自HenCoder plus 3期课程内容，HenCoder是一个�
 #####  图片滤镜>>>[ColorMatrixActivity & ColorHueActivity]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/colormartix.gif)
 
+#####  时间刻度尺（支持缩放）>>>[TimeRulerView]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/timerulerview.gif)
+
 #### 自定义控件分布如下
 
 ##### 峰值图
