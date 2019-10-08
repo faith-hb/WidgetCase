@@ -99,7 +99,7 @@ Library中部分控件来自HenCoder plus 3期课程内容，HenCoder是一个�
 ##### 时间刻度尺（支持缩放）
 [TimeRulerView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/timeruler/TimeRulerView.java)
 
-##### 时间刻度尺（支持缩放）
+##### 圆形按钮（跟随设备一起旋转，实时监控旋转方向）
 [CircleButton](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/view/CircleButton.java)
 
 #### Download
