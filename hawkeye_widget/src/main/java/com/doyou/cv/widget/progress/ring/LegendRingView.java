@@ -1,4 +1,4 @@
-package com.doyou.cv.widget.ring;
+package com.doyou.cv.widget.progress.ring;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -17,7 +17,7 @@ import com.doyou.cv.bean.CircleBean;
 import com.doyou.cv.utils.Utils;
 import com.doyou.cv.widget.PointView;
 import com.doyou.cv.widget.base.CircleCenterStyle;
-import com.doyou.cv.widget.circle.CircleView;
+import com.doyou.cv.widget.progress.circle.CircleView;
 
 import java.util.List;
 

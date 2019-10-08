@@ -6,7 +6,7 @@
              android:layout_height="match_parent"
              tools:context=".release.SectionProBarActivity">
 
-    <com.doyou.cv.widget.horbar.SectionProBar
+    <com.doyou.cv.widget.progress.horbar.SectionProBar
         android:id="@+id/horbarV"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="match_parent"

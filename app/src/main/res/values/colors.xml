@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="testBg">#FFCCCCCC</color>
+
+    <color name="bg_disabled_color">#4d000000</color>
+    <color name="bg_normal_color">#26d650</color>
+    <color name="bg_pressed_color">#80fc3c40</color>
+    <color name="default_bg_normal_color">#00000000</color>
 </resources>

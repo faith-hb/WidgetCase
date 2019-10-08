@@ -7,14 +7,14 @@
     android:orientation="vertical"
     tools:context=".release.ShadowProBarActivity">
 
-    <com.doyou.cv.widget.horbar.HorProBar
+    <com.doyou.cv.widget.progress.horbar.HorProBar
         android:id="@+id/hbBar1"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="24dp" />
 
-    <com.doyou.cv.widget.horbar.HorProBar
+    <com.doyou.cv.widget.progress.horbar.HorProBar
         android:id="@+id/hbBar2"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         app:pro_height="5dp"
         android:layout_marginTop="24dp" />
 
-    <com.doyou.cv.widget.horbar.HorProBar
+    <com.doyou.cv.widget.progress.horbar.HorProBar
         android:id="@+id/hbBar3"
         android:layout_width="130dp"
         android:layout_height="wrap_content"

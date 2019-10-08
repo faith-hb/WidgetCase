@@ -13,7 +13,7 @@
         tools:context=".release.ringview.LegendActivity">
 
         <!--android:background="#ccc"-->
-        <com.doyou.cv.widget.ring.RingView
+        <com.doyou.cv.widget.progress.ring.RingView
             android:id="@+id/legendRv"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"

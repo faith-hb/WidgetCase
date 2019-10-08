@@ -43,6 +43,7 @@
         <activity android:name=".release.colorfilter.ColorHueActivity" />
         <activity android:name=".release.touch.RefreshViewActivity" />
         <activity android:name=".release.timeruler.TimeRulerActivity"/>
+        <activity android:name=".release.CircleBtnActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

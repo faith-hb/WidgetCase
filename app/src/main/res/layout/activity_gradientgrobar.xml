@@ -14,7 +14,7 @@
         tools:context=".release.GradientProBarActivity">
 
 
-        <com.doyou.cv.widget.circle.CircleProgress
+        <com.doyou.cv.widget.progress.circle.CircleProgress
             android:id="@+id/circlePro"
             android:layout_width="250dp"
             android:layout_height="250dp"

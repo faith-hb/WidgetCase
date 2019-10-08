@@ -13,7 +13,7 @@
         android:layout_marginTop="24dp"
         tools:context=".release.GradientProBarActivity">
 
-        <com.doyou.cv.widget.circle.GradientProBar
+        <com.doyou.cv.widget.progress.circle.GradientProBar
             android:id="@+id/gpb"
             android:layout_width="340dp"
             android:layout_height="340dp"

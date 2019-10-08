@@ -79,6 +79,7 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
         colorMainTv.setOnClickListener(this)
         refreshTv.setOnClickListener(this)
         timeRulerTv.setOnClickListener(this)
+        circleBtnTv.setOnClickListener(this)
     }
 
     private fun copyContent(str:String?){
@@ -144,6 +145,9 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
             }
             R.id.timeRulerTv -> {
                 DispatchManager.showAct(this, TimeRulerActivity::class.java)
+            }
+            R.id.circleBtnTv -> {
+                DispatchManager.showAct(this, CircleBtnActivity::class.java)
             }
         }
     }

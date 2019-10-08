@@ -1,4 +1,4 @@
-package com.doyou.cv.widget.circle;
+package com.doyou.cv.widget.progress.circle;
 
 import android.animation.ValueAnimator;
 import android.content.Context;

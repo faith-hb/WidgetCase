@@ -1,4 +1,4 @@
-package com.doyou.cv.widget.horbar;
+package com.doyou.cv.widget.progress.horbar;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -1,4 +1,4 @@
-package com.doyou.cv.widget.horbar;
+package com.doyou.cv.widget.progress.horbar;
 
 import android.animation.ValueAnimator;
 import android.content.Context;

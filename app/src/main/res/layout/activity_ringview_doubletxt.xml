@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         tools:context=".release.RingViewActivity">
 
-        <com.doyou.cv.widget.ring.RingView
+        <com.doyou.cv.widget.progress.ring.RingView
             android:id="@+id/doubleTxtRv"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"

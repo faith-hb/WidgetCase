@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         tools:context=".release.RingViewActivity">
 
-        <com.doyou.cv.widget.ring.RingView
+        <com.doyou.cv.widget.progress.ring.RingView
             android:id="@+id/ringv"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             app:rv_unReachedColor="@color/colorPrimary"
             app:rv_unReachedHeight="6dp"/>
 
-        <com.doyou.cv.widget.ring.RingView
+        <com.doyou.cv.widget.progress.ring.RingView
             android:id="@+id/ringv1"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
@@ -50,7 +50,7 @@
             app:rv_unReachedColor="@color/colorPrimary"
             app:rv_unReachedHeight="6dp"/>
 
-        <com.doyou.cv.widget.ring.RingView
+        <com.doyou.cv.widget.progress.ring.RingView
             android:id="@+id/ringv2"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
@@ -74,7 +74,7 @@
             app:rv_unReachedColor="@color/colorPrimary"
             app:rv_unReachedHeight="6dp"/>
 
-        <com.doyou.cv.widget.ring.RingView
+        <com.doyou.cv.widget.progress.ring.RingView
             android:id="@+id/ringv3"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
@@ -100,7 +100,7 @@
             app:rv_unReachedColor="@android:color/white"
             app:rv_unReachedHeight="6dp"/>
 
-        <com.doyou.cv.widget.ring.RingView
+        <com.doyou.cv.widget.progress.ring.RingView
             android:id="@+id/ringv4"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"

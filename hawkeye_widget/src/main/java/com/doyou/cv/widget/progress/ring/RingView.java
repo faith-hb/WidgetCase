@@ -1,4 +1,4 @@
-package com.doyou.cv.widget.ring;
+package com.doyou.cv.widget.progress.ring;
 
 import android.content.Context;
 import android.content.res.TypedArray;

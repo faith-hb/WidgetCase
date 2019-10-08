@@ -6,7 +6,7 @@
               android:orientation="vertical">
 
     <!--android:background="#FF4081"-->
-    <com.doyou.cv.widget.circle.CircleView
+    <com.doyou.cv.widget.progress.circle.CircleView
         android:id="@+id/circle_view"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="match_parent"

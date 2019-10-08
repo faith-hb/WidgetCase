@@ -14,7 +14,7 @@
         tools:context=".release.LegendRingViewActivity">
 
         <!--android:background="@color/colorAccent"-->
-        <com.doyou.cv.widget.circle.CircleView
+        <com.doyou.cv.widget.progress.circle.CircleView
             android:id="@+id/lrv_one"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             app:cv_center_txt_color="#2a2a2a"
             app:cv_center_txt_size="14sp"/>
 
-        <com.doyou.cv.widget.circle.CircleView
+        <com.doyou.cv.widget.progress.circle.CircleView
             android:id="@+id/lrv_two"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
             app:cv_center_txt_color="#2a2a2a"
             app:cv_center_txt_size="14sp"/>
 
-        <com.doyou.cv.widget.ring.LegendRingView
+        <com.doyou.cv.widget.progress.ring.LegendRingView
             android:id="@+id/lrv_three"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
             android:layout_marginRight="7dp"
             android:layout_marginTop="24dp">
 
-            <com.doyou.cv.widget.ring.LegendRingView
+            <com.doyou.cv.widget.progress.ring.LegendRingView
                 android:id="@+id/lrv_left"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                 app:lrv_legend_vertical_margin="6dp"
                 app:lrv_offset_left="6dp"/>
 
-            <com.doyou.cv.widget.ring.LegendRingView
+            <com.doyou.cv.widget.progress.ring.LegendRingView
                 android:id="@+id/lrv_right"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

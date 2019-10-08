@@ -125,6 +125,11 @@
                 style="@style/TextViewStyle"
                 android:text="TimeRulerView"/>
 
+            <TextView
+                android:id="@+id/circleBtnTv"
+                style="@style/TextViewStyle"
+                android:text="CircleButton"/>
+
         </com.google.android.flexbox.FlexboxLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
