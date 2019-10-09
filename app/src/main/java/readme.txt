@@ -9,3 +9,9 @@ kotlin
 
 Android x 原始支持库 API 软件包映射到 androidx 命名空间：
 * https://developer.android.com/jetpack/androidx/migrate?hl=zh-cn
+
+视频转GIF：
+
+保存配置：
+1、图片大小：360*782
+2、播放速度：10帧/每秒
