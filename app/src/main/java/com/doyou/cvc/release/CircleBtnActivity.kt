@@ -45,7 +45,7 @@ class CircleBtnActivity : AppCompatActivity(),OrientationListener.Callback {
     }
 
     override fun orientationChanged(orientation: Int, previousOrientation: Int) {
-        Common.log_d("旋转", "orientationChanged")
+        Common.log_d("回调", "orientationChanged:orientation = $orientation->previousOrientation = $previousOrientation")
         updateButtons(orientation)
     }
 
