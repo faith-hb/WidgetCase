@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply from: 'signConfig.gradle'
+
+println "测试打印...${widgetcase.keyAlias}"
 
 android {
     compileSdkVersion setup.compileSdk
@@ -20,6 +23,7 @@ android {
         targetCompatibility = '1.8'
     }
 
+
     signingConfigs {
         autoSigning {
             // 加载properties
@@ -32,10 +36,10 @@ android {
 //            storeFile file('../widgetcase')
 //            storePassword properties.getProperty('certificates.password')
 
-            keyAlias 'widgetcase'
-            keyPassword '2019888'
-            storeFile file('../widgetcase')
-            storePassword '2019888'
+            keyAlias widgetcase.keyAlias
+            keyPassword widgetcase.signPwd
+            storeFile file(widgetcase.keyStoreFileDir)
+            storePassword widgetcase.signPwd
         }
     }
 
@@ -87,4 +91,8 @@ dependencies {
     // aar中依赖的库，主项目也必须依赖，因为aar中依赖的库不会被打进aar包中
 //    implementation 'com.github:widgetcase:1.0.2'
 //    implementation(name: 'hawkeye_widget-release', ext: 'aar')
+}
+
+task ended {
+    println 'thank you very much'
 }

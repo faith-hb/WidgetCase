@@ -1,0 +1,9 @@
+// 引用自定义插件
+apply plugin: 'com.doyou.widgetcase'
+// 配置插件属性
+widgetcase {
+    keyAlias 'widgetcase'
+    signPwd '2019888'
+    keyStoreFileDir '../widgetcase'
+}
+
