@@ -130,6 +130,11 @@
                 style="@style/TextViewStyle"
                 android:text="CircleButton"/>
 
+            <TextView
+                android:id="@+id/ctmSvTv"
+                style="@style/TextViewStyle"
+                android:text="CustomScrollView"/>
+
         </com.google.android.flexbox.FlexboxLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

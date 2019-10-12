@@ -21,6 +21,7 @@ import com.doyou.cvc.release.colorfilter.ColorMainActivity
 import com.doyou.cvc.release.taperchart.ScrollTaperChartActivity
 import com.doyou.cvc.release.taperchart.TaperChartActivity
 import com.doyou.cvc.release.timeruler.TimeRulerActivity
+import com.doyou.cvc.release.touch.CustomScrollViewActivity
 import com.doyou.cvc.release.touch.RefreshViewActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -80,6 +81,7 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
         refreshTv.setOnClickListener(this)
         timeRulerTv.setOnClickListener(this)
         circleBtnTv.setOnClickListener(this)
+        ctmSvTv.setOnClickListener(this)
     }
 
     private fun copyContent(str:String?){
@@ -148,6 +150,9 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
             }
             R.id.circleBtnTv -> {
                 DispatchManager.showAct(this, CircleBtnActivity::class.java)
+            }
+            R.id.ctmSvTv -> {
+                DispatchManager.showAct(this, CustomScrollViewActivity::class.java)
             }
         }
     }

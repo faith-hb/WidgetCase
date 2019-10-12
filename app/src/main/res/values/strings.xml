@@ -28,6 +28,7 @@
     <string name="title_refresh_view">RefreshView</string>
     <string name="title_timeruler_view">TimeRulerView</string>
     <string name="title_circlebutton_view">CircleButton</string>
+    <string name="title_customscrollview_view">CustomScrollView</string>
 
 
     <string name="title_activity_menu_main">MenuMainActivity</string>

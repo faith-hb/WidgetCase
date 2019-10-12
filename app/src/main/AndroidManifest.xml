@@ -44,6 +44,7 @@
         <activity android:name=".release.touch.RefreshViewActivity" />
         <activity android:name=".release.timeruler.TimeRulerActivity"/>
         <activity android:name=".release.CircleBtnActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".release.touch.CustomScrollViewActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

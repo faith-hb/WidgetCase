@@ -1,8 +1,10 @@
 package com.doyou.cv.utils;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.DisplayMetrics;
 import android.util.Log;
 
 import com.doyou.cv.BuildConfig;
@@ -67,5 +69,15 @@ public final class Utils {
         options.inDensity = options.outWidth;
         options.inTargetDensity = width;
         return BitmapFactory.decodeResource(resources,resId,options);
+    }
+
+    /**
+     * 获取屏幕宽高
+     * @param context
+     * @return int[]
+     */
+    public static int[] getScreenWH(Context context) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return new int[]{metrics.widthPixels, metrics.heightPixels};
     }
 }
