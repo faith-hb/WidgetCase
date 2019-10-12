@@ -3,7 +3,7 @@
 <!--https://shields.io/-->
 <!--[![auc][aucsvg]][auc] [![api][apisvg]][api] [![License][licensesvg]][license]-->
 
-[![](https://img.shields.io/badge/widget-1.1.3-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-5.1.1-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
+[![](https://img.shields.io/badge/widget-1.1.5-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-5.1.1-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
 
 > [English Introduction](https://github.com/faith-hb/WidgetCase/blob/master/README_EN.md)
 
