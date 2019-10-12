@@ -106,7 +106,7 @@ Library中部分控件来自HenCoder plus 3期课程内容，HenCoder是一个�
 [CircleButton](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/view/CircleButton.java)
 
 ##### 自定义滑动控件（支持多指，支持惯性滑动，支持自定义滚动条）
-[CircleButton](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/touch/CustomScrollView.java)
+[CustomScrollView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/touch/CustomScrollView.java)
 
 #### Download
 
