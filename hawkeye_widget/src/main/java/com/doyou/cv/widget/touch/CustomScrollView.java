@@ -89,7 +89,7 @@ public class CustomScrollView extends ViewGroup {
         mTouchSlop = vc.getScaledTouchSlop();
         mMinFlingVelocity = vc.getScaledMinimumFlingVelocity();
         mMaxFlingVelocity = vc.getScaledMaximumFlingVelocity();
-        Common.log_d("init", "滑动阈值：" + mTouchSlop + "-->最小滑动速率 = " + mMinFlingVelocity + "-->最大滑动速率 = " + mMaxFlingVelocity);
+        Common.log_d("init", "滑动阈值：" + mTouchSlop + "-->最小滑动速度 = " + mMinFlingVelocity + "-->最大滑动速度 = " + mMaxFlingVelocity);
     }
 
     @Override
@@ -104,6 +104,10 @@ public class CustomScrollView extends ViewGroup {
         super.onDetachedFromWindow();
         if(mFlinger != null){
             mFlinger.stop();
+        }
+        if(mVelocityTracker != null){
+            mVelocityTracker.recycle();
+            mVelocityTracker = null;
         }
     }
 
@@ -125,7 +129,7 @@ public class CustomScrollView extends ViewGroup {
                 mWidth = right;
             }
 
-            // 生成测试视图
+            // 生成测试内容
             TextView tv = new TextView(mContext);
             if (i % 2 == 0) {
                 tv.setBackgroundColor(Color.BLUE);
@@ -145,6 +149,7 @@ public class CustomScrollView extends ViewGroup {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (mVelocityTracker == null) {
+            // 获取速度追踪器实例
             mVelocityTracker = VelocityTracker.obtain();
         }
         boolean eventAddedToVelocityTracker = false;
@@ -170,6 +175,7 @@ public class CustomScrollView extends ViewGroup {
                 break;
             }
             case MotionEvent.ACTION_MOVE: {
+                // 获取最新手指的索引
                 final int index = event.findPointerIndex(mScrollPointerId); /////
                 if (index < 0) {
                     Common.log_e("onTouchEvent", "检测不到手指...");
@@ -200,6 +206,7 @@ public class CustomScrollView extends ViewGroup {
                 break;
             }
             case MotionEvent.ACTION_POINTER_UP: {
+                // 离开的是正在操作的手指，将操作值转移到新的手指上
                 if (event.getPointerId(actionIndex) == mScrollPointerId) {
                     // 接受新的手指
                     final int newIndex = actionIndex == 0 ? 1 : 0;
@@ -209,8 +216,10 @@ public class CustomScrollView extends ViewGroup {
                 break;
             }
             case MotionEvent.ACTION_UP: {
+                // 添加事件到追踪器
                 mVelocityTracker.addMovement(vEvent);
                 eventAddedToVelocityTracker = true;
+                // 确定速度
                 mVelocityTracker.computeCurrentVelocity(1000, mMaxFlingVelocity);
                 float yVelocity = -VelocityTrackerCompat.getYVelocity(mVelocityTracker, mScrollPointerId);
                 if (Math.abs(yVelocity) < mMinFlingVelocity) {
@@ -225,6 +234,7 @@ public class CustomScrollView extends ViewGroup {
                 } else {
                     mScrollState = SCROLL_STATE_IDLE;
                 }
+                // 清理追踪器
                 resetTouch();
                 break;
             }
@@ -308,12 +318,9 @@ public class CustomScrollView extends ViewGroup {
     }
 
     // 自定义动画插值器 f(x) = (x-1)^5 + 1
-    private static final Interpolator interpolator = new Interpolator() {
-        @Override
-        public float getInterpolation(float input) {
-            input -= 1.0f;
-            return input * input * input * input * input + 1.0f;
-        }
+    private static final Interpolator interpolator = input -> {
+        input -= 1.0f;
+        return input * input * input * input * input + 1.0f;
     };
 
     private class ViewFlinger implements Runnable {
