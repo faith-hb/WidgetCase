@@ -24,7 +24,7 @@ import androidx.core.view.ViewCompat;
  * @autor hongbing
  * @date 2019-10-12
  */
-public class CustomScrollView extends ViewGroup {
+public class CustomScrollViewTest extends ViewGroup {
 
     public static final int MOCK_ITEM_COUNT = 20;
 
@@ -65,15 +65,15 @@ public class CustomScrollView extends ViewGroup {
     private int mMaxFlingVelocity;
     private ViewFlinger mFlinger = new ViewFlinger();
 
-    public CustomScrollView(Context context) {
+    public CustomScrollViewTest(Context context) {
         this(context, null);
     }
 
-    public CustomScrollView(Context context, AttributeSet attrs) {
+    public CustomScrollViewTest(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CustomScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomScrollViewTest(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.init(context);
         setWillNotDraw(false); // 进度条不能跟随滑动，需要配置这个方法
@@ -89,7 +89,7 @@ public class CustomScrollView extends ViewGroup {
         mTouchSlop = vc.getScaledTouchSlop();
         mMinFlingVelocity = vc.getScaledMinimumFlingVelocity();
         mMaxFlingVelocity = vc.getScaledMaximumFlingVelocity();
-        Common.log_d("init", "滑动阈值：" + mTouchSlop + "-->最小滑动速度 = " + mMinFlingVelocity + "-->最大滑动速度 = " + mMaxFlingVelocity);
+        Common.log_d("init", "滑动阈值：" + mTouchSlop + "-->最小滑动速度度 = " + mMinFlingVelocity + "-->最大滑动速度 = " + mMaxFlingVelocity);
     }
 
     @Override
@@ -104,10 +104,6 @@ public class CustomScrollView extends ViewGroup {
         super.onDetachedFromWindow();
         if(mFlinger != null){
             mFlinger.stop();
-        }
-        if(mVelocityTracker != null){
-            mVelocityTracker.recycle();
-            mVelocityTracker = null;
         }
     }
 
@@ -148,7 +144,7 @@ public class CustomScrollView extends ViewGroup {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (mVelocityTracker == null) {
+        if(mVelocityTracker == null){
             // 获取速度追踪器实例
             mVelocityTracker = VelocityTracker.obtain();
         }
@@ -160,28 +156,25 @@ public class CustomScrollView extends ViewGroup {
         final int action = MotionEventCompat.getActionMasked(event);
         // 手指在集合中的索引值
         final int actionIndex = MotionEventCompat.getActionIndex(event);
-        Common.log_d("onTouchEvent", "action = " + action + "->actionIndex = " + actionIndex);
-
         switch (action) {
             case MotionEvent.ACTION_DOWN: {
-                setScrollState(SCROLL_STATE_IDLE);
+                mScrollState = SCROLL_STATE_IDLE;
                 mScrollPointerId = event.getPointerId(0);
                 mLastTouchY = (int) (event.getY() + 0.5f);
                 break;
             }
-            case MotionEvent.ACTION_POINTER_DOWN: {
+            case MotionEvent.ACTION_POINTER_DOWN:{
                 mScrollPointerId = event.getPointerId(actionIndex);
                 mLastTouchY = (int) (event.getY(actionIndex) + 0.5f);
                 break;
             }
             case MotionEvent.ACTION_MOVE: {
                 // 获取最新手指的索引
-                final int index = event.findPointerIndex(mScrollPointerId); /////
+                final int index = event.findPointerIndex(mScrollPointerId);
                 if (index < 0) {
                     Common.log_e("onTouchEvent", "检测不到手指...");
                     return false;
                 }
-
                 int y = (int) (event.getY(index) + 0.5f); //////
                 int dy = mLastTouchY - y;
                 if (mScrollState != SCROLL_STATE_DRAGGING) { // 判定不是滑动中，检测滑动距离是否满足滑动阈值及相关处理
@@ -195,17 +188,16 @@ public class CustomScrollView extends ViewGroup {
                         startScroll = true;
                     }
                     if (startScroll) {
-                        setScrollState(SCROLL_STATE_DRAGGING);
+                        mScrollState = SCROLL_STATE_DRAGGING;
                     }
                 }
                 if (mScrollState == SCROLL_STATE_DRAGGING) { // 滑动中
                     mLastTouchY = y;
-//                    scrollBy(0, dy);
-                    constrainScrollBy(0, dy);
+                    scrollBy(0, dy);
                 }
                 break;
             }
-            case MotionEvent.ACTION_POINTER_UP: {
+            case MotionEvent.ACTION_POINTER_UP:{
                 // 离开的是正在操作的手指，将操作值转移到新的手指上
                 if (event.getPointerId(actionIndex) == mScrollPointerId) {
                     // 接受新的手指
@@ -220,29 +212,28 @@ public class CustomScrollView extends ViewGroup {
                 mVelocityTracker.addMovement(vEvent);
                 eventAddedToVelocityTracker = true;
                 // 确定速度
-                mVelocityTracker.computeCurrentVelocity(1000, mMaxFlingVelocity);
-                float yVelocity = -VelocityTrackerCompat.getYVelocity(mVelocityTracker, mScrollPointerId);
+                mVelocityTracker.computeCurrentVelocity(1000,mMaxFlingVelocity);
+                // 获取速度值，此处速度设置成负数是因为scrollby的关系
+                float yVelocity = VelocityTrackerCompat.getYVelocity(mVelocityTracker,mScrollPointerId);
+                Common.log_d("yVelocity","yVelocity = " + yVelocity);
                 if (Math.abs(yVelocity) < mMinFlingVelocity) {
                     yVelocity = 0F;
                 } else {
-                    yVelocity = Math.max(-mMaxFlingVelocity, Math.min(yVelocity, mMaxFlingVelocity));
+                    yVelocity = Math.max(-mMaxFlingVelocity,Math.min(yVelocity,mMaxFlingVelocity));
                 }
-                Common.log_d("onTouchEvent", "速度值：" + yVelocity);
+                Common.log_d("yVelocity","计算后：yVelocity = " + yVelocity);
                 // 将速度反应到滑动上
-                if (yVelocity != 0) {
+                if(yVelocity != 0){
                     mFlinger.fling((int) yVelocity);
-                } else {
-                    setScrollState(SCROLL_STATE_IDLE);
+                }else{
+                    mScrollState = SCROLL_STATE_IDLE;
                 }
                 // 清理追踪器
                 resetTouch();
                 break;
             }
-            case MotionEvent.ACTION_CANCEL: { // 事件被不可抗拒因素打断，比如关机，来电等
-                resetTouch();
-            }
         }
-        if (!eventAddedToVelocityTracker) {
+        if(!eventAddedToVelocityTracker){
             mVelocityTracker.addMovement(vEvent);
         }
         vEvent.recycle();
@@ -272,16 +263,6 @@ public class CustomScrollView extends ViewGroup {
     private void resetTouch() {
         if (mVelocityTracker != null) {
             mVelocityTracker.clear();
-        }
-    }
-
-    private void setScrollState(int state) {
-        if (state == mScrollState) {
-            return;
-        }
-        mScrollState = state;
-        if (mScrollState != SCROLL_STATE_SETTLING) { // 状态不是快速滑动时，需要停止滑动
-            mFlinger.stop();
         }
     }
 
@@ -328,9 +309,12 @@ public class CustomScrollView extends ViewGroup {
     }
 
     // 自定义动画插值器 f(x) = (x-1)^5 + 1
-    private static final Interpolator interpolator = input -> {
-        input -= 1.0f;
-        return input * input * input * input * input + 1.0f;
+    private static final Interpolator interpolator = new Interpolator() {
+        @Override
+        public float getInterpolation(float input) {
+            input -= 1.0f;
+            return input * input * input * input * input + 1.0f;
+        }
     };
 
     private class ViewFlinger implements Runnable {
@@ -361,7 +345,7 @@ public class CustomScrollView extends ViewGroup {
 
         public void fling(int velocityY) {
             mLastFlingY = 0;
-            setScrollState(SCROLL_STATE_SETTLING);
+            mScrollState = SCROLL_STATE_SETTLING;
             mScroller.fling(0, 0, 0, velocityY, Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
             postOnAnimation(); ///////
         }
@@ -388,7 +372,7 @@ public class CustomScrollView extends ViewGroup {
                 mReSchedulePostAnimationCallback = true;
             } else {
                 removeCallbacks(this);
-                ViewCompat.postOnAnimation(CustomScrollView.this, this);
+                ViewCompat.postOnAnimation(CustomScrollViewTest.this, this);
             }
         }
     }
