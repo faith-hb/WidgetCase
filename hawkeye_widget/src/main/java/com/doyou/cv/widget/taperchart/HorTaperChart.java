@@ -1,6 +1,5 @@
 package com.doyou.cv.widget.taperchart;
 
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -12,11 +11,12 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Region;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
+import android.view.animation.Interpolator;
+import android.widget.OverScroller;
 
 import com.dongni.tools.Common;
 import com.dongni.tools.DensityUtil;
@@ -119,10 +119,27 @@ public class HorTaperChart extends View {
     // x轴标签总数
     private int mXAxisCount = 0;
 
+    // 手势相关
+    /**
+     * 手势状态：默认
+     */
+    public static final int SCROLL_STATE_IDLE = 0;
+    /**
+     * 手势状态：滑动中
+     */
+    public static final int SCROLL_STATE_DRAGGING = 1;
+    /**
+     * 手势状态：惯性滑动中
+     */
+    public static final int SCROLL_STATE_SETTING = 2;
+    private int mScrollState = SCROLL_STATE_IDLE;
+
     // 滚动控制器
-//    private Scroller mScroller;
     private VelocityTracker mVelocityTracker;
+    private int mMinFlingVelocity;
     private int mMaxFlingVelocity;
+    private OverScroller mScroller;
+    private int mLastFlingX;
 
     public HorTaperChart(Context context) {
         this(context, null);
@@ -142,6 +159,15 @@ public class HorTaperChart extends View {
         typedArray.recycle();
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (mVelocityTracker != null) {
+            mVelocityTracker.recycle();
+            mVelocityTracker = null;
+        }
+    }
+
     private void init(Context context) {
         mContext = context;
         mOffBtm = DensityUtil.dp2px(18);
@@ -149,9 +175,6 @@ public class HorTaperChart extends View {
         mInterSpace = DensityUtil.dp2px(24);
         mLabelWidth = DensityUtil.dp2px(98);
         mLeftAxisLabelMargin = DensityUtil.dp2px(4f);
-//        mScroller = new Scroller(mContext);
-        final ViewConfiguration vc = ViewConfiguration.get(mContext);
-        mMaxFlingVelocity = vc.getScaledMaximumFlingVelocity();
 
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setARGB(153, 255, 196, 0);
@@ -184,6 +207,12 @@ public class HorTaperChart extends View {
         mList = new ArrayList<>(6);
         mXValues = new ArrayList<>(6);
         mYValues = new ArrayList<>(6);
+
+        final ViewConfiguration vc = ViewConfiguration.get(mContext);
+        mMaxFlingVelocity = vc.getScaledMaximumFlingVelocity();
+        mMinFlingVelocity = vc.getScaledMinimumFlingVelocity();
+
+        mScroller = new OverScroller(getContext(), interpolator);
     }
 
     public void offSetXy(float xy) {
@@ -504,7 +533,7 @@ public class HorTaperChart extends View {
         }
         mCanvasW = canvas.getWidth();
         mCanvasH = canvas.getHeight();
-        Log.d("view的宽度-->onDraw", "canvasW = " + mCanvasW + "->canvasH = " + mCanvasH + "->mOffsetX = " + mOffsetX);
+        Common.log_d("view的宽度-->onDraw", "canvasW = " + mCanvasW + "->canvasH = " + mCanvasH + "->mOffsetX = " + mOffsetX);
 
         // 1.绘制坐标轴
         drawAxis(canvas);
@@ -530,14 +559,16 @@ public class HorTaperChart extends View {
 
     /**
      * 第一张图形的坐标值
+     *
      * @return
      */
-    private float getFirstTaperW(){
+    private float getFirstTaperW() {
         return mLabelWidth + mOffLeft;
     }
 
     /**
      * 最后一张图形的坐标值
+     *
      * @return
      */
     private float getEndTaperW() {
@@ -556,15 +587,13 @@ public class HorTaperChart extends View {
         boolean eventAddedToVelocityTracker = false;
         final MotionEvent vtev = MotionEvent.obtain(event);
         switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
-//                if (!mScroller.isFinished()) { // 如果上次的调用没有执行完就取消。
-//                    mScroller.abortAnimation();
-//                }
+            case MotionEvent.ACTION_DOWN: {
                 downX = event.getX();
                 downY = event.getY();
                 mTaperOffsetX = mOffsetX;
-                break;
-            case MotionEvent.ACTION_MOVE:
+            }
+            break;
+            case MotionEvent.ACTION_MOVE: {
                 mOffsetX = mTaperOffsetX + event.getX() - downX;
                 Common.log_d("move", "mOffsetX = " + mOffsetX);
                 if (event.getX() - downX > SCROLL_MIN_DISTANCE) { // 向右滑动,禁止第一张图超出初始值
@@ -580,58 +609,31 @@ public class HorTaperChart extends View {
                     Common.log_d("201905071527", "mOffsetX = " + mOffsetX + "->endTaperW = " + endTaperW);
                 }
                 invalidate();
-//                scrollBy((int) -mOffsetX, 0);
                 break;
-            case MotionEvent.ACTION_UP:
-            case MotionEvent.ACTION_CANCEL:
-//                int dx = getScrollX();
-//                Common.log_d("201905071634","before dx = " + dx);
-//                if(dx > getEndTaperW()){
-//                    dx = (int) getEndTaperW();
-//                }
-//                Common.log_d("201905071634","after dx = " + dx);
-//                // 松手时处理惯性滑动
-//                mScroller.startScroll((int) downX, 0, (int) mOffsetX, 0);
-//                invalidate();
+            }
+            case MotionEvent.ACTION_UP: {
                 mVelocityTracker.addMovement(vtev);
                 eventAddedToVelocityTracker = true;
                 mVelocityTracker.computeCurrentVelocity(1000, mMaxFlingVelocity);
-                float xVelocity = -VelocityTrackerCompat.getXVelocity(mVelocityTracker, event.getPointerId(0));
-                if (Math.abs(xVelocity) > 2000) { // 速率大于1000判定为快速滑动
-                    // 松手后的当前滚动位置
-                    float upX = event.getX() - downX + mTaperOffsetX;
-                    float startValue = 0f;
-                    float endValue = 0f;
-                    ObjectAnimator animator;
-                    boolean isRgt = false;
-                    if (event.getX() - downX > SCROLL_MIN_DISTANCE) { // 向右滑动
-                        isRgt = true;
-                        endValue = upX * (xVelocity / 1000);
-                        if (endValue > 0f) {
-                            endValue = 0f;
-                        }
-                        if(Math.abs(endValue) > (getEndTaperW() - upX)){
-                            endValue = 0f;
-                        }
-                        if(upX < getFirstTaperW()){ // 在第一张图的区域内滑动，控制不让其滑动
-                            endValue = 0f;
-                        }
-                    } else if (event.getX() - downX < -SCROLL_MIN_DISTANCE) { // 向左滑动
-                        endValue = upX * (Math.abs(xVelocity) / 1000);
-                        if (Math.abs(endValue) > getEndTaperW()) {
-                            endValue = -getEndTaperW();
-                        }
-                    }
-                    Common.log_d("201905071634", "xVelocity = " + xVelocity
-                            + "->(event.getX() - downX) = " + (event.getX() - downX)
-                            + "->手势方向 = " + (isRgt ? "向右滑动" : "向左滑动")
-                            + "->upX = " + upX + "->endValue = " + endValue);
-                    animator = ObjectAnimator.ofFloat(this, "offsetX", upX, endValue);
-                    animator.start();
+                float xVelocity = VelocityTrackerCompat.getXVelocity(mVelocityTracker, event.getPointerId(0));
+                if (Math.abs(xVelocity) < mMinFlingVelocity) {
+                    xVelocity = 0F;
+                } else {
+                    xVelocity = Math.max(-mMaxFlingVelocity, Math.min(xVelocity, mMaxFlingVelocity));
                 }
+                if (xVelocity != 0) {
+                    // 将速度值反应到滚动器上
+                    onFling((int) xVelocity);
+                } else {
+                    mScrollState = SCROLL_STATE_IDLE;
+                }
+                resetTouch();
                 break;
-            default:
-                break;
+            }
+            case MotionEvent.ACTION_CANCEL: {
+                resetTouch();
+            }
+            break;
         }
         if (!eventAddedToVelocityTracker) {
             mVelocityTracker.addMovement(vtev);
@@ -640,20 +642,51 @@ public class HorTaperChart extends View {
         return true;
     }
 
-//    @Override
-//    public void computeScroll() {
-//        super.computeScroll();
-//        if (mScroller.computeScrollOffset()) { // 计算新位置，并判断上一个滚动是否完成。true:表示未完成
-//            scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
-//            invalidate(); // 再次调用computeScroll。
-//        }
-//    }
+    private void resetTouch() {
+        if (mVelocityTracker != null) {
+            mVelocityTracker.clear();
+        }
+    }
+
+    public void onFling(int velocityX) {
+        mLastFlingX = 0;
+        mScrollState = SCROLL_STATE_SETTING;
+        mScroller.fling(0, 0, velocityX, 0,
+                Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        invalidate();
+    }
+
+    @Override
+    public void computeScroll() {
+        super.computeScroll();
+        if (mScroller.computeScrollOffset()) {
+            int x = mScroller.getCurrX();
+            int dis = x - mLastFlingX;
+            mLastFlingX = x;
+            // 更新偏移量，达到移动效果
+            mOffsetX += dis;
+            Common.log_d("computeScroll", "dis = " + dis + "->mOffsetX = " + mOffsetX + "->mTaperOffsetX = " + mTaperOffsetX + "->currX = " + x);
+            // 边界超出限制
+            if (x < 0) { // 左滑
+                float endTaperW = getEndTaperW();
+                if (Math.abs(mOffsetX) > endTaperW) {
+                    mOffsetX = -endTaperW;
+                }
+            } else if (x > 0) { // 右滑
+                if (mOffsetX > 0) {
+                    mOffsetX = 0;
+                }
+            }
+            invalidate();
+        }
+    }
 
     public List<TaperChartBean> getList() {
         return mList;
     }
 
     /**
+     * 获取文字区域宽度
      * @param text  绘制的文字
      * @param paint 画笔
      * @return 文字的宽度
@@ -666,6 +699,7 @@ public class HorTaperChart extends View {
     }
 
     /**
+     * 获取文字区域高度
      * @param text  绘制的文字
      * @param paint 画笔
      * @return 文字的高度
@@ -676,5 +710,12 @@ public class HorTaperChart extends View {
         int height = bounds.bottom + bounds.height();
         return height;
     }
+
+    // 自定义动画插值器 f(x) = (x-1)^5 + 1
+    private static final Interpolator interpolator = input -> {
+        input -= 1.0f;
+        return input * input * input * input * input + 1.0f;
+    };
+
 
 }
