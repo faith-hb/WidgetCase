@@ -1,15 +1,20 @@
 package com.doyou.cv.widget.progress.horbar;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 
+import com.dongni.tools.Common;
 import com.dongni.tools.DensityUtil;
 import com.doyou.cv.R;
+import com.doyou.cv.bean.GradientColor;
 
 
 /**
@@ -22,12 +27,23 @@ import com.doyou.cv.R;
 public class SectionProBar extends ProgressBar {
     private static final String TAG = SectionProBar.class.getSimpleName();
 
-    private Paint mPaint;
+    private Paint mBgPaint;
+    private Paint mProPaint;
     private int mReachedColor;
     private int mReachedHeight;
     private int mUnReachedColor;
     private int mUnReachedHeight;
     private int mMaxUnReachedEndX;
+    private GradientColor mBgGradientColor; // 背景颜色渐变对象
+    private GradientColor mProGradientColor; // 进度颜色渐变对象
+    private float progress;
+
+
+    public void setProgress(float progress) {
+        this.progress = progress;
+        Common.log_d("setProgress", "progress = " + progress);
+        setProgress((int) progress);
+    }
 
     public SectionProBar(Context context) {
         this(context, null);
@@ -44,9 +60,13 @@ public class SectionProBar extends ProgressBar {
     }
 
     private void initDefaultAttrs() {
-        mPaint = new Paint();
-        mPaint.setAntiAlias(true);
-        mPaint.setStrokeCap(Paint.Cap.ROUND);
+        mBgPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
+        mBgPaint.setStrokeCap(Paint.Cap.ROUND);
+        mBgPaint.setStyle(Paint.Style.STROKE);
+
+        mProPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
+        mProPaint.setStrokeCap(Paint.Cap.ROUND);
+        mProPaint.setStyle(Paint.Style.STROKE);
 
         mReachedColor = Color.parseColor("#70A800");
         mReachedHeight = DensityUtil.dp2px(2);
@@ -89,33 +109,96 @@ public class SectionProBar extends ProgressBar {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        onDrawHorizontal(canvas);
-    }
-
-    private void onDrawHorizontal(Canvas canvas) {
         canvas.save();
         canvas.translate(getPaddingLeft(), getMeasuredHeight() / 2);
 
         float reachedRatio = getProgress() * 1.0f / getMax();
         float reachedEndX = reachedRatio * mMaxUnReachedEndX;
-
-        // 先绘制背景
-        mPaint.setColor(mUnReachedColor);
-        mPaint.setStrokeWidth(mUnReachedHeight);
-        mPaint.setStyle(Paint.Style.STROKE);
-        canvas.drawLine(0, 0, mMaxUnReachedEndX, 0, mPaint);
-
-        // 再绘制进度
         if (reachedEndX > mMaxUnReachedEndX) {
             reachedEndX = mMaxUnReachedEndX;
         }
-        if (reachedEndX > 0) {
-            mPaint.setColor(mReachedColor);
-            mPaint.setStrokeWidth(mReachedHeight);
-            mPaint.setStyle(Paint.Style.STROKE);
-            canvas.drawLine(0, 0, reachedEndX, 0, mPaint);
-        }
+
+        Common.log_d("onDraw", "...onDraw....");
+
+        // 先绘制背景
+        drawProgressBg(canvas, reachedEndX);
+        // 再绘制进度
+        drawProgress(canvas, reachedEndX);
+
         canvas.restore();
+    }
+
+    /**
+     * 绘制进度条背景
+     *
+     * @param canvas
+     * @param reachedEndX
+     */
+    private void drawProgressBg(Canvas canvas, float reachedEndX) {
+        mBgPaint.setStrokeWidth(mUnReachedHeight);
+        if (mBgGradientColor == null) { // 默认
+            mBgPaint.setColor(mUnReachedColor);
+            canvas.drawLine(0, 0, mMaxUnReachedEndX, 0, mBgPaint);
+        } else { // 渐变
+            mBgPaint.setShader(new LinearGradient(mMaxUnReachedEndX - reachedEndX, 0, mMaxUnReachedEndX, 0,
+                    mBgGradientColor.getStartColor(), mBgGradientColor.getEndColor(),
+                    Shader.TileMode.CLAMP));
+            canvas.drawLine(0, 0, mMaxUnReachedEndX, 0, mBgPaint);
+        }
+    }
+
+    /**
+     * 绘制当前进度
+     *
+     * @param canvas
+     * @param reachedEndX
+     */
+    private void drawProgress(Canvas canvas, float reachedEndX) {
+        if (reachedEndX > 0) {
+            mProPaint.setStrokeWidth(mReachedHeight);
+            if (mProGradientColor == null) {
+                mProPaint.setColor(mReachedColor);
+                canvas.drawLine(0, 0, reachedEndX, 0, mProPaint);
+            } else {
+                mProPaint.setShader(new LinearGradient(0, 0, reachedEndX, 0,
+                        mProGradientColor.getStartColor(), mProGradientColor.getEndColor(),
+                        Shader.TileMode.CLAMP));
+                canvas.drawLine(0, 0, reachedEndX, 0, mProPaint);
+            }
+        }
+    }
+
+    /**
+     * 设置渐变颜色
+     *
+     * @param startColor
+     * @param endColor
+     */
+    public void setGradientBgColor(int startColor, int endColor) {
+        mBgGradientColor = new GradientColor(startColor, endColor);
+    }
+
+    /**
+     * 设置渐变颜色
+     *
+     * @param startColor
+     * @param endColor
+     */
+    public void setGradientProColor(int startColor, int endColor) {
+        mProGradientColor = new GradientColor(startColor, endColor);
+    }
+
+    /**
+     * 设置动画开关
+     *
+     * @param progress
+     */
+    public void setProgressAnim(float progress) {
+        // 创建 ObjectAnimator 对象
+        ObjectAnimator animator = ObjectAnimator.ofFloat(this, "progress", 0, progress);
+        animator.setDuration(1200);
+        // 执行动画
+        animator.start();
     }
 
 }

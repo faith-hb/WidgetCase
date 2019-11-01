@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="page_font_size">12sp</dimen>
+
     <!--峰值图图高-->
     <dimen name="taper_chart_h">240dp</dimen>
     <!--峰值图字体大小-->

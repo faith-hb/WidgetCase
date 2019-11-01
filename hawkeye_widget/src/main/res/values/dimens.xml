@@ -16,4 +16,5 @@
     <dimen name="timerulerview_arrowheight">6dp</dimen>
     <dimen name="timerulerview_arrowheight_margin">1dp</dimen>
     <dimen name="timerulerview_scaleheight">5dp</dimen>
+
 </resources>

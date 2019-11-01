@@ -1,23 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".release.SectionProBarActivity">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".release.SectionProBarActivity">
 
-    <com.doyou.cv.widget.progress.horbar.SectionProBar
-        android:id="@+id/horbarV"
-        style="@android:style/Widget.ProgressBar.Horizontal"
+    <!--    普通分段进度条-->
+    <LinearLayout
+        android:id="@+id/normalLl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:max="100"
-        android:paddingLeft="24dp"
-        android:paddingTop="32dp"
-        android:paddingRight="24dp"
-        app:hbv_reachedColor="#FF6853"
-        app:hbv_reachedHeight="5dp"
-        app:hbv_unReachedColor="#58b5fa"
-        app:hbv_unReachedHeight="5dp"/>
-</FrameLayout>
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/line1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="普通分段进度条"
+            android:textColor="@color/page_font"
+            android:textSize="@dimen/page_font_size" />
+
+        <com.doyou.cv.widget.progress.horbar.SectionProBar
+            android:id="@+id/normalSpb"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:max="100"
+            android:paddingLeft="24dp"
+            android:paddingTop="32dp"
+            android:paddingRight="24dp"
+            app:hbv_reachedColor="#FF6853"
+            app:hbv_reachedHeight="5dp"
+            app:hbv_unReachedColor="#58b5fa"
+            app:hbv_unReachedHeight="5dp" />
+
+        <SeekBar
+            android:id="@+id/normalSb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="36dp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="#E6E6FA"
+        app:layout_constraintBottom_toTopOf="@id/gradientLl"
+        app:layout_constraintTop_toBottomOf="@id/normalLl" />
+
+    <!--    渐变分段进度条-->
+    <LinearLayout
+        android:id="@+id/gradientLl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/line2"
+        app:layout_constraintTop_toBottomOf="@id/line1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="渐变分段进度条"
+            android:textColor="@color/page_font"
+            android:textSize="@dimen/page_font_size" />
+
+        <com.doyou.cv.widget.progress.horbar.SectionProBar
+            android:id="@+id/gradientSpb"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:max="100"
+            android:paddingLeft="24dp"
+            android:paddingTop="32dp"
+            android:paddingRight="24dp"
+            app:hbv_reachedHeight="5dp"
+            app:hbv_unReachedHeight="5dp" />
+
+        <SeekBar
+            android:id="@+id/gradientSb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="36dp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="#E6E6FA"
+        app:layout_constraintBottom_toTopOf="@id/animLl"
+        app:layout_constraintTop_toBottomOf="@id/gradientLl" />
+
+    <!--    渐变分段进度条-->
+    <LinearLayout
+        android:id="@+id/animLl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="分段进度条效果"
+            android:textColor="@color/page_font"
+            android:textSize="@dimen/page_font_size" />
+
+        <com.doyou.cv.widget.progress.horbar.SectionProBar
+            android:id="@+id/animSpb"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:max="100"
+            android:paddingLeft="24dp"
+            android:paddingTop="32dp"
+            android:paddingRight="24dp"
+            app:hbv_reachedHeight="5dp"
+            app:hbv_unReachedHeight="5dp" />
+
+        <Button
+            android:id="@+id/animBtn"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Again"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

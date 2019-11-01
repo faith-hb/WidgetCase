@@ -10,4 +10,6 @@
     <color name="bg_normal_color">#26d650</color>
     <color name="bg_pressed_color">#80fc3c40</color>
     <color name="default_bg_normal_color">#00000000</color>
+
+    <color name="page_font">#666666</color>
 </resources>
