@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     tools:background="@color/testBg"
-    tools:context=".release.CircleBtnActivity">
+    tools:context=".activity.CircleBtnActivity">
 
     <com.doyou.cv.widget.view.CircleButton
         android:id="@+id/videoCb"

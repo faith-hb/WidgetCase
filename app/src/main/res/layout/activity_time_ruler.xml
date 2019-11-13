@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.doyou.cvc.release.timeruler.TimeRulerActivity">
+    tools:context=".activity.timeruler.TimeRulerActivity">
 
     <com.doyou.cv.widget.timeruler.TimeRulerView
         android:id="@+id/ruler_id_timeRulerView"
@@ -50,7 +50,7 @@
             android:layout_gravity="bottom"
             android:src="@mipmap/timerulerview_minus" />
 
-        <com.doyou.cvc.release.timeruler.TimeRulerPickScaleView
+        <com.doyou.cvc.activity.timeruler.TimeRulerPickScaleView
             android:id="@+id/ruler_id_timeRulerPickView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

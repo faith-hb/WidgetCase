@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".release.SectionProBarActivity">
+    tools:context=".activity.SectionProBarActivity">
 
     <!--    普通分段进度条-->
     <LinearLayout

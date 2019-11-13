@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="24dp"
-        tools:context=".release.GradientLineActivity">
+        tools:context=".activity.GradientLineActivity">
 
         <com.doyou.cv.widget.GradientLine
             android:id="@+id/gLineUp"

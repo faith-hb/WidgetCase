@@ -10,7 +10,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".release.RingViewActivity">
+        tools:context=".activity.RingViewActivity">
 
         <com.doyou.cv.widget.progress.ring.RingView
             android:id="@+id/ringv"

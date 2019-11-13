@@ -6,4 +6,4 @@
     android:fadeScrollbars="true"
     android:scrollbars="vertical"
     android:scrollbarThumbVertical="@drawable/scrollbar_shape"
-    tools:context=".release.touch.CustomScrollViewActivity" />
+    tools:context=".activity.touch.CustomScrollViewActivity" />

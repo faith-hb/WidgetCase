@@ -3,7 +3,7 @@
     package="com.doyou.cvc">
 
     <application
-        android:name=".release.WidgetApplication"
+        android:name=".WidgetApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".release.MenuMainActivity"
+            android:name=".activity.MenuMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,32 +19,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".release.ImgTxtMixtureActivity" />
-        <activity android:name=".release.RingViewActivity" />
-        <activity android:name=".release.taperchart.TaperChartActivity" />
-        <activity android:name=".release.taperchart.ContrastActivity" />
-        <activity android:name=".release.taperchart.ScrollTaperChartActivity" />
-        <activity android:name=".release.GradientLineActivity" />
-        <activity android:name=".release.LegendRingViewActivity" />
-        <activity android:name=".release.CircleProgressBarViewActivity" />
-        <activity android:name=".release.ShadowProBarActivity" />
-        <activity android:name=".release.GradientProBarScaleActivity" />
-        <activity android:name=".release.HalfCircleProViewActivity" />
-        <activity android:name=".release.MatrixViewActivity" />
-        <activity android:name=".release.GradientProBarActivity" />
-        <activity android:name=".release.ringview.DoubleTxtActivity" />
-        <activity android:name=".release.ringview.LegendActivity" />
-        <activity android:name=".release.HorScrollSelecteViewActivity" />
-        <activity android:name=".release.HorProBarActivity" />
-        <activity android:name=".release.SectionProBarActivity" />
-        <activity android:name=".release.WaveViewActivity" />
-        <activity android:name=".release.colorfilter.ColorMainActivity" />
-        <activity android:name=".release.colorfilter.ColorMatrixActivity" />
-        <activity android:name=".release.colorfilter.ColorHueActivity" />
-        <activity android:name=".release.touch.RefreshViewActivity" />
-        <activity android:name=".release.timeruler.TimeRulerActivity"/>
-        <activity android:name=".release.CircleBtnActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".release.touch.CustomScrollViewActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ImgTxtMixtureActivity" />
+        <activity android:name=".activity.RingViewActivity" />
+        <activity android:name="com.doyou.cvc.activity.taperchart.TaperChartActivity" />
+        <activity android:name="com.doyou.cvc.activity.taperchart.ContrastActivity" />
+        <activity android:name="com.doyou.cvc.activity.taperchart.ScrollTaperChartActivity" />
+        <activity android:name=".activity.GradientLineActivity" />
+        <activity android:name=".activity.LegendRingViewActivity" />
+        <activity android:name=".activity.CircleProgressBarViewActivity" />
+        <activity android:name=".activity.ShadowProBarActivity" />
+        <activity android:name=".activity.GradientProBarScaleActivity" />
+        <activity android:name=".activity.HalfCircleProViewActivity" />
+        <activity android:name=".activity.MatrixViewActivity" />
+        <activity android:name=".activity.GradientProBarActivity" />
+        <activity android:name="com.doyou.cvc.activity.ringview.DoubleTxtActivity" />
+        <activity android:name="com.doyou.cvc.activity.ringview.LegendActivity" />
+        <activity android:name=".activity.HorScrollSelecteViewActivity" />
+        <activity android:name=".activity.HorProBarActivity" />
+        <activity android:name=".activity.SectionProBarActivity" />
+        <activity android:name=".activity.WaveViewActivity" />
+        <activity android:name="com.doyou.cvc.activity.colorfilter.ColorMainActivity" />
+        <activity android:name="com.doyou.cvc.activity.colorfilter.ColorMatrixActivity" />
+        <activity android:name="com.doyou.cvc.activity.colorfilter.ColorHueActivity" />
+        <activity android:name="com.doyou.cvc.activity.touch.RefreshViewActivity" />
+        <activity android:name=".activity.timeruler.TimeRulerActivity"/>
+        <activity android:name=".activity.CircleBtnActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.doyou.cvc.activity.touch.CustomScrollViewActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

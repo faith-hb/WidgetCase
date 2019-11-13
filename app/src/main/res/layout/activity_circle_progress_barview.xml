@@ -10,7 +10,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".release.CircleProgressBarViewActivity">
+        tools:context=".activity.CircleProgressBarViewActivity">
 
         <com.doyou.cv.widget.progress.circle.CircleProgressBarView
             android:id="@+id/oneCpbv"
