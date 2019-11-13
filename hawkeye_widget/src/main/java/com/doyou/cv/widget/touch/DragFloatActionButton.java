@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 
-import com.dongni.tools.Common;
+import com.doyou.cv.utils.LogUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
@@ -53,7 +53,7 @@ public class DragFloatActionButton extends FloatingActionButton {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Common.log_d("201809281348", "view->onTouchEvent ->action = " + event.getAction());
+        LogUtil.logD("201809281348", "view->onTouchEvent ->action = " + event.getAction());
         final int rawX = (int) event.getRawX();
         final int rawY = (int) event.getRawY();
         switch (event.getAction()) {

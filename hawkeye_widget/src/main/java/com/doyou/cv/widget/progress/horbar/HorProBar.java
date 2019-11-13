@@ -12,18 +12,19 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.os.Build;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import com.dongni.tools.Common;
 import com.doyou.cv.R;
+import com.doyou.cv.utils.LogUtil;
 
 import java.text.DecimalFormat;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 /**
  * Created by Allen on 2017/5/14.
@@ -189,7 +190,7 @@ public class HorProBar extends View {
     }
 
     public void setTargetString(String target) {
-        Common.log_d("201810261453", target);
+        LogUtil.logD("201810261453", target);
         targetString = target;
     }
 

@@ -9,7 +9,7 @@ import android.view.OrientationEventListener;
 import android.view.Surface;
 import android.view.WindowManager;
 
-import com.dongni.tools.Common;
+import com.doyou.cv.utils.LogUtil;
 
 import java.lang.ref.WeakReference;
 
@@ -38,7 +38,7 @@ public class OrientationListener extends OrientationEventListener implements Set
             mAccelerometerRotation = Settings.System.getInt(
                     mContext.getContentResolver(),
                     Settings.System.ACCELEROMETER_ROTATION);
-            Common.log_d("旋转", "mtcSettingsSystemChanged...");
+            LogUtil.logD("旋转", "mtcSettingsSystemChanged...");
         } catch (Settings.SettingNotFoundException e) {
             mAccelerometerRotation = 1;
             e.printStackTrace();
@@ -58,7 +58,7 @@ public class OrientationListener extends OrientationEventListener implements Set
 
     @Override
     public void onOrientationChanged(int orientation) {
-        Common.log_d("旋转", "orientation = " + orientation + "->mOrientationChanging = " + mOrientationChanging);
+        LogUtil.logD("旋转", "orientation = " + orientation + "->mOrientationChanging = " + mOrientationChanging);
 
 //        if (mAccelerometerRotation == 0) return;
 

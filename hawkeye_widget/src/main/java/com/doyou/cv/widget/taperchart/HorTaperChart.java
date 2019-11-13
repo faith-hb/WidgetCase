@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Region;
 import android.util.AttributeSet;
@@ -18,11 +17,12 @@ import android.view.ViewConfiguration;
 import android.view.animation.Interpolator;
 import android.widget.OverScroller;
 
-import com.dongni.tools.Common;
 import com.dongni.tools.DensityUtil;
 import com.dongni.tools.EmptyUtils;
 import com.doyou.cv.R;
 import com.doyou.cv.bean.TaperChartBean;
+import com.doyou.cv.utils.LogUtil;
+import com.doyou.cv.utils.Util;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -258,14 +258,14 @@ public class HorTaperChart extends View {
             y_max = Math.max(y_max, y);
             mTotalValue = mTotalValue + y;
         }
-        autoCaclYAxisMax();
+        autoCalcYAxisMax();
         invalidate();
     }
 
     /**
      * 自动计算y轴最大值(对实际的最大值做处理)
      */
-    private void autoCaclYAxisMax() {
+    private void autoCalcYAxisMax() {
         if (y_max < 10) {
             if (y_max <= 5) {
                 y_max = 5;
@@ -288,8 +288,8 @@ public class HorTaperChart extends View {
     private void drawEmptyData(Canvas canvas) {
         int canvasW = canvas.getWidth();
         int canvasH = canvas.getHeight();
-        int emptyTxtW = getTextWidth(NOT_DATA, mNullPaint);
-        int emptyTxtH = getTextHeight(NOT_DATA, mNullPaint);
+        int emptyTxtW = Util.getTextWidth(NOT_DATA, mNullPaint);
+        int emptyTxtH = Util.getTextHeight(NOT_DATA, mNullPaint);
         // 画文字的时候，y值是文字的底线
         canvas.drawText(NOT_DATA, canvasW / 2 - emptyTxtW / 2, canvasH / 2 + emptyTxtH / 2 - DensityUtil.dp2px(1.5f), mNullPaint);
     }
@@ -307,12 +307,12 @@ public class HorTaperChart extends View {
         float h = (yAxisBtm - mYMaxStrH * 2) / yCount;
         for (int i = 0; i < yCount; i++) {
             String yLabel = mYAxisList.get(i);
-            float yLabelW = getTextWidth(yLabel, mTextPaint);
+            float yLabelW = Util.getTextWidth(yLabel, mTextPaint);
             // 绘制y轴刻度值(刻度右对齐相对y轴)
             canvas.drawText(yLabel, mYMaxStrW - yLabelW, mYMaxStrH + h * i + mOffBtm, mTextPaint);
         }
         // 绘制0刻度(刻度右对齐相对y轴)
-        float yZeroStrW = getTextWidth(ZERO, mTextPaint);
+        float yZeroStrW = Util.getTextWidth(ZERO, mTextPaint);
         canvas.drawText(ZERO, mYMaxStrW - yZeroStrW, yAxisBtm, mTextPaint);
         // 还原默认长度
         float axisL = mYMaxStrW + mLeftAxisLabelMargin;
@@ -347,7 +347,7 @@ public class HorTaperChart extends View {
         float yAxisBtm = mCanvasH - mOffBtm;
         // x轴label相对x轴的偏移量，间距
         int offset = DensityUtil.dp2px(1);
-        int valueH = getTextHeight(mXValues.get(0), mTextPaint);
+        int valueH = Util.getTextHeight(mXValues.get(0), mTextPaint);
         // 绘制x轴刻度值
         float xAxisTxt_Y = yAxisBtm + valueH + offset;
         setXAxisTxt_Y(xAxisTxt_Y);
@@ -356,7 +356,7 @@ public class HorTaperChart extends View {
         float xOffset;
         for (int i = 0; i < mXAxisCount; i++) {
             key = mXValues.get(i);
-            int valueW = getTextWidth(key, mTextPaint);
+            int valueW = Util.getTextWidth(key, mTextPaint);
             if (i == 0) {
                 xOffset = start_x + mLabelWidth / 2 - valueW / 2;
             } else {
@@ -367,7 +367,7 @@ public class HorTaperChart extends View {
         }
     }
 
-    private void caclStartXOffset() {
+    private void calcStartXOffset() {
         // 重新计算图形宽度
         int chartW = (int) (getWidth() - mYMaxStrW - mLeftAxisLabelMargin - mLinePaint.getStrokeWidth());
         mLabelWidth = (chartW / 2 + mInterSpace) / 2;
@@ -495,7 +495,7 @@ public class HorTaperChart extends View {
     private void drawTopValue(Canvas canvas, float yValue, float topY, float centerX) {
         if (mIsDrawTopValue) {
             String text = pointFormat.format(yValue);
-            canvas.drawText(text, centerX - getTextWidth(text, mTextPaint) / 2, topY - DensityUtil.dp2px(2), mTextPaint);
+            canvas.drawText(text, centerX - Util.getTextWidth(text, mTextPaint) / 2, topY - DensityUtil.dp2px(2), mTextPaint);
         }
     }
 
@@ -503,7 +503,7 @@ public class HorTaperChart extends View {
     /**
      * 计算y轴刻度
      */
-    private void caclYAxisScale() {
+    private void calcYAxisScale() {
         int count = 5;
         mYAxisList.clear();
         // y轴上刻度间的间距
@@ -513,15 +513,15 @@ public class HorTaperChart extends View {
             mYAxisList.add((int) yScale + "");
         }
         mYMaxStr = mYAxisList.get(0);
-        mYMaxStrW = getTextWidth(mYMaxStr, mTextPaint);
-        mYMaxStrH = getTextHeight(mYMaxStr, mTextPaint);
+        mYMaxStrW = Util.getTextWidth(mYMaxStr, mTextPaint);
+        mYMaxStrH = Util.getTextHeight(mYMaxStr, mTextPaint);
     }
 
     @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
-        caclYAxisScale();
-        caclStartXOffset();
+    protected void onSizeChanged(int w, int h, int oldW, int oldH) {
+        super.onSizeChanged(w, h, oldW, oldH);
+        calcYAxisScale();
+        calcStartXOffset();
     }
 
     @Override
@@ -533,7 +533,7 @@ public class HorTaperChart extends View {
         }
         mCanvasW = canvas.getWidth();
         mCanvasH = canvas.getHeight();
-        Common.log_d("view的宽度-->onDraw", "canvasW = " + mCanvasW + "->canvasH = " + mCanvasH + "->mOffsetX = " + mOffsetX);
+        LogUtil.logD("view的宽度-->onDraw", "canvasW = " + mCanvasW + "->canvasH = " + mCanvasH + "->mOffsetX = " + mOffsetX);
 
         // 1.绘制坐标轴
         drawAxis(canvas);
@@ -595,7 +595,7 @@ public class HorTaperChart extends View {
             break;
             case MotionEvent.ACTION_MOVE: {
                 mOffsetX = mTaperOffsetX + event.getX() - downX;
-                Common.log_d("move", "mOffsetX = " + mOffsetX);
+                LogUtil.logD("move", "mOffsetX = " + mOffsetX);
                 if (event.getX() - downX > SCROLL_MIN_DISTANCE) { // 向右滑动,禁止第一张图超出初始值
                     if (mOffsetX > 0) {
                         mOffsetX = 0;
@@ -606,7 +606,7 @@ public class HorTaperChart extends View {
                     if (Math.abs(mOffsetX) > endTaperW) {
                         mOffsetX = -endTaperW;
                     }
-                    Common.log_d("201905071527", "mOffsetX = " + mOffsetX + "->endTaperW = " + endTaperW);
+                    LogUtil.logD("201905071527", "mOffsetX = " + mOffsetX + "->endTaperW = " + endTaperW);
                 }
                 invalidate();
                 break;
@@ -665,7 +665,7 @@ public class HorTaperChart extends View {
             mLastFlingX = x;
             // 更新偏移量，达到移动效果
             mOffsetX += dis;
-            Common.log_d("computeScroll", "dis = " + dis + "->mOffsetX = " + mOffsetX + "->mTaperOffsetX = " + mTaperOffsetX + "->currX = " + x);
+            LogUtil.logD("computeScroll", "dis = " + dis + "->mOffsetX = " + mOffsetX + "->mTaperOffsetX = " + mTaperOffsetX + "->currX = " + x);
             // 边界超出限制
             if (x < 0) { // 左滑
                 float endTaperW = getEndTaperW();
@@ -683,32 +683,6 @@ public class HorTaperChart extends View {
 
     public List<TaperChartBean> getList() {
         return mList;
-    }
-
-    /**
-     * 获取文字区域宽度
-     * @param text  绘制的文字
-     * @param paint 画笔
-     * @return 文字的宽度
-     */
-    public int getTextWidth(String text, Paint paint) {
-        Rect bounds = new Rect();
-        paint.getTextBounds(text, 0, text.length(), bounds);
-        int width = bounds.left + bounds.width();
-        return width;
-    }
-
-    /**
-     * 获取文字区域高度
-     * @param text  绘制的文字
-     * @param paint 画笔
-     * @return 文字的高度
-     */
-    public int getTextHeight(String text, Paint paint) {
-        Rect bounds = new Rect();
-        paint.getTextBounds(text, 0, text.length(), bounds);
-        int height = bounds.bottom + bounds.height();
-        return height;
     }
 
     // 自定义动画插值器 f(x) = (x-1)^5 + 1

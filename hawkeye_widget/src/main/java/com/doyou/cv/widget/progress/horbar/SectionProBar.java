@@ -11,10 +11,10 @@ import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 
-import com.dongni.tools.Common;
 import com.dongni.tools.DensityUtil;
 import com.doyou.cv.R;
 import com.doyou.cv.bean.GradientColor;
+import com.doyou.cv.utils.LogUtil;
 
 
 /**
@@ -41,8 +41,9 @@ public class SectionProBar extends ProgressBar {
 
     public void setProgress(float progress) {
         this.progress = progress;
-        Common.log_d("setProgress", "progress = " + progress);
+        LogUtil.logD("setProgress", "progress = " + progress);
         setProgress((int) progress);
+        invalidate();
     }
 
     public SectionProBar(Context context) {
@@ -68,9 +69,9 @@ public class SectionProBar extends ProgressBar {
         mProPaint.setStrokeCap(Paint.Cap.ROUND);
         mProPaint.setStyle(Paint.Style.STROKE);
 
-        mReachedColor = Color.parseColor("#70A800");
+        mReachedColor = Color.rgb(112,168,0);
         mReachedHeight = DensityUtil.dp2px(2);
-        mUnReachedColor = Color.parseColor("#CCCCCC");
+        mUnReachedColor = Color.rgb(204,204,204);
         mUnReachedHeight = DensityUtil.dp2px(1);
     }
 
@@ -118,7 +119,7 @@ public class SectionProBar extends ProgressBar {
             reachedEndX = mMaxUnReachedEndX;
         }
 
-        Common.log_d("onDraw", "...onDraw....");
+        LogUtil.logD("onDraw", "...onDraw....");
 
         // 先绘制背景
         drawProgressBg(canvas, reachedEndX);

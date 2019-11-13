@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
+    android:gravity="center"
     tools:background="@color/testBg"
     tools:context=".release.CircleBtnActivity">
 
@@ -11,25 +12,44 @@
         android:id="@+id/videoCb"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_centerVertical="true"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/audioCb"
+        app:layout_constraintTop_toTopOf="@id/audioCb"
         tools:src="@mipmap/call_answer_video" />
 
     <com.doyou.cv.widget.view.CircleButton
         android:id="@+id/audioCb"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_centerVertical="true"
         android:layout_marginLeft="24dp"
         android:layout_toRightOf="@id/videoCb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/videoCb"
+        app:layout_constraintRight_toLeftOf="@id/cameraCb"
+        app:layout_constraintTop_toTopOf="parent"
         tools:src="@mipmap/call_answer_audio" />
 
     <com.doyou.cv.widget.view.CircleButton
         android:id="@+id/cameraCb"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_centerVertical="true"
         android:layout_marginLeft="24dp"
         android:layout_toRightOf="@id/audioCb"
+        app:layout_constraintLeft_toRightOf="@id/audioCb"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/audioCb"
         tools:src="@mipmap/call_camera_on_normal" />
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="(小提示：试着旋转手机看看)"
+        android:textColor="@color/page_font"
+        android:textSize="@dimen/page_font_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/audioCb" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

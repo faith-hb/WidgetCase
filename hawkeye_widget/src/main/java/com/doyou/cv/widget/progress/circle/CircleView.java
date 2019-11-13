@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
@@ -15,8 +14,9 @@ import android.widget.ProgressBar;
 import com.dongni.tools.DensityUtil;
 import com.dongni.tools.EmptyUtils;
 import com.doyou.cv.R;
-import com.doyou.cv.utils.Utils;
 import com.doyou.cv.bean.CircleBean;
+import com.doyou.cv.utils.LogUtil;
+import com.doyou.cv.utils.Util;
 import com.doyou.cv.widget.base.CircleCenterStyle;
 
 import java.util.ArrayList;
@@ -146,7 +146,7 @@ public class CircleView extends ProgressBar {
         int height = resolveSize(expectSize, heightMeasureSpec);
         expectSize = Math.min(width, height);
 
-        Utils.logD("201810301418", "onMeasure-->expectSize = " + expectSize + "->width = " + width + "->height = " + height
+        LogUtil.logD("201810301418", "onMeasure-->expectSize = " + expectSize + "->width = " + width + "->height = " + height
                 + "->widthMeasureSpec = " + widthMeasureSpec + "->heightMeasureSpec = " + heightMeasureSpec);
 
         mRadius = (expectSize - getPaddingTop() - getPaddingBottom() - mBorderW) / 2;
@@ -191,7 +191,7 @@ public class CircleView extends ProgressBar {
         paint.setTextSize(DensityUtil.sp2px(getContext(), 12f));
         int canvasW = canvas.getWidth();
         int canvasH = canvas.getHeight();
-        int[] wh = getTextWH(NOT_DATA, paint);
+        int[] wh = Util.getTextWH(NOT_DATA, paint);
         // 画文字的时候，y值是文字的底线
         canvas.drawText(NOT_DATA, canvasW / 2 - wh[0] / 2, canvasH / 2 + wh[1] / 2 - DensityUtil.dp2px(1.5f), paint);
     }
@@ -207,7 +207,7 @@ public class CircleView extends ProgressBar {
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
             paint.setTextSize(mCenterTxtSize);
             paint.setColor(mCenterTxtColor);
-            int[] wh = getTextWH(mCenterStr, paint);
+            int[] wh = Util.getTextWH(mCenterStr, paint);
             canvas.drawText(mCenterStr, mRadius - wh[0] / 2, mRadius + wh[1] / 2, paint); // 字体开始绘制位置y的值是从字体底部(baseline)开始算的
         } else if (mCenterStyle == CircleCenterStyle.Double_Txt) { // 绘制中间文本，两行
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
@@ -215,10 +215,10 @@ public class CircleView extends ProgressBar {
             paint.setColor(mCenterTxtColor);
 
             String[] centerTxt = mCenterStr.split(" ");
-            int[] wh1 = getTextWH(centerTxt[0], paint);
-            int[] wh2 = getTextWH(centerTxt[1], paint);
+            int[] wh1 = Util.getTextWH(centerTxt[0], paint);
+            int[] wh2 = Util.getTextWH(centerTxt[1], paint);
 
-            Utils.logD("201812201446", "源文本 = " + mCenterStr + "->文本1 = " + centerTxt[0] + "->文本2 = " + centerTxt[1]);
+            LogUtil.logD("201812201446", "源文本 = " + mCenterStr + "->文本1 = " + centerTxt[0] + "->文本2 = " + centerTxt[1]);
             canvas.drawText(centerTxt[0], mRadius - wh1[0] / 2, mRadius - mCenterTxtMargin, paint); // 字体开始绘制位置y的值是从字体底部开始算的
             canvas.drawText(centerTxt[1], mRadius - wh2[0] / 2, mRadius + wh2[1] + mCenterTxtMargin, paint); // 字体开始绘制位置y的值是从字体底部开始算的
         } else {
@@ -252,7 +252,7 @@ public class CircleView extends ProgressBar {
             bean = mList.get(i);
             mPaint.setColor(circle_colors[i]);
 
-            Utils.logD("201812191556", "角度：start = " + bean.getStartPro() + "->end = " + bean.getEndPro());
+            LogUtil.logD("201812191556", "角度：start = " + bean.getStartPro() + "->end = " + bean.getEndPro());
 
             canvas.drawArc(mArcRectF, bean.getStartPro(), bean.getEndPro(), false, mPaint);
         }
@@ -264,17 +264,4 @@ public class CircleView extends ProgressBar {
         mIsSHowDebug = isSHowDebug;
     }
 
-    /**
-     * 获取文字的宽度和高度
-     * @param text  绘制的文字
-     * @param paint 画笔
-     * @return 文字的宽高
-     */
-    public int[] getTextWH(String text, Paint paint) {
-        Rect bounds = new Rect();
-        paint.getTextBounds(text, 0, text.length(), bounds);
-        int width = bounds.left + bounds.width();
-        int height = bounds.bottom + bounds.height();
-        return new int[]{width, height};
-    }
 }

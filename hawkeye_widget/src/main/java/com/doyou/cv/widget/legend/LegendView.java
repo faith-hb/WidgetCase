@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.dongni.tools.DensityUtil;
 import com.dongni.tools.EmptyUtils;
 import com.doyou.cv.R;
-import com.doyou.cv.utils.Utils;
+import com.doyou.cv.utils.LogUtil;
 import com.doyou.cv.widget.PointView;
 
 import java.util.List;
@@ -63,7 +63,7 @@ public class LegendView extends LinearLayout {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        Utils.logD("201812201056",
+        LogUtil.logD("201812201056",
                 "onLayout->MeasuredWidth = " + getMeasuredWidth() + "->changed = " + changed);
 
     }
@@ -82,25 +82,25 @@ public class LegendView extends LinearLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        Utils.logD("20190328", "onMeasure = " + getMeasuredWidth());
+        LogUtil.logD("20190328", "onMeasure = " + getMeasuredWidth());
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        Utils.logD("20190328", "onFinishInflate = " + getMeasuredWidth());
+        LogUtil.logD("20190328", "onFinishInflate = " + getMeasuredWidth());
     }
 
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Utils.logD("20190328", "onAttachedToWindow = " + getMeasuredWidth());
+        LogUtil.logD("20190328", "onAttachedToWindow = " + getMeasuredWidth());
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Utils.logD("20190328", "onDetachedFromWindow = " + getMeasuredWidth());
+        LogUtil.logD("20190328", "onDetachedFromWindow = " + getMeasuredWidth());
     }
 
     /**
@@ -112,7 +112,7 @@ public class LegendView extends LinearLayout {
             int margin = params.leftMargin + params.rightMargin;
             // 计算每行显示列数
             mColumn = (getMeasuredWidth() - margin) / mColumnWidth;
-            Utils.logD("201812201056", "动态计算出的列数 = " + mColumn +
+            LogUtil.logD("201812201056", "动态计算出的列数 = " + mColumn +
                     "->MeasuredWidth = " + getMeasuredWidth() + "->margin = " + margin + "->left = " + getPaddingLeft() + "->right = " + getPaddingRight());
         } else {
             throw new IllegalArgumentException("外层布局需要使用ConstraintLayout");
@@ -142,82 +142,77 @@ public class LegendView extends LinearLayout {
         }
 
 
-        post(new Runnable() {
-            @Override
-            public void run() {
+        post(() -> {
+            autoCaclColumn();
 
+            int size = legends.size();
+            // 图例行数
+            int circulation = size / mColumn + (size % mColumn > 0 ? 1 : 0);
+            LogUtil.logD("201812201056", "图例行数 = " + circulation + "->集合总数size = " + size
+                    + "->size / mColumn = " + (size / mColumn) + "->size % mColumn = " + (size % mColumn));
+            if (mColumn > size) {
+                mColumn = size;
+            }
 
-                autoCaclColumn();
-
-                int size = legends.size();
-                // 图例行数
-                int circulation = size / mColumn + (size % mColumn > 0 ? 1 : 0);
-                Utils.logD("201812201056", "图例行数 = " + circulation + "->集合总数size = " + size
-                        + "->size / mColumn = " + (size / mColumn) + "->size % mColumn = " + (size % mColumn));
-                if (mColumn > size) {
-                    mColumn = size;
-                }
-
-                removeAllViews();
-                LinearLayout labelLayout;
-                PointView pointView;
-                TextView labelTv;
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                LinearLayout.LayoutParams sonParams = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                for (int i = 0; i < circulation; i++) {
-                    labelLayout = new LinearLayout(mContext);
-                    labelLayout.setLayoutParams(params);
+            removeAllViews();
+            LinearLayout labelLayout;
+            PointView pointView;
+            TextView labelTv;
+            LayoutParams params = new LayoutParams(
+                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            LayoutParams sonParams = new LayoutParams(
+                    LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+            for (int i = 0; i < circulation; i++) {
+                labelLayout = new LinearLayout(mContext);
+                labelLayout.setLayoutParams(params);
 //                    linearLayout.setBackgroundColor(Color.rgb(123, 180, 248));
-                    if (circulation == 1) { // 只有一行，水平居中
-                        labelLayout.setGravity(Gravity.CENTER);
-                    } else { // 左对齐
-                        labelLayout.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
-                        if (i > 0) { // 大于一行,第一行不设置行间上间距
-                            params.topMargin = mLegendVerMargin;
-                        }
-                        params.leftMargin = mLegendOffsetLeft;
+                if (circulation == 1) { // 只有一行，水平居中
+                    labelLayout.setGravity(Gravity.CENTER);
+                } else { // 左对齐
+                    labelLayout.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
+                    if (i > 0) { // 大于一行,第一行不设置行间上间距
+                        params.topMargin = mLegendVerMargin;
                     }
-                    for (int j = 0; j < mColumn; j++) { // 创建label
-                        final int pos = i * mColumn + j;
+                    params.leftMargin = mLegendOffsetLeft;
+                }
+                for (int j = 0; j < mColumn; j++) { // 创建label
+                    final int pos = i * mColumn + j;
 
-                        if (pos > size - 1) { // 全取干净了
-                            break;
+                    if (pos > size - 1) { // 全取干净了
+                        break;
+                    }
+
+                    pointView = new PointView(mContext);
+                    pointView.setColor(colors[pos]);
+                    if (j > 0) {
+                        if (legends.get(pos - 1).length() > 2) { // 针对三个文字的间距设置
+                            sonParams.leftMargin = DensityUtil.dp2px(12);
+                            pointView.setLayoutParams(sonParams);
                         }
+                    }
+                    labelLayout.addView(pointView);
 
-                        pointView = new PointView(mContext);
-                        pointView.setColor(colors[pos]);
-                        if (j > 0) {
-                            if (legends.get(pos - 1).length() > 2) { // 针对三个文字的间距设置
-                                sonParams.leftMargin = DensityUtil.dp2px(12);
-                                pointView.setLayoutParams(sonParams);
-                            }
-                        }
-                        labelLayout.addView(pointView);
-
-                        labelTv = new TextView(mContext);
+                    labelTv = new TextView(mContext);
 //                        if (BuildConfig.DEBUG) {
 //                            labelTv.setBackgroundColor(Color.rgb(218, 112, 214));
 //                        }
-                        labelTv.setGravity(Gravity.CENTER_VERTICAL);
-                        labelTv.setPadding(mLegendLabelAndPointMargin, 0, 0, 0);
-                        labelTv.setWidth(mColumnWidth);
-                        labelTv.setText(legends.get(pos));
-                        labelTv.setTextColor(mLabelColor);
-                        labelTv.setTextSize(TypedValue.COMPLEX_UNIT_PX, mLabelSize);
-                        labelLayout.addView(labelTv);
-                        labelTv.setOnClickListener(new OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                if (mListener != null) {
-                                    mListener.onLegendClick(pos);
-                                }
+                    labelTv.setGravity(Gravity.CENTER_VERTICAL);
+                    labelTv.setPadding(mLegendLabelAndPointMargin, 0, 0, 0);
+                    labelTv.setWidth(mColumnWidth);
+                    labelTv.setText(legends.get(pos));
+                    labelTv.setTextColor(mLabelColor);
+                    labelTv.setTextSize(TypedValue.COMPLEX_UNIT_PX, mLabelSize);
+                    labelLayout.addView(labelTv);
+                    labelTv.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (mListener != null) {
+                                mListener.onLegendClick(pos);
                             }
-                        });
-                    }
-                    addView(labelLayout); // 会导致onMeasure重新测量
+                        }
+                    });
                 }
+                addView(labelLayout); // 会导致onMeasure重新测量
             }
         });
     }

@@ -11,9 +11,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.OverScroller;
 
-import com.dongni.tools.Common;
 import com.dongni.tools.DensityUtil;
-import com.doyou.cv.utils.Utils;
+import com.doyou.cv.utils.LogUtil;
+import com.doyou.cv.utils.Util;
 
 import androidx.annotation.Nullable;
 import androidx.core.view.GestureDetectorCompat;
@@ -73,11 +73,11 @@ public class MatrixView extends View implements GestureDetector.OnGestureListene
 
     public MatrixView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        mBitmap = Utils.getAvatar(getResources(), DensityUtil.dp2px(220));
+        mBitmap = Util.getAvatar(getResources(), DensityUtil.dp2px(220));
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mScreenW = getResources().getDisplayMetrics().widthPixels;
         mScreenH = getResources().getDisplayMetrics().heightPixels;
-        Common.log_d("初始化", "mBitmap.H = " + mBitmap
+        LogUtil.logD("初始化", "mBitmap.H = " + mBitmap
                 .getHeight() + "->屏幕宽高 = " + mScreenW + "-" + mScreenH);
 
         mDetector = new GestureDetectorCompat(context, this);
@@ -97,7 +97,7 @@ public class MatrixView extends View implements GestureDetector.OnGestureListene
     private void fixOverOffset(){
         float overX = (mBigScale * mBitmap.getWidth() - getWidth()) / 2;
         float overY = (mBigScale * mBitmap.getHeight() - getHeight()) / 2;
-        Common.log_d("onScroll", "mOffsetX = " + mOffsetX + "->mOffsetY = " + mOffsetY + "->overX = " + overX + "->overY = " + overY);
+        LogUtil.logD("onScroll", "mOffsetX = " + mOffsetX + "->mOffsetY = " + mOffsetY + "->overX = " + overX + "->overY = " + overY);
         if (mOffsetX < -overX) {
             mOffsetX = -overX;
         }
@@ -130,7 +130,7 @@ public class MatrixView extends View implements GestureDetector.OnGestureListene
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.translate(mOffsetX * mScaleFraction, mOffsetY * mScaleFraction);
-        Common.log_d("缩放系数", "mSmallScale = " + mSmallScale + "->mBigScale = " + mBigScale);
+        LogUtil.logD("缩放系数", "mSmallScale = " + mSmallScale + "->mBigScale = " + mBigScale);
 //        float scale = mIsBig ? mBigScale : mSmallScale;
         float scale = mSmallScale + (mBigScale - mSmallScale) * mScaleFraction;
         canvas.scale(scale, scale, getWidth() / 2, getHeight() / 2);
@@ -174,13 +174,13 @@ public class MatrixView extends View implements GestureDetector.OnGestureListene
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent e) {
-        Common.log_d("DoubleTap", "onSingleTapConfirmed...");
+        LogUtil.logD("DoubleTap", "onSingleTapConfirmed...");
         return false;
     }
 
     @Override
     public boolean onDoubleTap(MotionEvent e) {
-        Common.log_d("DoubleTap", "onDoubleTap...");
+        LogUtil.logD("DoubleTap", "onDoubleTap...");
         mIsBig = !mIsBig;
         if (mIsBig) {
 //            e.getX() - getWidth() / 2 // 放大前的x位置
@@ -198,7 +198,7 @@ public class MatrixView extends View implements GestureDetector.OnGestureListene
 
     @Override
     public boolean onDoubleTapEvent(MotionEvent e) {
-        Common.log_d("DoubleTap", "onDoubleTapEvent...");
+        LogUtil.logD("DoubleTap", "onDoubleTapEvent...");
         return false;
     }
 

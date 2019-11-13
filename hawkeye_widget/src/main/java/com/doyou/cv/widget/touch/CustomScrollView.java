@@ -12,8 +12,8 @@ import android.view.animation.Interpolator;
 import android.widget.OverScroller;
 import android.widget.TextView;
 
-import com.dongni.tools.Common;
-import com.doyou.cv.utils.Utils;
+import com.doyou.cv.utils.LogUtil;
+import com.doyou.cv.utils.Util;
 
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.VelocityTrackerCompat;
@@ -81,7 +81,7 @@ public class CustomScrollView extends ViewGroup {
 
     private void init(Context context) {
         mContext = context;
-        int screen[] = Utils.getScreenWH(mContext);
+        int screen[] = Util.getScreenWH(mContext);
         mScreenW = screen[0];
         mScreenH = screen[1];
 
@@ -89,14 +89,14 @@ public class CustomScrollView extends ViewGroup {
         mTouchSlop = vc.getScaledTouchSlop();
         mMinFlingVelocity = vc.getScaledMinimumFlingVelocity();
         mMaxFlingVelocity = vc.getScaledMaximumFlingVelocity();
-        Common.log_d("init", "滑动阈值：" + mTouchSlop + "-->最小滑动速度 = " + mMinFlingVelocity + "-->最大滑动速度 = " + mMaxFlingVelocity);
+        LogUtil.logD("init", "滑动阈值：" + mTouchSlop + "-->最小滑动速度 = " + mMinFlingVelocity + "-->最大滑动速度 = " + mMaxFlingVelocity);
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
         boolean scrollbar = awakenScrollBars();
-        Common.log_d("onTouchEvent","scrollbar = " + scrollbar);
+        LogUtil.logD("onTouchEvent","scrollbar = " + scrollbar);
     }
 
     @Override
@@ -160,7 +160,7 @@ public class CustomScrollView extends ViewGroup {
         final int action = MotionEventCompat.getActionMasked(event);
         // 手指在集合中的索引值
         final int actionIndex = MotionEventCompat.getActionIndex(event);
-        Common.log_d("onTouchEvent", "action = " + action + "->actionIndex = " + actionIndex);
+        LogUtil.logD("onTouchEvent", "action = " + action + "->actionIndex = " + actionIndex);
 
         switch (action) {
             case MotionEvent.ACTION_DOWN: {
@@ -178,7 +178,7 @@ public class CustomScrollView extends ViewGroup {
                 // 获取最新手指的索引
                 final int index = event.findPointerIndex(mScrollPointerId); /////
                 if (index < 0) {
-                    Common.log_e("onTouchEvent", "检测不到手指...");
+                    LogUtil.logE("onTouchEvent", "检测不到手指...");
                     return false;
                 }
 
@@ -227,7 +227,7 @@ public class CustomScrollView extends ViewGroup {
                 } else {
                     yVelocity = Math.max(-mMaxFlingVelocity, Math.min(yVelocity, mMaxFlingVelocity));
                 }
-                Common.log_d("onTouchEvent", "速度值：" + yVelocity);
+                LogUtil.logD("onTouchEvent", "速度值：" + yVelocity);
                 // 将速度反应到滑动上
                 if (yVelocity != 0) {
                     mFlinger.fling((int) yVelocity);
@@ -251,7 +251,7 @@ public class CustomScrollView extends ViewGroup {
 
     @Override
     protected int computeVerticalScrollExtent() {
-        Common.log_d("computeVerticalScrollExtent","computeVerticalScrollExtent");
+        LogUtil.logD("computeVerticalScrollExtent","computeVerticalScrollExtent");
         return super.computeVerticalScrollExtent();
 //        return getScrollY();
     }
@@ -265,7 +265,7 @@ public class CustomScrollView extends ViewGroup {
 
     @Override
     protected int computeVerticalScrollRange() {
-        Common.log_d("computeVerticalScrollRange","mHeight = " + mHeight);
+        LogUtil.logD("computeVerticalScrollRange","mHeight = " + mHeight);
         return mHeight;
     }
 
@@ -292,17 +292,17 @@ public class CustomScrollView extends ViewGroup {
      * @param dy
      */
     private void constrainScrollBy(int dx, int dy) {
-        Common.log_d("constrainScrollBy", "控件W = " + mWidth + "->控件H = " + mHeight);
+        LogUtil.logD("constrainScrollBy", "控件W = " + mWidth + "->控件H = " + mHeight);
         Rect viewport = new Rect();
         getGlobalVisibleRect(viewport);
         int height = viewport.height();
         int width = viewport.width();
-        Common.log_d("constrainScrollBy", "viewport.height = " + height + "->viewport.width = " + width);
+        LogUtil.logD("constrainScrollBy", "viewport.height = " + height + "->viewport.width = " + width);
 
         // 控件滚动后的x，y
         int scrollX = getScrollX();
         int scrollY = getScrollY();
-        Common.log_d("constrainScrollBy", "scrollX = " + scrollX + "->scrollY = " + scrollY);
+        LogUtil.logD("constrainScrollBy", "scrollX = " + scrollX + "->scrollY = " + scrollY);
 
         // 右边界
         if (mWidth - scrollX - dx < width) {

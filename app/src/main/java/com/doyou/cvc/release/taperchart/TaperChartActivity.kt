@@ -44,7 +44,7 @@ class TaperChartActivity : AppCompatActivity() {
         when (type) {
             1 -> {
                 tchartV.isShowDebugView(false)
-                tchartV.setTaperColors(Color.GREEN,Color.DKGRAY,Color.RED)
+                tchartV.setTaperColors(Color.GREEN,Color.GRAY,Color.RED)
 
                 var keys: MutableList<String> = ArrayList()
                 for (i in 0 until 3) {
@@ -96,7 +96,7 @@ class TaperChartActivity : AppCompatActivity() {
             4 ->{
                 tchartV3.offSetXy(48f)
                 tchartV3.isShowDebugView(true)
-                tchartV3.setTaperColors(Color.GREEN, Color.DKGRAY)
+                tchartV3.setTaperColors(Color.GREEN, Color.CYAN)
 
                 var keys: MutableList<String> = ArrayList()
                 for (i in 0 until 6) {
@@ -133,7 +133,7 @@ class TaperChartActivity : AppCompatActivity() {
     }
 
     private fun syncTaperChartLayoutDataDwColor(){
-        tchartLayout1.setColors(Color.GREEN,Color.DKGRAY,Color.RED)
+        tchartLayout1.setColors(Color.GREEN,Color.LTGRAY,Color.RED)
         var keys: MutableList<String> = ArrayList()
         var labels: MutableList<String> = ArrayList()
         for (i in 0 until 3) {
@@ -160,7 +160,7 @@ class TaperChartActivity : AppCompatActivity() {
         tchartLayout2.chart.offSetXy(48f)
         tchartLayout2.chart.isShowDebugView(false)
         tchartLayout2.chart.isDrawTopValue = true
-        tchartLayout2.setColors(Color.GREEN, Color.DKGRAY)
+        tchartLayout2.setColors(Color.GREEN, Color.BLUE)
 
         var keys: MutableList<String> = ArrayList()
         for (i in 0 until 6) {

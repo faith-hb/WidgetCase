@@ -5,17 +5,17 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
-import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.dongni.tools.Common;
 import com.dongni.tools.DensityUtil;
 import com.dongni.tools.EmptyUtils;
 import com.doyou.cv.R;
 import com.doyou.cv.bean.TaperChartBean;
+import com.doyou.cv.utils.LogUtil;
+import com.doyou.cv.utils.Util;
 
 import java.util.List;
 
@@ -44,7 +44,7 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
     // TaperChart设置的间距
     private float mTaperMargin;
     // 是否是对比峰值图
-    private boolean mIsCompar;
+    private boolean mIsComparison;
 
     public TaperChartLayout(Context context) {
         this(context, null);
@@ -67,7 +67,7 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
     private void init(View v) {
         mChart = v.findViewById(R.id.tchart);
         mChart.setListener(this);
-        mChart.setNoticLabel(true);
+        mChart.setNoticeLabel(true);
 
         mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setColor(Color.rgb(153, 153, 153));
@@ -103,7 +103,7 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
      * @param yValues
      */
     public void setData(List<String> xValues, List<Float> yValues) {
-        mIsCompar = false;
+        mIsComparison = false;
         mChart.setData(xValues, yValues);
     }
 
@@ -114,7 +114,7 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
      * @param labels
      */
     public void setData(List<String> xValues, List<Float> yValues, List<String> labels) {
-        mIsCompar = false;
+        mIsComparison = false;
         mChart.setData(xValues, yValues);
         if (EmptyUtils.isNotEmpty(mLabels)) {
             mLabels.clear();
@@ -130,7 +130,7 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
      * @param dw
      */
     public void setData(List<String> xValues, List<Float> yValues, List<String> labels,String dw) {
-        mIsCompar = false;
+        mIsComparison = false;
         mChart.setData(xValues, yValues,dw);
         if (EmptyUtils.isNotEmpty(mLabels)) {
             mLabels.clear();
@@ -145,9 +145,10 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
      * @param labels 对比的标签组
      * @param dw 单位
      * @param btmLabels 底部括号显示的label标签
+     * @param isComparison
      */
-    public void setData(List<String> xValues, List<Float> yValues, String[] labels, String dw, List<String> btmLabels,boolean isCompar) {
-        mIsCompar = isCompar;
+    public void setData(List<String> xValues, List<Float> yValues, String[] labels, String dw, List<String> btmLabels,boolean isComparison) {
+        mIsComparison = isComparison;
         mChart.setData(xValues, yValues, labels, dw);
         if (EmptyUtils.isNotEmpty(mLabels)) {
             mLabels.clear();
@@ -178,7 +179,7 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
 
         int canvasW = canvas.getWidth();
         int canvasH = canvas.getHeight();
-        int emptyTxtL = getTextWidth(NOT_DATA, paint);
+        int emptyTxtL = Util.getTextWidth(NOT_DATA, paint);
         canvas.drawText(NOT_DATA, canvasW / 2 - emptyTxtL / 2, canvasH / 2 - paint.getStrokeWidth(), paint);
     }
 
@@ -211,7 +212,7 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
     protected void onDraw(Canvas canvas) {
         if (EmptyUtils.isEmpty(mChart.getList()) || EmptyUtils.isEmpty(mLabels)) {
 //            drawEmptyData(canvas);
-            Common.log_d("201812241158","清除画布-之前的文案...");
+            LogUtil.logD("201812241158","清除画布-之前的文案...");
             canvas.drawText("",0,0,mTextPaint);
             return;
         }
@@ -219,12 +220,12 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
         float halfW = mChart.getLabelW() / 2;
         TaperChartBean bean;
 
-        if(!mIsCompar){ // 绘制底部标签
+        if(!mIsComparison){ // 绘制底部标签
             for (int i = 0; i < size; i++) {
                 bean = mChart.getList().get(i);
                 String label = mLabels.get(i);
-                canvas.drawText(label, mTaperMargin + bean.getRectF().left + (halfW - mChart.getTextWidth(label, mTextPaint) / 2),
-                        mChart.getXAxisTxt_Y() + mChart.getTextHeight(label, mTextPaint) + DensityUtil.dp2px(4), mTextPaint);
+                canvas.drawText(label, mTaperMargin + bean.getRectF().left + (halfW - Util.getTextWidth(label, mTextPaint) / 2),
+                        mChart.getXAxisTxt_Y() + Util.getTextHeight(label, mTextPaint) + DensityUtil.dp2px(4), mTextPaint);
 
 //            if(i == 0){
 //            canvas.drawPoint(bean.getRectF().left + mTaperMargin,bean.getRectF().bottom,mPointPaint);
@@ -247,8 +248,8 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
                     halfW = (right - left) / 2; // 图形的长度要取一组的长度
                 }
                 String label = mLabels.get(i);
-                canvas.drawText(label, mTaperMargin + left + (halfW - mChart.getTextWidth(label, mTextPaint) / 2),
-                        mChart.getXAxisTxt_Y() + mChart.getTextHeight(label, mTextPaint) + DensityUtil.dp2px(4), mTextPaint);
+                canvas.drawText(label, mTaperMargin + left + (halfW - Util.getTextWidth(label, mTextPaint) / 2),
+                        mChart.getXAxisTxt_Y() + Util.getTextHeight(label, mTextPaint) + DensityUtil.dp2px(4), mTextPaint);
             }
         }
     }
@@ -256,18 +257,6 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
     @Override
     public void onFinish() {
         invalidate();
-    }
-
-    /**
-     * @param text  绘制的文字
-     * @param paint 画笔
-     * @return 文字的宽度
-     */
-    public int getTextWidth(String text, Paint paint) {
-        Rect bounds = new Rect();
-        paint.getTextBounds(text, 0, text.length(), bounds);
-        int width = bounds.left + bounds.width();
-        return width;
     }
 
     /**

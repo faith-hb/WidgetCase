@@ -17,9 +17,8 @@ import android.view.animation.LinearInterpolator;
 
 import com.dongni.tools.DensityUtil;
 import com.doyou.cv.R;
-import com.doyou.cv.utils.Utils;
-
-import java.text.DecimalFormat;
+import com.doyou.cv.utils.FormatUtil;
+import com.doyou.cv.utils.LogUtil;
 
 import androidx.annotation.Nullable;
 
@@ -101,9 +100,6 @@ public class HalfCircleProView extends View {
      */
     private int mTxtColor;
 
-    private int mWidth;
-    private int mHeight;
-
     public HalfCircleProView(Context context) {
         this(context, null, 0);
     }
@@ -165,21 +161,19 @@ public class HalfCircleProView extends View {
 
     private void initBitmap() {
         mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.icon_half_cicle);
-        Utils.logD("201810301418", "initBitmap");
+        LogUtil.logD("201810301418", "initBitmap");
         mInRadius = mBitmap.getWidth() / 2;
         mRadius = mInRadius + mPaintWidth /*+ dp2px(1)*/;
     }
 
 
     @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
+    protected void onSizeChanged(int w, int h, int oldW, int oldH) {
+        super.onSizeChanged(w, h, oldW, oldH);
         centerX = w / 2;
         centerY = h;
-
-
         rectF.set(centerX - mRadius, centerY - mRadius, centerX + mRadius, centerY + mRadius);
-        Utils.logD("201810301418", "onSizeChanged");
+        LogUtil.logD("201810301418", "onSizeChanged");
     }
 
     @Override
@@ -188,57 +182,8 @@ public class HalfCircleProView extends View {
         int heightSize = mRadius + mPaintWidth + getPaddingTop() + getPaddingBottom();
         int width = resolveSize(widthSize, widthMeasureSpec);
         int height = resolveSize(heightSize, heightMeasureSpec);
-
-
-//        Log.d("201810301418", "onMeasure-->expectSize = " + expectSize + "->width = " + width + "->height = " + height
-//                + "->widthMeasureSpec = " + widthMeasureSpec + "->heightMeasureSpec = " + heightMeasureSpec);
-
-
+        LogUtil.logD("onMeasure", "width = " + width + "->height = " + height);
         setMeasuredDimension(width, height);
-    }
-
-    /**
-     * 测量宽度
-     *
-     * @param mode
-     * @param width
-     * @return
-     */
-    private int measureWidth(int mode, int width) {
-        switch (mode) {
-            case MeasureSpec.UNSPECIFIED:
-            case MeasureSpec.AT_MOST:
-                mWidth = getWidth();
-                break;
-            case MeasureSpec.EXACTLY:
-                mWidth = width;
-                break;
-            default:
-                break;
-        }
-        return mWidth;
-    }
-
-    /**
-     * 测量高度
-     *
-     * @param mode
-     * @param height
-     * @return
-     */
-    private int measureHeight(int mode, int height) {
-        switch (mode) {
-            case MeasureSpec.UNSPECIFIED:
-            case MeasureSpec.AT_MOST:
-                mHeight = getHeight();
-                break;
-            case MeasureSpec.EXACTLY:
-                mHeight = height;
-                break;
-            default:
-                break;
-        }
-        return mHeight;
     }
 
     @Override
@@ -247,7 +192,7 @@ public class HalfCircleProView extends View {
         LinearGradient sweepGradient = new LinearGradient(centerX - mRadius, centerY, centerX + mRadius, centerY, mGradientColors, null, Shader.TileMode.MIRROR);
         mProgressPaint.setShader(sweepGradient);
         canvas.drawBitmap(mBitmap, centerX - mInRadius, centerY - mInRadius, mProgressPaint);
-        canvas.drawText(formatNumTwo(mProgress), centerX, centerY, mTxtPaint);
+        canvas.drawText(FormatUtil.formatNumToPercentByTwoPoint(mProgress), centerX, centerY, mTxtPaint);
         mTempProgress = mProgress == 0 ? 0.1f : mProgress;
         float sweepAngele = mTempProgress * 180 / 100;
         canvas.drawArc(rectF, 180, sweepAngele, false, mProgressPaint);
@@ -258,26 +203,12 @@ public class HalfCircleProView extends View {
         progressAnimator.setDuration(duration);
         progressAnimator.setStartDelay(startDelay);
         progressAnimator.setInterpolator(new LinearInterpolator());
-        progressAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                float value = (float) valueAnimator.getAnimatedValue();
-                mProgress = value;
-                invalidate();
-            }
+        progressAnimator.addUpdateListener(valueAnimator -> {
+            float value = (float) valueAnimator.getAnimatedValue();
+            mProgress = value;
+            invalidate();
         });
         progressAnimator.start();
-    }
-
-    /**
-     * 格式化数字(保留两位小数)
-     *
-     * @param money
-     * @return
-     */
-    public static String formatNumTwo(float money) {
-        DecimalFormat format = new DecimalFormat("#.##%");
-        return format.format(money / 100);
     }
 
 }

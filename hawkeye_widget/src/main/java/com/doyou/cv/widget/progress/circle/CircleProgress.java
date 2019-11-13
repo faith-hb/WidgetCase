@@ -13,17 +13,17 @@ import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.dongni.tools.DensityUtil;
-import com.doyou.cv.BuildConfig;
 import com.doyou.cv.R;
+import com.doyou.cv.utils.LogUtil;
 
 import androidx.annotation.Nullable;
 
 /**
  * 自定义view实现环形带刻度颜色渐变的进度条
+ *
  * @autor hongbing
  * @date 2019/2/14
  */
@@ -97,11 +97,9 @@ public class CircleProgress extends View {
     // 是否使用渐变
     private boolean useGradient = true;
     // 前景色起始颜色
-    private int foreStartColor;
+    private int mForeStartColor;
     // 前景色结束颜色
-    private int foreEndColcor;
-    private int mWidth;
-    private int mHeight;
+    private int mForeEndColor;
 
 
     public CircleProgress(Context context) {
@@ -156,8 +154,8 @@ public class CircleProgress extends View {
         mDottedLineCount = typedArray.getInteger(R.styleable.CircleProgress_dottedLineCount, mDottedLineCount);
         mLineDistance = typedArray.getInteger(R.styleable.CircleProgress_lineDistance, mLineDistance);
         mDottedLineWidth = typedArray.getDimension(R.styleable.CircleProgress_dottedLineWidth, mDottedLineWidth);
-        foreStartColor = typedArray.getColor(R.styleable.CircleProgress_foreStartColor, Color.BLUE);
-        foreEndColcor = typedArray.getColor(R.styleable.CircleProgress_foreEndColor, Color.BLUE);
+        mForeStartColor = typedArray.getColor(R.styleable.CircleProgress_foreStartColor, Color.BLUE);
+        mForeEndColor = typedArray.getColor(R.styleable.CircleProgress_foreEndColor, Color.BLUE);
 
         typedArray.recycle();
     }
@@ -237,10 +235,10 @@ public class CircleProgress extends View {
     }
 
     @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
+    protected void onSizeChanged(int w, int h, int oldW, int oldH) {
+        super.onSizeChanged(w, h, oldW, oldH);
         mArcCenterX = (int) (w / 2.f);
-        Log.d(TAG, "onSizeChanged: w = " + w + "; h = " + h + "; oldw = " + oldw + "; oldh = " + oldh);
+        LogUtil.logD(TAG, "onSizeChanged: w = " + w + "; h = " + h + "; oldW = " + oldW + "; oldH = " + oldH);
         // 求圆弧和背景圆弧的最大宽度
         float maxArcWidth = Math.max(mArcWidth, mBgArcWidth);
         // 求最小值作为实际值
@@ -264,14 +262,14 @@ public class CircleProgress extends View {
         mUnitOffset = mCenterPoint.y + mRadius * mTextOffsetPercentInRadius + getBaselineOffsetFromY(mUnitPaint);
 
         if (useGradient) {
-            LinearGradient gradient = new LinearGradient(0, 0, w, h, foreEndColcor, foreStartColor, Shader.TileMode.CLAMP);
+            LinearGradient gradient = new LinearGradient(0, 0, w, h, mForeEndColor, mForeStartColor, Shader.TileMode.CLAMP);
             mArcPaint.setShader(gradient);
         } else {
             mArcPaint.setShader(null);
             mArcPaint.setColor(mArcColor);
         }
 
-        Log.d(TAG, "onSizeChanged: 控件大小 = " + "(" + w + ", " + h + ")"
+        LogUtil.logD(TAG, "onSizeChanged: 控件大小 = " + "(" + w + ", " + h + ")"
                 + "圆心坐标 = " + mCenterPoint.toString()
                 + ";圆半径 = " + mRadius
                 + ";圆的外接矩形 = " + mRectF.toString());
@@ -296,15 +294,15 @@ public class CircleProgress extends View {
         // 绘制背景圆弧
         // 360 * Math.PI / 180
         // 虚线分割点角度(2个度数一条线)
-        float evenryDegrees = (float) (2.0f * Math.PI / mDottedLineCount);
+        float everyDegrees = (float) (2.0f * Math.PI / mDottedLineCount);
         // 起始角度在圆环上的坐标点
-        float startDegress = (float) (135 * Math.PI / 180);
+        float startDegrees = (float) (135 * Math.PI / 180);
         // 结束角度在圆环上的坐标点
-        float endDegress = (float) (225 * Math.PI / 180);
+        float endDegrees = (float) (225 * Math.PI / 180);
         for (int i = 0; i < mDottedLineCount; i++) {
-            float degrees = i * evenryDegrees;
+            float degrees = i * everyDegrees;
             // 过滤底部90度的弧长
-            if (degrees > startDegress && degrees < endDegress) {
+            if (degrees > startDegrees && degrees < endDegrees) {
                 continue;
             }
             float startX = mArcCenterX + (float) Math.sin(degrees) * mInsideDottedLineRadius;
@@ -402,29 +400,23 @@ public class CircleProgress extends View {
     private void startAnimator(float start, float end, long animTime) {
         mAnimator = ValueAnimator.ofFloat(start, end);
         mAnimator.setDuration(animTime);
-        mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                mPercent = (float) animation.getAnimatedValue();
-                mValue = mPercent * mMaxValue;
-                if (BuildConfig.DEBUG) {
-                    Log.d(TAG, "onAnimationUpdate: percent = " + mPercent
-                            + ";currentAngle = " + (mSweepAngle * mPercent)
-                            + ";value = " + mValue);
-                }
-                invalidate();
-            }
+        mAnimator.addUpdateListener(animation -> {
+            mPercent = (float) animation.getAnimatedValue();
+            mValue = mPercent * mMaxValue;
+            LogUtil.logD(TAG, "onAnimationUpdate: percent = " + mPercent
+                    + ";currentAngle = " + (mSweepAngle * mPercent)
+                    + ";value = " + mValue);
+            invalidate();
         });
         mAnimator.start();
     }
 
     /**
      * 获取数值精度格式化字符串
-     *
      * @param precision
      * @return
      */
-    public static String getPrecisionFormat(int precision) {
+    private String getPrecisionFormat(int precision) {
         return "%." + precision + "f";
     }
 }

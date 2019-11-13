@@ -43,7 +43,7 @@
             android:background="#cfcfcf"
             android:gravity="center_vertical"
             android:paddingLeft="24dp"
-            android:text="4张图，2个label"
+            android:text="4张图，2个label(显示水平测试线)"
             android:textColor="#2a2a2a"
             app:layout_constraintTop_toBottomOf="@id/tchartV"/>
 

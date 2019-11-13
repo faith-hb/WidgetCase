@@ -9,8 +9,8 @@ import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import android.view.animation.AnimationUtils;
 
-import com.dongni.tools.Common;
 import com.doyou.cv.callback.Rotatable;
+import com.doyou.cv.utils.LogUtil;
 
 import androidx.appcompat.widget.AppCompatImageButton;
 
@@ -109,12 +109,12 @@ public class CircleButton extends AppCompatImageButton implements Rotatable {
         background.addState(STATE_SET_NONE, mNormal);
         setBackgroundDrawable(background);
 
-        Common.log_d(TAG,"init....");
+        LogUtil.logD(TAG,"init....");
     }
 
     @Override
     public void setOrientation(int degree, boolean animation) {
-        Common.log_d(TAG,"setOrientation degree...." + degree);
+        LogUtil.logD(TAG,"setOrientation degree...." + degree);
         mEnableAnimation = animation;
         // make sure in the range of [0, 359]
         degree = degree >= 0 ? degree % 360 : degree % 360 + 360;
@@ -144,7 +144,7 @@ public class CircleButton extends AppCompatImageButton implements Rotatable {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Common.log_d(TAG,"onDraw start....");
+        LogUtil.logD(TAG,"onDraw start....");
 
         Drawable drawable = getDrawable();
         if (drawable == null) {
@@ -192,6 +192,6 @@ public class CircleButton extends AppCompatImageButton implements Rotatable {
         drawable.draw(canvas);
         canvas.restoreToCount(saveCount);
 
-        Common.log_d(TAG,"onDraw end....");
+        LogUtil.logD(TAG,"onDraw end....");
     }
 }

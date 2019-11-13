@@ -21,7 +21,8 @@ import android.view.animation.LinearInterpolator;
 
 import com.dongni.tools.DensityUtil;
 import com.doyou.cv.R;
-import com.doyou.cv.utils.Utils;
+import com.doyou.cv.utils.FormatUtil;
+import com.doyou.cv.utils.LogUtil;
 
 import java.text.DecimalFormat;
 
@@ -245,17 +246,14 @@ public class CircleProgressBarView extends View {
         progressAnimator.setDuration(duration);
         progressAnimator.setStartDelay(startDelay);
         progressAnimator.setInterpolator(new LinearInterpolator());
-        progressAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                float value = (float) valueAnimator.getAnimatedValue();
-                mProgress = value;
-                currentProgress = value * 360 / 100;
-                if (progressListener != null) {
-                    progressListener.currentProgressListener(roundTwo(value));
-                }
-                invalidate();
+        progressAnimator.addUpdateListener(valueAnimator -> {
+            float value = (float) valueAnimator.getAnimatedValue();
+            mProgress = value;
+            currentProgress = value * 360 / 100;
+            if (progressListener != null) {
+                progressListener.currentProgressListener(FormatUtil.roundTwo(value));
             }
+            invalidate();
         });
         progressAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -296,7 +294,7 @@ public class CircleProgressBarView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Utils.logD("201801251106", "centerX = " + centerX + "->centerY = "
+        LogUtil.logD("201801251106", "centerX = " + centerX + "->centerY = "
                 + centerY + "->mProgress = " + mProgress);
         canvas.drawCircle(centerX, centerY, radius, circleBgPaint);
         canvas.drawArc(rectF, -90, currentProgress, false, progressPaint);
@@ -330,7 +328,7 @@ public class CircleProgressBarView extends View {
     private void drawTriangle(Canvas canvas) {
         Path path = new Path();
         PointF pf1, pf2, pf3;
-        Utils.logD("20190124", "绘制小三角 mProgress = " + mProgress);
+        LogUtil.logD("20190124", "绘制小三角 mProgress = " + mProgress);
         if (mProgress < 49) {
             trainPaint.setColor(circleBgColor);
             pf1 = new PointF(centerX - dp8, centerY * 2 - progressStrokeWidth - dp2);
@@ -341,34 +339,34 @@ public class CircleProgressBarView extends View {
             int pro = (int) (mProgress * 100);
             if (mProgress >= 49 && pro < 49.2 * 100) {
                 positions = new float[]{0.39f, 0.39f};
-                Utils.logD("20190124", "阶段1 -> pro = " + pro);
+                LogUtil.logD("20190124", "阶段1 -> pro = " + pro);
             } else if (pro >= 49.2 * 100 && pro < 49.4 * 100) {
                 positions = new float[]{0.46f, 0.46f};
-                Utils.logD("20190124", "阶段2");
+                LogUtil.logD("20190124", "阶段2");
             } else if (pro >= 49.4 * 100 && pro < 49.6 * 100) {
                 positions = new float[]{0.5f, 0.5f};
-                Utils.logD("20190124", "阶段3 -> pro = " + pro);
+                LogUtil.logD("20190124", "阶段3 -> pro = " + pro);
             } else if (pro >= 49.6 * 100 && pro < 49.8 * 100) {
                 positions = new float[]{0.62f, 0.38f};
-                Utils.logD("20190124", "阶段4 -> pro = " + pro);
+                LogUtil.logD("20190124", "阶段4 -> pro = " + pro);
             } else if (pro >= 49.8 * 100 && pro < 50 * 100) {
                 positions = new float[]{0.64f, 0.36f};
-                Utils.logD("20190124", "阶段5 -> pro = " + pro);
+                LogUtil.logD("20190124", "阶段5 -> pro = " + pro);
             } else if (pro >= 50 * 100 && pro < 50.2 * 100) {
                 positions = new float[]{0.7f, 0.3f};
-                Utils.logD("20190124", "阶段6 -> pro = " + pro);
+                LogUtil.logD("20190124", "阶段6 -> pro = " + pro);
             } else if (pro >= 50.2 * 100 && pro < 50.4 * 100) {
                 positions = new float[]{0.75f, 0.25f};
-                Utils.logD("20190124", "阶段7 -> pro = " + pro);
+                LogUtil.logD("20190124", "阶段7 -> pro = " + pro);
             } else if (pro >= 50.4 * 100 && pro < 50.6 * 100) {
                 positions = new float[]{0.8f, 0.2f};
-                Utils.logD("20190124", "阶段8 -> pro = " + pro);
+                LogUtil.logD("20190124", "阶段8 -> pro = " + pro);
             } else if (pro >= 50.6 * 100 && pro <= 50.8 * 100) {
                 positions = new float[]{0.9f, 0.1f};
-                Utils.logD("20190124", "阶段9 -> pro = " + pro);
+                LogUtil.logD("20190124", "阶段9 -> pro = " + pro);
             } else {
                 positions = new float[]{1.0f, 0.f};
-                Utils.logD("20190124", "阶段 else");
+                LogUtil.logD("20190124", "阶段 else");
             }
             LinearGradient triangleGdt = new LinearGradient(
                     centerX + dp6,
@@ -493,16 +491,6 @@ public class CircleProgressBarView extends View {
     public CircleProgressBarView setProgressListener(ProgressListener listener) {
         progressListener = listener;
         return this;
-    }
-
-    /**
-     * 将一个小数四舍五入，保留两位小数返回
-     *
-     * @param originNum
-     * @return
-     */
-    public static float roundTwo(float originNum) {
-        return (float) (Math.round(originNum * 10) / 10.00);
     }
 
 //    public int getColor(float radio) {

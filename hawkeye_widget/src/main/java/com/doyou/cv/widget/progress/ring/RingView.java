@@ -14,13 +14,12 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ProgressBar;
 
-import com.dongni.tools.Common;
 import com.dongni.tools.DensityUtil;
 import com.dongni.tools.EmptyUtils;
 import com.doyou.cv.R;
-import com.doyou.cv.utils.Utils;
 import com.doyou.cv.bean.CircleBean;
 import com.doyou.cv.bean.RingVBean;
+import com.doyou.cv.utils.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -206,7 +205,7 @@ public class RingView extends ProgressBar {
             int height = resolveSize(expectSize, heightMeasureSpec);
             expectSize = Math.min(width, height);
 
-            Utils.logD("201810301418", "onMeasure-->expectSize = " + expectSize + "->width = " + width + "->height = " + height
+            LogUtil.logD("201810301418", "onMeasure-->expectSize = " + expectSize + "->width = " + width + "->height = " + height
                     + "->widthMeasureSpec = " + widthMeasureSpec + "->heightMeasureSpec = " + heightMeasureSpec);
 
             mRadius = (expectSize - getPaddingTop() - getPaddingBottom() - mMaxStrokeWidth) / 2;
@@ -242,21 +241,21 @@ public class RingView extends ProgressBar {
                 downX = event.getX();
                 downY = event.getY();
                 currentMS = System.currentTimeMillis();
-                Common.log_d("201811161726", "MotionEvent.ACTION_DOWN->currentMS = " + currentMS);
+                LogUtil.logD("201811161726", "MotionEvent.ACTION_DOWN->currentMS = " + currentMS);
                 break;
             case MotionEvent.ACTION_MOVE:
-                Common.log_d("201811161726", "MotionEvent.ACTION_MOVE");
+                LogUtil.logD("201811161726", "MotionEvent.ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
                 long moveTime = System.currentTimeMillis() - currentMS;
-                Common.log_d("201811161726", "moveTime = " + moveTime);
+                LogUtil.logD("201811161726", "moveTime = " + moveTime);
                 if (moveTime < 120) { // 点击判定条件
                     if (EmptyUtils.isNotEmpty(mOuterRfList)) {
                         RingVBean bean;
                         int size = mOuterRfList.size();
                         for (int i = 0; i < size; i++) {
                             bean = mOuterRfList.get(i);
-                            Common.log_d("201812121815", "矩阵 = " + bean.getRf().toString() + "->downX = " + downX +
+                            LogUtil.logD("201812121815", "矩阵 = " + bean.getRf().toString() + "->downX = " + downX +
                                     "->downY = " + downY + "->是否包含 = " + bean.isInChartArea(bean.getRf(), downX, downY) + "->size = " + size);
                             if (bean.isInChartArea(bean.getRf(), downX, downY)) {
                                 if (mListener != null) {
@@ -373,7 +372,7 @@ public class RingView extends ProgressBar {
             paint.setColor(mCenterTxtColor);
             int[] wh = getTextWH(mCenterTxt, paint);
 
-            Common.log_d("20190312", "bmp H = " + mCenterBitmap.getHeight() + "->总高度 = " + (mCenterBitmap.getHeight() + mCenterImgTxtMargin + wh[1]) + "->半径 = " + mRadius);
+            LogUtil.logD("20190312", "bmp H = " + mCenterBitmap.getHeight() + "->总高度 = " + (mCenterBitmap.getHeight() + mCenterImgTxtMargin + wh[1]) + "->半径 = " + mRadius);
             // 垂直居中对齐
             float halfBmpTxtH = (mCenterBitmap.getHeight() + mCenterImgTxtMargin + wh[1]) / 2;
             float bmpTop = mRadius - halfBmpTxtH;
@@ -446,7 +445,7 @@ public class RingView extends ProgressBar {
             canvas.drawLine(xy[0], xy[1], endX, xy[1], mPaint);
             // 画文案咯
             if (!TextUtils.isEmpty(currTxt)) {
-                Utils.logD("201811191753", "currTxt = " + currTxt);
+                LogUtil.logD("201811191753", "currTxt = " + currTxt);
                 if (isLeft) {
                     float l_startX = endX - wh[0] - DensityUtil.dp2px(3);
                     float l_startY = xy[1] + wh[1] / 2;
@@ -537,7 +536,7 @@ public class RingView extends ProgressBar {
             wh = getTextWH(bean.getDesc(), mTxtPaint);
 
 
-            Common.log_d("度数", "中心点 = " + bean.getCenterPro() + "->对应值 = " + bean.getDesc());
+            LogUtil.logD("度数", "中心点 = " + bean.getCenterPro() + "->对应值 = " + bean.getDesc());
 
             // 判断横线是画在左边还是右边
             float endX;
@@ -607,7 +606,7 @@ public class RingView extends ProgressBar {
                 canvas.drawRoundRect(bean.getRf(), 3, 3, paint);
             }
 
-//            Common.log_d("201812121815","绘制矩阵->" + rvb.getRf().toString());
+//            LogUtil.logD("201812121815","绘制矩阵->" + rvb.getRf().toString());
         }
     }
 

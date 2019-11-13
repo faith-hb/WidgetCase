@@ -1,5 +1,9 @@
 kotlin
 
+项目中的log打印选择：
+app：Common.log_*
+library:LogUtil.log*
+
 集合转数组：
 
 数组转集合：array.toList() as List<T>  |   array.toList() as ArrayList<String>   |   Arrays.asList(names)   |  Arrays.asList("a", "b", "c")

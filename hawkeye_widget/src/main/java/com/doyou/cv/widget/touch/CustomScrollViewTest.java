@@ -11,8 +11,8 @@ import android.view.animation.Interpolator;
 import android.widget.OverScroller;
 import android.widget.TextView;
 
-import com.dongni.tools.Common;
-import com.doyou.cv.utils.Utils;
+import com.doyou.cv.utils.LogUtil;
+import com.doyou.cv.utils.Util;
 
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.VelocityTrackerCompat;
@@ -63,7 +63,7 @@ public class CustomScrollViewTest extends ViewGroup {
 
     private void init(Context context) {
         mContext = context;
-        int screen[] = Utils.getScreenWH(mContext);
+        int screen[] = Util.getScreenWH(mContext);
         mScreenW = screen[0];
         mScreenH = screen[1];
 
@@ -184,7 +184,7 @@ public class CustomScrollViewTest extends ViewGroup {
                     velocityY = Math.max(-mMaxVelocity, Math.min(velocityY, mMaxVelocity));
                 }
                 if (velocityY != 0) {
-                    Common.log_d("velocityY", "velocityY = " + velocityY);
+                    LogUtil.logD("velocityY", "velocityY = " + velocityY);
                     // 将速度反应到滚动器上去
                     mFlinger.onFling((int) velocityY);
                 } else {
@@ -227,13 +227,13 @@ public class CustomScrollViewTest extends ViewGroup {
 
         @Override
         public void run() {
-            Common.log_d("ViewFlinger", "run...");
+            LogUtil.logD("ViewFlinger", "run...");
             if (mScroller.computeScrollOffset()) {
                 int y = mScroller.getCurrY();
                 int dis = y - mLastFlingY;
                 mLastFlingY = y;
 
-                Common.log_d("ViewFlinger", "dis = " + dis);
+                LogUtil.logD("ViewFlinger", "dis = " + dis);
                 scrollBy(0, dis);
                 postOnAnimation();
             }

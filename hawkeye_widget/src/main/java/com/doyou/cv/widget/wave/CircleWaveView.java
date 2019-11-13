@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.dongni.tools.DensityUtil;
-import com.doyou.cv.utils.Utils;
+import com.doyou.cv.utils.LogUtil;
 
 import androidx.annotation.Nullable;
 
@@ -61,7 +61,7 @@ public class CircleWaveView extends View {
     private static final String TAG = "CircleWaveView";
     private Paint mCirclePaint;
     private Paint mWavePaint;
-    private PorterDuffXfermode mXfermode = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
+    private PorterDuffXfermode mDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
 
     private Canvas mCanvas;
     private Bitmap mBitmap;
@@ -111,7 +111,7 @@ public class CircleWaveView extends View {
 
         mY = mHeight;
         setMeasuredDimension(mWidth, mHeight);
-        Utils.logD(TAG, "mWidth = " + mWidth + "->mHeight = " + mHeight);
+        LogUtil.logD(TAG, "mWidth = " + mWidth + "->mHeight = " + mHeight);
 
     }
 
@@ -152,7 +152,7 @@ public class CircleWaveView extends View {
                     isLft = false;
                 }
             }
-            Utils.logD(TAG, "mWidth = " + mWidth + "->百分比 = " + mPercent + "->target = " + target + "->mStart = " + mStart + "->mX = " + mX);
+            LogUtil.logD(TAG, "mWidth = " + mWidth + "->百分比 = " + mPercent + "->target = " + target + "->mStart = " + mStart + "->mX = " + mX);
 
 
             if (isLft) {
@@ -174,7 +174,7 @@ public class CircleWaveView extends View {
 
 //            mWavePaint.setColor(Color.parseColor("#B20000FF"));
             mWavePaint.setColor(Color.parseColor("#990000FF"));
-            mWavePaint.setXfermode(mXfermode);
+            mWavePaint.setXfermode(mDuffXfermode);
             mCanvas.drawPath(mPath, mWavePaint);
             mWavePaint.setXfermode(null);
 

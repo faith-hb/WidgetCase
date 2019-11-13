@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.dongni.tools.DensityUtil;
-import com.doyou.cv.utils.Utils;
+import com.doyou.cv.utils.Util;
 
 import androidx.annotation.Nullable;
 
@@ -41,7 +41,7 @@ public class ImgTxtMixtureView extends View {
     {
         mTextPaint.setTextSize(DensityUtil.dp2px(15));
         mPaint.setTextSize(DensityUtil.dp2px(16));
-        mBitmap = Utils.getAvatar(getResources(),IMAGE_WIDTH);
+        mBitmap = Util.getAvatar(getResources(),IMAGE_WIDTH);
     }
 
     @Override

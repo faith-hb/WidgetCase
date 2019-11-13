@@ -14,7 +14,7 @@ import com.dongni.tools.DensityUtil;
 import com.dongni.tools.EmptyUtils;
 import com.doyou.cv.R;
 import com.doyou.cv.bean.CircleBean;
-import com.doyou.cv.utils.Utils;
+import com.doyou.cv.utils.LogUtil;
 import com.doyou.cv.widget.PointView;
 import com.doyou.cv.widget.base.CircleCenterStyle;
 import com.doyou.cv.widget.progress.circle.CircleView;
@@ -132,20 +132,20 @@ public class LegendRingView extends ConstraintLayout {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         if(mIsDebug){
             mMeasureCount++;
-            Utils.logD("201812211741","onMeasure...测量次数 = " + mMeasureCount);
+            LogUtil.logD("201812211741","onMeasure...测量次数 = " + mMeasureCount);
         }
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        Utils.logD("201812201056","onFinishInflate...");
+        LogUtil.logD("201812201056","onFinishInflate...");
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        Utils.logD("201812201056",
+        LogUtil.logD("201812201056",
                 "onLayout->MeasuredWidth = " + mLrvLayout.getMeasuredWidth() + "->changed = " + changed);
         autoCaclColumn();
     }
@@ -158,7 +158,7 @@ public class LegendRingView extends ConstraintLayout {
         int margin = params.leftMargin + params.rightMargin;
         // 计算每行显示列数
         mColumn = (mLrvLayout.getMeasuredWidth() - margin) / mColumnWidth;
-        Utils.logD("201812201056", "动态计算出的列数 = " + mColumn +
+        LogUtil.logD("201812201056", "动态计算出的列数 = " + mColumn +
                 "->MeasuredWidth = " + mLrvLayout.getMeasuredWidth() + "->margin = " + margin);
     }
 
@@ -191,82 +191,79 @@ public class LegendRingView extends ConstraintLayout {
             mCircleView.setEmpty();
             return;
         }
-        post(new Runnable() {
-            @Override
-            public void run() {
-                if (mColumn <= 0) { // view的大小未确定
-                    return;
-                }
-                if(list.size() != legends.size()){
-                    throw new IllegalArgumentException("标签和环形集合大小不一致...");
-                }
+        post(() -> {
+            if (mColumn <= 0) { // view的大小未确定
+                return;
+            }
+            if(list.size() != legends.size()){
+                throw new IllegalArgumentException("标签和环形集合大小不一致...");
+            }
 
-                Utils.logD("201812201056","setData...");
-                mCircleView.setData(list);
+            LogUtil.logD("201812201056","setData...");
+            mCircleView.setData(list);
 
-                int size = legends.size();
+            int size = legends.size();
 
-                // 图例行数
-                int circulation = size / mColumn + (size % mColumn > 0 ? 1 : 0);
-                Utils.logD("201812201056", "图例行数 = " + circulation + "->集合总数size = " + size
-                        + "->size / mColumn = " + (size / mColumn) + "->size % mColumn = " + (size % mColumn));
-                if (mColumn > size) {
-                    mColumn = size;
-                }
+            // 图例行数
+            int circulation = size / mColumn + (size % mColumn > 0 ? 1 : 0);
+            LogUtil.logD("201812201056", "图例行数 = " + circulation + "->集合总数size = " + size
+                    + "->size / mColumn = " + (size / mColumn) + "->size % mColumn = " + (size % mColumn));
+            if (mColumn > size) {
+                mColumn = size;
+            }
 
-                // 先清空之前的子view
-                mLrvLayout.removeAllViews(); // 会导致onMeasure重新测量
-                LinearLayout labelLayout;
-                PointView pointView;
-                TextView labelTv;
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                LinearLayout.LayoutParams sonParams = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                for (int i = 0; i < circulation; i++) {
-                    labelLayout = new LinearLayout(mContext);
-                    labelLayout.setLayoutParams(params);
+            // 先清空之前的子view
+            mLrvLayout.removeAllViews(); // 会导致onMeasure重新测量
+            LinearLayout labelLayout;
+            PointView pointView;
+            TextView labelTv;
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams sonParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            for (int i = 0; i < circulation; i++) {
+                labelLayout = new LinearLayout(mContext);
+                labelLayout.setLayoutParams(params);
 //                    linearLayout.setBackgroundColor(Color.rgb(123, 180, 248));
-                    if (circulation == 1) { // 只有一行，水平居中
-                        labelLayout.setGravity(Gravity.CENTER);
-                    } else { // 左对齐
-                        labelLayout.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
-                        if (i > 0) { // 大于一行,第一行不设置行间上间距
-                            params.topMargin = mLegendVerMargin;
-                        }
-                        params.leftMargin = mLegendOffsetLeft;
+                if (circulation == 1) { // 只有一行，水平居中
+                    labelLayout.setGravity(Gravity.CENTER);
+                } else { // 左对齐
+                    labelLayout.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
+                    if (i > 0) { // 大于一行,第一行不设置行间上间距
+                        params.topMargin = mLegendVerMargin;
                     }
-                    for (int j = 0; j < mColumn; j++) { // 创建label
+                    params.leftMargin = mLegendOffsetLeft;
+                }
+                for (int j = 0; j < mColumn; j++) { // 创建label
 
-                        if (i * mColumn + j > size - 1) { // 全取干净了
-                            break;
+                    if (i * mColumn + j > size - 1) { // 全取干净了
+                        break;
+                    }
+
+                    pointView = new PointView(mContext);
+                    pointView.setColor(circle_colors[i * mColumn + j]);
+                    if (j > 0) {
+                        if (legends.get(i * mColumn + j - 1).length() > 2) { // 针对三个文字的间距设置
+                            sonParams.leftMargin = DensityUtil.dp2px(12);
+                            pointView.setLayoutParams(sonParams);
                         }
+                    }
+                    labelLayout.addView(pointView);
 
-                        pointView = new PointView(mContext);
-                        pointView.setColor(circle_colors[i * mColumn + j]);
-                        if (j > 0) {
-                            if (legends.get(i * mColumn + j - 1).length() > 2) { // 针对三个文字的间距设置
-                                sonParams.leftMargin = DensityUtil.dp2px(12);
-                                pointView.setLayoutParams(sonParams);
-                            }
-                        }
-                        labelLayout.addView(pointView);
-
-                        labelTv = new TextView(mContext);
+                    labelTv = new TextView(mContext);
 //                        if (BuildConfig.DEBUG) {
 //                            labelTv.setBackgroundColor(Color.rgb(218, 112, 214));
 //                        }
-                        labelTv.setGravity(Gravity.CENTER_VERTICAL);
-                        labelTv.setPadding(mLegendLabelAndPointMargin, 0, 0, 0);
-                        labelTv.setWidth(mColumnWidth);
-                        labelTv.setText(legends.get(i * mColumn + j));
-                        labelTv.setTextColor(mlabelColor);
-                        labelTv.setTextSize(TypedValue.COMPLEX_UNIT_PX, mLabelSize);
-                        labelLayout.addView(labelTv);
-                    }
-
-                    mLrvLayout.addView(labelLayout); // 会导致onMeasure重新测量
+                    labelTv.setGravity(Gravity.CENTER_VERTICAL);
+                    labelTv.setPadding(mLegendLabelAndPointMargin, 0, 0, 0);
+                    labelTv.setWidth(mColumnWidth);
+                    labelTv.setText(legends.get(i * mColumn + j));
+                    labelTv.setTextColor(mlabelColor);
+                    labelTv.setTextSize(TypedValue.COMPLEX_UNIT_PX, mLabelSize);
+                    labelLayout.addView(labelTv);
                 }
+
+                mLrvLayout.addView(labelLayout); // 会导致onMeasure重新测量
             }
         });
 

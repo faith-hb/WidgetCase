@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -15,13 +14,13 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.dongni.tools.Common;
 import com.dongni.tools.DensityUtil;
 import com.dongni.tools.EmptyUtils;
 import com.dongni.tools.ToastUtils;
 import com.doyou.cv.R;
 import com.doyou.cv.bean.TaperChartBean;
-import com.doyou.cv.utils.Utils;
+import com.doyou.cv.utils.LogUtil;
+import com.doyou.cv.utils.Util;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -249,7 +248,7 @@ public class TaperChart extends View {
      * @param colors
      */
     public void setTaperColors(int... colors) {
-        mTaperColors = Utils.createColors(colors);
+        mTaperColors = Util.createColors(colors);
     }
 
     /**
@@ -314,9 +313,9 @@ public class TaperChart extends View {
         }
         mMaxValue = y_max;
 
-        Common.log_d("201811051107", "实际y_max = " + y_max);
+        LogUtil.logD("201811051107", "实际y_max = " + y_max);
         autoCaclYAxisMax();
-        Common.log_d("201811051107", "最终y_max = " + y_max);
+        LogUtil.logD("201811051107", "最终y_max = " + y_max);
         invalidate();
     }
 
@@ -369,8 +368,8 @@ public class TaperChart extends View {
     private void drawEmptyData(Canvas canvas) {
         int canvasW = canvas.getWidth();
         int canvasH = canvas.getHeight();
-        int emptyTxtW = getTextWidth(NOT_DATA, mNullPaint);
-        int emptyTxtH = getTextHeight(NOT_DATA, mNullPaint);
+        int emptyTxtW = Util.getTextWidth(NOT_DATA, mNullPaint);
+        int emptyTxtH = Util.getTextHeight(NOT_DATA, mNullPaint);
 //        canvas.drawText(NOT_DATA, canvasW / 2 - emptyTxtL / 2, canvasH / 2 - emptyTxtL / 2, mNullPaint);
         // 画文字的时候，y值是文字的底线
         canvas.drawText(NOT_DATA, canvasW / 2 - emptyTxtW / 2, canvasH / 2 + emptyTxtH / 2 - DensityUtil.dp2px(1.5f), mNullPaint);
@@ -396,12 +395,12 @@ public class TaperChart extends View {
         float h = (yAxisBtm - mYMaxStrH * 2) / yCount;
         for (int i = 0; i < yCount; i++) {
             String yLabel = mYAxisList.get(i);
-            float yLabelW = getTextWidth(yLabel, mTextPaint);
+            float yLabelW = Util.getTextWidth(yLabel, mTextPaint);
             // 绘制y轴刻度值(刻度右对齐相对y轴)
             canvas.drawText(yLabel, mYMaxStrW - yLabelW, mYMaxStrH + h * i + mOffBtm, mTextPaint);
         }
         // 绘制0刻度(刻度右对齐相对y轴)
-        float yZeroStrW = getTextWidth(ZERO, mTextPaint);
+        float yZeroStrW = Util.getTextWidth(ZERO, mTextPaint);
         canvas.drawText(ZERO, mYMaxStrW - yZeroStrW, yAxisBtm, mTextPaint);
         // 还原默认长度
         float axisL = mYMaxStrW + mLeftAxisLabelMargin;
@@ -435,7 +434,7 @@ public class TaperChart extends View {
         float yAxisBtm = mCanvasH - mOffBtm;
         // x轴label相对x轴的偏移量，间距
         int offset = DensityUtil.dp2px(1);
-        int valueH = getTextHeight(mXValues.get(0), mTextPaint);
+        int valueH = Util.getTextHeight(mXValues.get(0), mTextPaint);
         // 绘制x轴刻度值
         float xAxisTxt_Y = yAxisBtm + valueH + offset;
         setXAxisTxt_Y(xAxisTxt_Y);
@@ -450,7 +449,7 @@ public class TaperChart extends View {
             for (int i = 0; i < mLabels.length; i++) {
                 key = mLabels[i];
                 // 文案长度
-                int valueW = getTextWidth(key, mTextPaint);
+                int valueW = Util.getTextWidth(key, mTextPaint);
                 xOffset = start_x + (2 * mLabelWidth * i - mInterSpace * i) // 前面长度汇总
                         + ((2 * mLabelWidth - mInterSpace) - valueW) / 2; // 自身
                 canvas.drawText(key, xOffset, xAxisTxt_Y, mTextPaint);
@@ -462,7 +461,7 @@ public class TaperChart extends View {
             for (int i = 0; i < mLabels.length; i++) {
                 key = mLabels[i];
                 // 文案长度
-                int valueW = getTextWidth(key, mTextPaint);
+                int valueW = Util.getTextWidth(key, mTextPaint);
                 xOffset = start_x + (2 * mLabelWidth * i - mInterSpace * i) // 前面长度汇总
                         + ((2 * mLabelWidth - mInterSpace) - valueW) / 2; // 自身
                 canvas.drawText(key, xOffset, xAxisTxt_Y, mTextPaint);
@@ -471,7 +470,7 @@ public class TaperChart extends View {
             if (x_count >= 4) {
                 for (int i = 0; i < x_count; i++) {
                     key = mXValues.get(i);
-                    int valueW = getTextWidth(key, mTextPaint);
+                    int valueW = Util.getTextWidth(key, mTextPaint);
                     if (i == 0) {
                         xOffset = start_x + mLabelWidth / 2 - valueW / 2;
                     } else {
@@ -488,7 +487,7 @@ public class TaperChart extends View {
             } else {
                 for (int i = 0; i < x_count; i++) {
                     key = mXValues.get(i);
-                    int valueW = getTextWidth(key, mTextPaint);
+                    int valueW = Util.getTextWidth(key, mTextPaint);
                     if (i == 0) {
                         xOffset = start_x + mLabelWidth / 2 - valueW / 2;
                     } else {
@@ -504,7 +503,7 @@ public class TaperChart extends View {
     /**
      * 计算单个图形长度、x轴起始偏移量、控制点x轴的偏移量
      */
-    private void caclChartInitDataParam() {
+    private void calcChartInitDataParam() {
         // 图形实际区域
         int chartW = (int) (mCanvasW - mYMaxStrW - mLeftAxisLabelMargin - mLinePaint.getStrokeWidth());
         if (mMode == Mode.Fourth) {
@@ -515,7 +514,7 @@ public class TaperChart extends View {
             // 控制点x轴的偏移量
             mQuadXSpace = mLabelWidth / 2 - mQuadOffset;
 
-            Common.log_d("201812111427","Mode.Fourth-->chartW = " + chartW + "->mLabelWidth = "
+            LogUtil.logD("201812111427","Mode.Fourth-->chartW = " + chartW + "->mLabelWidth = "
                     + mLabelWidth + "->start_x = " + start_x + "->mQuadXSpace = " + mQuadXSpace);
         }else if(mMode == Mode.Fifth){
             // x轴起始偏移量
@@ -525,21 +524,21 @@ public class TaperChart extends View {
             // 控制点x轴的偏移量
             mQuadXSpace = mLabelWidth / 2 - mQuadOffset;
 
-            Common.log_d("201812111427","Mode.Fifth-->chartW = " + chartW + "->mLabelWidth = "
+            LogUtil.logD("201812111427","Mode.Fifth-->chartW = " + chartW + "->mLabelWidth = "
                     + mLabelWidth + "->start_x = " + start_x + "->mQuadXSpace = " + mQuadXSpace);
         }else{
-            caclStartXOffset();
+            calcStartXOffset();
         }
     }
 
-    private void caclStartXOffset() {
+    private void calcStartXOffset() {
         // 重新计算图形宽度
         int chartW = (int) (mCanvasW - mYMaxStrW - mLeftAxisLabelMargin - mLinePaint.getStrokeWidth());
         mLabelWidth = (chartW / 2 + mInterSpace) / 2;
 
         if (x_count >= 4) {
             start_x = (int) (mOffLeft + mYMaxStrW + mLeftAxisLabelMargin + mLinePaint.getStrokeWidth());
-            Common.log_d("201811021706", "开始偏移量start_x = " + start_x);
+            LogUtil.logD("201811021706", "开始偏移量start_x = " + start_x);
 //            // 重新计算图形宽度
 //            int chartW = (int) (canvas.getWidth() - mOffLeft * 2 - getTextWidth(mYOneStr, mTextPaint) - mLeftAxisLabelMargin - mLinePaint.getStrokeWidth());
 //            Log.d("201811021706", "mLabelWidth计算后的宽度 = " + mLabelWidth);
@@ -554,13 +553,13 @@ public class TaperChart extends View {
 
         // 坐标轴宽度
         int axisW = (int) (mCanvasW - (mOffLeft * 2) - mYMaxStrW);
-        Common.log_d("201810291048", "坐标轴长度 = " + axisW);
+        LogUtil.logD("201810291048", "坐标轴长度 = " + axisW);
         // 图表实际长度
         float chartDataW = mLabelWidth * x_count - mInterSpace * (x_count - 1);
-        Common.log_d("201810291048", "图表实际长度 = " + chartDataW);
+        LogUtil.logD("201810291048", "图表实际长度 = " + chartDataW);
         // 图表开始绘制前的偏移量，确保图表居中显示
         start_x = (int) (mOffLeft + mYMaxStrW + ((axisW - chartDataW) / 2));
-        Common.log_d("201810291048", "图表开始绘制前的偏移量 = " + start_x);
+        LogUtil.logD("201810291048", "图表开始绘制前的偏移量 = " + start_x);
     }
 
     private int start_x = 0;
@@ -637,7 +636,7 @@ public class TaperChart extends View {
                     key = mXValues.get(i);
                     value = mYValues.get(i);
                     float dataPAxisH = (mCanvasH - paintSw) - (value * oneH);
-                    Common.log_d("201811061150", "每个值占用的屏幕像素 = " + oneH + "->mCanvasH = "
+                    LogUtil.logD("201811061150", "每个值占用的屏幕像素 = " + oneH + "->mCanvasH = "
                             + mCanvasH + "->dataPAxisH = " + dataPAxisH + "->value = " + value + "->offBtm = " + mOffBtm);
                     pf = new PointF();
                     if (i > 1) { // 第三、四个
@@ -646,7 +645,7 @@ public class TaperChart extends View {
                         pf.x = start_x + mLabelWidth * i - mInterSpace * i;
                     }
                     pf.y = pf_y;
-                    Common.log_d("201812111427","绘图pf.x = " + pf.x + "->pf.y = " + pf.y);
+                    LogUtil.logD("201812111427","绘图pf.x = " + pf.x + "->pf.y = " + pf.y);
                     // 环比，颜色需要特殊处理
                     drawGraph(canvas, pf, dataPAxisH, i % 2 == 0 ? four_colors[0] : four_colors[1], key, value);
                 }
@@ -662,7 +661,7 @@ public class TaperChart extends View {
                     key = mXValues.get(i);
                     value = mYValues.get(i);
                     float dataPAxisH = (mCanvasH - mPaint.getStrokeWidth()) - (value * oneH);
-                    Common.log_d("201811061150", "每个值占用的屏幕像素 = " + oneH + "->mCanvasH = "
+                    LogUtil.logD("201811061150", "每个值占用的屏幕像素 = " + oneH + "->mCanvasH = "
                             + mCanvasH + "->dataPAxisH = " + dataPAxisH + "->value = " + value + "->offBtm = " + mOffBtm);
                     pf = new PointF();
                     if (i < 2) {
@@ -673,7 +672,7 @@ public class TaperChart extends View {
                         pf.x = start_x + mLabelWidth * i - mInterSpace * (i - 2);
                     }
                     pf.y = pf_y;
-                    Common.log_d("201812111427","绘图pf.x = " + pf.x + "->pf.y = " + pf.y);
+                    LogUtil.logD("201812111427","绘图pf.x = " + pf.x + "->pf.y = " + pf.y);
                     // 环比，颜色需要特殊处理
                     drawGraph(canvas, pf, dataPAxisH, i % 2 == 0 ? sex_colors[0] : sex_colors[1], key, value);
                 }
@@ -681,7 +680,7 @@ public class TaperChart extends View {
             default:
                 break;
         }
-        if (isNoticLabel()) { // 通知上级刷新
+        if (isNoticeLabel()) { // 通知上级刷新
             if (mListener != null) {
                 mListener.onFinish();
             }
@@ -723,7 +722,7 @@ public class TaperChart extends View {
         pfL.x = pf.x + mQuadXSpace;
         pfL.y = pf.y - QUAD_Y_SPACE;
 
-        Common.log_d("201811061140", "本身 >>>>>> pfL.y" + pfL.y);
+        LogUtil.logD("201811061140", "本身 >>>>>> pfL.y" + pfL.y);
         if (topY >= pfL.y) { // 极端场景处理：数据值的y坐标>=控制点的y坐标
             if (topY >= mCanvasH - mOffBtm) { // 到底了，也就是数据为0的情况
                 if (yValue > 0f) { // 总得有点东西显示吧
@@ -733,17 +732,17 @@ public class TaperChart extends View {
                 } else {
                     topY = pfL.y = mCanvasH - mOffBtm;
                 }
-                Common.log_d("201811141100", "完全到底了->topY = " + topY + "->pfL.y = " + pfL.y + "->(mCanvasH - mOffBtm) = " + (mCanvasH - mOffBtm));
+                LogUtil.logD("201811141100", "完全到底了->topY = " + topY + "->pfL.y = " + pfL.y + "->(mCanvasH - mOffBtm) = " + (mCanvasH - mOffBtm));
             } else {
 
-                Common.log_d("201811141100", "还有一点点到底");
+                LogUtil.logD("201811141100", "还有一点点到底");
 
                 topY = topY - mOffBtm;
                 pfL.y = topY + (mCanvasH - mOffBtm - pfL.y) / 2;
             }
-            Common.log_d("201811061140", "极端场景 >>>>>>> 默认topY = " + topY + "->控制点y = " + pfL.y + "->坐标轴底部y = " + (mCanvasH - mOffBtm) + "->mOffBtm = " + mOffBtm);
+            LogUtil.logD("201811061140", "极端场景 >>>>>>> 默认topY = " + topY + "->控制点y = " + pfL.y + "->坐标轴底部y = " + (mCanvasH - mOffBtm) + "->mOffBtm = " + mOffBtm);
         }
-        Common.log_d("201810311640", "pf.x = " + pf.x + "->X_LABEL_WIDTH / 2 = " + (mLabelWidth / 2));
+        LogUtil.logD("201810311640", "pf.x = " + pf.x + "->X_LABEL_WIDTH / 2 = " + (mLabelWidth / 2));
 
 
 //        Log.d("201811221714","----->pf.x = " + pf.x);
@@ -759,7 +758,7 @@ public class TaperChart extends View {
         pathL.moveTo(pf.x, pf.y);
         pathL.quadTo(pfL.x, pfL.y, centerX, topY);
         pathL.lineTo(centerX, pf.y);
-        Common.log_d("201810311640", "left 《===》 控制点坐标cx = " + (pf.x + mQuadXSpace) + "->cy = " + (pf.y - QUAD_Y_SPACE)
+        LogUtil.logD("201810311640", "left 《===》 控制点坐标cx = " + (pf.x + mQuadXSpace) + "->cy = " + (pf.y - QUAD_Y_SPACE)
                 + "->闭合的坐标bx = " + centerX + "->by = " + pf.y
                 + "->起始点moveX = " + pf.x + "->moveY = " + pf.y + "->图形总长度X_LABEL_WIDTH = " + mLabelWidth);
 
@@ -772,7 +771,7 @@ public class TaperChart extends View {
         pathR.moveTo(pf.x + mLabelWidth, pf.y);
         pathR.quadTo(pfR.x, pfR.y, centerX, topY);
         pathR.lineTo(centerX, pf.y);
-        Common.log_d("201810311640", "right 《===》 控制点坐标cx = " + (pf.x + mLabelWidth - mQuadXSpace) + "->cy = " + (pf.y - QUAD_Y_SPACE)
+        LogUtil.logD("201810311640", "right 《===》 控制点坐标cx = " + (pf.x + mLabelWidth - mQuadXSpace) + "->cy = " + (pf.y - QUAD_Y_SPACE)
                 + "->闭合的坐标bx = " + centerX + "->by = " + pf.y
                 + "->起始点moveX = " + (pf.x + mLabelWidth) + "->moveY = " + pf.y);
 
@@ -811,13 +810,13 @@ public class TaperChart extends View {
     private void drawTopValue(Canvas canvas, float yValue, float topY, float centerX) {
         if (mIsDrawTopValue) {
             String text = "";
-            Common.log_d("201903201641", "yValue = " + yValue + "->centerX = " + centerX + "->文字长度 = " + getTextWidth(text, mTextPaint));
+            LogUtil.logD("201903201641", "yValue = " + yValue + "->centerX = " + centerX + "->文字长度 = " + Util.getTextWidth(text, mTextPaint));
             if (mYAxisIsPercent) { // y轴百分比
                 text = pointTwoFormat.format(yValue) + "%";
             } else {
                 text = pointFormat.format(yValue);
             }
-            canvas.drawText(text, centerX - getTextWidth(text, mTextPaint) / 2, topY - DensityUtil.dp2px(2), mTextPaint);
+            canvas.drawText(text, centerX - Util.getTextWidth(text, mTextPaint) / 2, topY - DensityUtil.dp2px(2), mTextPaint);
         }
     }
 
@@ -857,14 +856,14 @@ public class TaperChart extends View {
     /**
      * 计算y轴刻度
      */
-    private void caclYAxisScale() {
+    private void calcYAxisScale() {
         int count = 5;
         mYAxisList.clear();
         // y轴上刻度间的间距
         float yAxisSpace = y_max / count;
         for (int i = 0; i < count; i++) {
             float yScale = y_max - i * yAxisSpace;
-            Common.log_d("201812261109", "y轴刻度 = " + yScale
+            LogUtil.logD("201812261109", "y轴刻度 = " + yScale
                     + "->mYAxisIsPercent = " + mYAxisIsPercent
                     + "->yAxisSpace = " + yAxisSpace
                     + "->yScale = " + yScale
@@ -876,8 +875,8 @@ public class TaperChart extends View {
             }
         }
         mYMaxStr = mYAxisList.get(0);
-        mYMaxStrW = getTextWidth(mYMaxStr, mTextPaint);
-        mYMaxStrH = getTextHeight(mYMaxStr, mTextPaint);
+        mYMaxStrW = Util.getTextWidth(mYMaxStr, mTextPaint);
+        mYMaxStrH = Util.getTextHeight(mYMaxStr, mTextPaint);
     }
 
     @Override
@@ -889,9 +888,9 @@ public class TaperChart extends View {
         }
         mCanvasW = canvas.getWidth();
         mCanvasH = canvas.getHeight();
-        Common.log_d("201810261643", "onDraw >>>>>>>> canvasW = " + mCanvasW + "->canvasH = " + mCanvasH);
-        caclYAxisScale();
-        caclChartInitDataParam();
+        LogUtil.logD("201810261643", "onDraw >>>>>>>> canvasW = " + mCanvasW + "->canvasH = " + mCanvasH);
+        calcYAxisScale();
+        calcChartInitDataParam();
         drawAxis(canvas);
         drawLabel(canvas);
         drawData(canvas);
@@ -906,14 +905,14 @@ public class TaperChart extends View {
                 downX = event.getX();
                 downY = event.getY();
                 currentMS = System.currentTimeMillis();
-                Common.log_d("201811161726","MotionEvent.ACTION_DOWN->currentMS = " + currentMS);
+                LogUtil.logD("201811161726","MotionEvent.ACTION_DOWN->currentMS = " + currentMS);
                 break;
             case MotionEvent.ACTION_MOVE:
-                Common.log_d("201811161726","MotionEvent.ACTION_MOVE");
+                LogUtil.logD("201811161726","MotionEvent.ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
                 long moveTime = System.currentTimeMillis() - currentMS;
-                Common.log_d("201811161726", "moveTime = " + moveTime);
+                LogUtil.logD("201811161726", "moveTime = " + moveTime);
                 if (moveTime < 120) { // 点击判定条件
                     if (EmptyUtils.isNotEmpty(mList)) {
                         TaperChartBean bean;
@@ -1003,11 +1002,11 @@ public class TaperChart extends View {
         return mInterSpace;
     }
 
-    public boolean isNoticLabel() {
+    public boolean isNoticeLabel() {
         return mIsNoticLabel;
     }
 
-    public void setNoticLabel(boolean noticLabel) {
+    public void setNoticeLabel(boolean noticLabel) {
         mIsNoticLabel = noticLabel;
     }
 
@@ -1037,30 +1036,6 @@ public class TaperChart extends View {
 
     public List<TaperChartBean> getList() {
         return mList;
-    }
-
-    /**
-     * @param text  绘制的文字
-     * @param paint 画笔
-     * @return 文字的宽度
-     */
-    public int getTextWidth(String text, Paint paint) {
-        Rect bounds = new Rect();
-        paint.getTextBounds(text, 0, text.length(), bounds);
-        int width = bounds.left + bounds.width();
-        return width;
-    }
-
-    /**
-     * @param text  绘制的文字
-     * @param paint 画笔
-     * @return 文字的高度
-     */
-    public int getTextHeight(String text, Paint paint) {
-        Rect bounds = new Rect();
-        paint.getTextBounds(text, 0, text.length(), bounds);
-        int height = bounds.bottom + bounds.height();
-        return height;
     }
 
     public enum Mode {
