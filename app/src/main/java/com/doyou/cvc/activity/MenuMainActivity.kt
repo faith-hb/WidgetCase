@@ -25,6 +25,7 @@ import com.doyou.cvc.activity.timeruler.TimeRulerActivity
 import com.doyou.cvc.activity.touch.CustomScrollViewActivity
 import com.doyou.cvc.activity.touch.RefreshViewActivity
 import com.doyou.cvc.manager.DispatchManager
+import com.doyou.cvc.utils.AppUtils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -32,6 +33,10 @@ import kotlinx.android.synthetic.main.content_menu_main.*
 
 class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
+    /**
+     * 开源库地址
+     */
+    private val WIDGETCASE_GITHUB_URL = "https://github.com/faith-hb/WidgetCase"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -197,9 +202,12 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
         when (item.itemId) {
             R.id.nav_wechat -> {
                 // Handle the camera action
+                AppUtils.copyContent(this,"faith-hb")
+                ToastUtils.showLongToast(this, "老铁，加我微信能拉近我们的距离(^_^)")
             }
             R.id.nav_qq -> {
-
+                AppUtils.copyContent(this,"907167515")
+                ToastUtils.showLongToast(this, "哥们，不加好友怎么聊ಠ_ಠ")
             }
 //            R.id.nav_slideshow -> {
 //
@@ -211,8 +219,8 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
                 ToastUtils.showShortToast(this,"敬请期待...")
             }
             R.id.nav_github -> {
-                copyContent("https://github.com/faith-hb/WidgetCase")
-                ToastUtils.showShortToast(this, "开源库地址已复制")
+                AppUtils.openUrlByBrowser(this,WIDGETCASE_GITHUB_URL)
+                ToastUtils.showLongToast(this, "亲，给星星的银都是爷凸^-^凸")
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
