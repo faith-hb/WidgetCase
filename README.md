@@ -43,11 +43,8 @@ Library中部分控件来自HenCoder plus 3期课程内容，HenCoder是一个�
 #####  时间刻度尺（支持缩放）>>>[TimeRulerView] & 圆形按钮（跟随设备一起旋转，实时监控旋转方向）>>>[CircleButton]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/timerulerview.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/circlebutton.gif)
 
-#####  自定义滑动控件（支持多指，支持惯性滑动，支持自定义滚动条）>>>[CustomScrollView]
-![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/customscrollview.gif)
-
-#####  ScaleAlphaTransformer（自定义ViewPager的滑动动画）>>>[ScaleAlphaTransformer]
-![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/scalealphatransformer.gif)
+#####  自定义滑动控件（支持多指触控、惯性滑动、自定义滚动条）>>>[CustomScrollView] & 自定义ViewPager的滑动动画>>>[ScaleAlphaTransformer]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/customscrollview.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/scalealphatransformer.gif)
 
 #####  图片翻转动画（通过 Camera 和 Canvas 控制位图的翻转折叠效果）>>>[BmpOverturnView]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/bmpoverturn.gif)
@@ -115,10 +112,10 @@ Library中部分控件来自HenCoder plus 3期课程内容，HenCoder是一个�
 [CustomScrollView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/touch/CustomScrollView.java)
 
 ##### ScaleAlphaTransformer（自定义ViewPager的滑动动画）
-[ScaleAlphaTransformer](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/touch/CustomScrollView.java)
+[ScaleAlphaTransformer](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/sys/viewpager/transformer/ScaleAlphaTransformer.java)
 
 ##### 图片翻转动画
-[BmpOverturnView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/touch/CustomScrollView.java)
+[BmpOverturnView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/animator/BmpOverturnView.java)
 
 #### Download
 

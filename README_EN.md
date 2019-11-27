@@ -3,7 +3,7 @@
 <!--https://shields.io/-->
 <!--[![auc][aucsvg]][auc] [![api][apisvg]][api] [![License][licensesvg]][license]-->
 
-[![](https://img.shields.io/badge/widget-1.1.2-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-5.1.1-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
+[![](https://img.shields.io/badge/widget-1.1.6-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-5.1.1-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
 
 > [中文文档](https://github.com/faith-hb/WidgetCase/blob/master/README.md)
 
@@ -37,6 +37,15 @@ in this look forward to more like-minded code friends to join, we work together 
 
 #####  Image filter>>>[ColorMatrixActivity & ColorHueActivity]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/colormartix.gif)
+
+#####  Time scale（Support the zoom）>>>[TimeRulerView] & CircleButton（Rotate with the device to monitor the rotation direction in real time）>>>[CircleButton]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/timerulerview.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/circlebutton.gif)
+
+#####  Custom slide control（Support multi - finger touch, inertial sliding, custom scroll bar）>>>[CustomScrollView] & Custom ViewPager slide animation>>>[ScaleAlphaTransformer]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/customscrollview.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/scalealphatransformer.gif)
+
+#####  Bitmap flip animation（Control the flip and fold effect of bitmap through Camera and Canvas）>>>[BmpOverturnView]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/bmpoverturn.gif)
 
 #### The custom controls are distributed as follows
 
@@ -93,6 +102,18 @@ in this look forward to more like-minded code friends to join, we work together 
 
 ##### Time Ruler
 [TimeRulerView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/timeruler/TimeRulerView.java)
+
+##### CircleButton（Rotate with the device to monitor the rotation direction in real time）
+[CircleButton](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/view/CircleButton.java)
+
+##### Custom slide control（Support multi - finger touch, inertial sliding, custom scroll bar）
+[CustomScrollView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/touch/CustomScrollView.java)
+
+##### Custom ViewPager slide animation
+[ScaleAlphaTransformer](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/sys/viewpager/transformer/ScaleAlphaTransformer.java)
+
+##### Bitmap flip animation
+[BmpOverturnView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/animator/BmpOverturnView.java)
 
 #### Download
 
