@@ -3,7 +3,7 @@
 <!--https://shields.io/-->
 <!--[![auc][aucsvg]][auc] [![api][apisvg]][api] [![License][licensesvg]][license]-->
 
-[![](https://img.shields.io/badge/widget-1.1.5-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-5.1.1-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
+[![](https://img.shields.io/badge/widget-1.1.6-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-5.1.1-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
 
 > [English Introduction](https://github.com/faith-hb/WidgetCase/blob/master/README_EN.md)
 
@@ -45,6 +45,12 @@ Library中部分控件来自HenCoder plus 3期课程内容，HenCoder是一个�
 
 #####  自定义滑动控件（支持多指，支持惯性滑动，支持自定义滚动条）>>>[CustomScrollView]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/customscrollview.gif)
+
+#####  ScaleAlphaTransformer（自定义ViewPager的滑动动画）>>>[ScaleAlphaTransformer]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/scalealphatransformer.gif)
+
+#####  图片翻转动画（通过 Camera 和 Canvas 控制位图的翻转折叠效果）>>>[BmpOverturnView]
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/bmpoverturn.gif)
 
 #### 自定义控件分布如下
 
@@ -107,6 +113,12 @@ Library中部分控件来自HenCoder plus 3期课程内容，HenCoder是一个�
 
 ##### 自定义滑动控件（支持多指，支持惯性滑动，支持自定义滚动条）
 [CustomScrollView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/touch/CustomScrollView.java)
+
+##### ScaleAlphaTransformer（自定义ViewPager的滑动动画）
+[ScaleAlphaTransformer](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/touch/CustomScrollView.java)
+
+##### 图片翻转动画
+[BmpOverturnView](https://github.com/faith-hb/WidgetCase/blob/master/hawkeye_widget/src/main/java/com/doyou/cv/widget/touch/CustomScrollView.java)
 
 #### Download
 

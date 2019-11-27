@@ -34,6 +34,12 @@ public final class Util {
         return result;
     }
 
+    /**
+     * 获取头像
+     * @param resources
+     * @param width
+     * @return
+     */
     public static Bitmap getAvatar(Resources resources, int width){
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
@@ -109,5 +115,13 @@ public final class Util {
     public static int[] getScreenWH(Context context) {
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         return new int[]{metrics.widthPixels, metrics.heightPixels};
+    }
+
+    /**
+     * 获取z轴在location中的最佳位置
+     * @return
+     */
+    public static float getZForCamera() {
+        return - 6 * Resources.getSystem().getDisplayMetrics().density;
     }
 }

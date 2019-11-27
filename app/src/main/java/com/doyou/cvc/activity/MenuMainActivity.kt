@@ -15,14 +15,16 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.dongni.tools.EmptyUtils
 import com.dongni.tools.ToastUtils
-import com.doyou.cvc.manager.DispatchManager
 import com.doyou.cvc.R
+import com.doyou.cvc.activity.animator.BmpOverturnActivity
 import com.doyou.cvc.activity.colorfilter.ColorMainActivity
+import com.doyou.cvc.activity.sys.viewpager.ViewPagerTransformerActivity
 import com.doyou.cvc.activity.taperchart.ScrollTaperChartActivity
 import com.doyou.cvc.activity.taperchart.TaperChartActivity
 import com.doyou.cvc.activity.timeruler.TimeRulerActivity
 import com.doyou.cvc.activity.touch.CustomScrollViewActivity
 import com.doyou.cvc.activity.touch.RefreshViewActivity
+import com.doyou.cvc.manager.DispatchManager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -82,6 +84,8 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
         timeRulerTv.setOnClickListener(this)
         circleBtnTv.setOnClickListener(this)
         ctmSvTv.setOnClickListener(this)
+        vpTransTv.setOnClickListener(this)
+        imgOverturnTv.setOnClickListener(this)
     }
 
     private fun copyContent(str:String?){
@@ -153,6 +157,12 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
             }
             R.id.ctmSvTv -> {
                 DispatchManager.showAct(this, CustomScrollViewActivity::class.java)
+            }
+            R.id.vpTransTv -> {
+                DispatchManager.showAct(this, ViewPagerTransformerActivity::class.java)
+            }
+            R.id.imgOverturnTv ->{
+                DispatchManager.showAct(this, BmpOverturnActivity::class.java)
             }
         }
     }

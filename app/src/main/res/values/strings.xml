@@ -29,6 +29,8 @@
     <string name="title_timeruler_view">TimeRulerView</string>
     <string name="title_circlebutton_view">CircleButton</string>
     <string name="title_customscrollview_view">CustomScrollView</string>
+    <string name="title_viewpager_transformer">ViewPagerTransformer</string>
+    <string name="title_animator_bmp_overturn">图片翻转动画</string>
 
 
     <string name="title_activity_menu_main">MenuMainActivity</string>
