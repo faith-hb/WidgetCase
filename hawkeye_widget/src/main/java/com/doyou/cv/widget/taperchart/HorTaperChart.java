@@ -486,7 +486,6 @@ public class HorTaperChart extends View {
 
     /**
      * 绘制峰值头部数值
-     *
      * @param canvas
      * @param yValue
      * @param topY
@@ -559,8 +558,7 @@ public class HorTaperChart extends View {
 
     /**
      * 第一张图形的坐标值
-     *
-     * @return
+     * @return float
      */
     private float getFirstTaperW() {
         return mLabelWidth + mOffLeft;
@@ -568,8 +566,7 @@ public class HorTaperChart extends View {
 
     /**
      * 最后一张图形的坐标值
-     *
-     * @return
+     * @return float
      */
     private float getEndTaperW() {
         return start_x + (mLabelWidth * mXAxisCount) - (mInterSpace * (mXAxisCount - 1)) - getWidth();
@@ -585,7 +582,7 @@ public class HorTaperChart extends View {
             mVelocityTracker = VelocityTracker.obtain();
         }
         boolean eventAddedToVelocityTracker = false;
-        final MotionEvent vtev = MotionEvent.obtain(event);
+        final MotionEvent vTev = MotionEvent.obtain(event);
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN: {
                 downX = event.getX();
@@ -612,7 +609,7 @@ public class HorTaperChart extends View {
                 break;
             }
             case MotionEvent.ACTION_UP: {
-                mVelocityTracker.addMovement(vtev);
+                mVelocityTracker.addMovement(vTev);
                 eventAddedToVelocityTracker = true;
                 mVelocityTracker.computeCurrentVelocity(1000, mMaxFlingVelocity);
                 float xVelocity = VelocityTrackerCompat.getXVelocity(mVelocityTracker, event.getPointerId(0));
@@ -636,9 +633,9 @@ public class HorTaperChart extends View {
             break;
         }
         if (!eventAddedToVelocityTracker) {
-            mVelocityTracker.addMovement(vtev);
+            mVelocityTracker.addMovement(vTev);
         }
-        vtev.recycle();
+        vTev.recycle();
         return true;
     }
 
