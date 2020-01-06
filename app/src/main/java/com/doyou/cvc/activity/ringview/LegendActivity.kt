@@ -42,7 +42,7 @@ class LegendActivity : AppCompatActivity() {
     private fun showRingView() {
         legendRv.showDebugView(false)
         var valueSum = 60
-        var mList: MutableList<CircleBean> = ArrayList<CircleBean>()
+        var mList: MutableList<CircleBean> = ArrayList()
         var cb: CircleBean
         val rvMax = legendRv.max
         var startPro = 0f

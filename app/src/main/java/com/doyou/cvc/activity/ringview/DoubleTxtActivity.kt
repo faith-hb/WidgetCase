@@ -28,7 +28,7 @@ class DoubleTxtActivity : AppCompatActivity() {
     private fun showRingView() {
         doubleTxtRv.showDebugView(false)
         var valueSum = 60
-        var mList: MutableList<CircleBean> = ArrayList<CircleBean>()
+        var mList: MutableList<CircleBean> = ArrayList()
         var cb: CircleBean
         val rvMax = doubleTxtRv.max
         var startPro = 0f
