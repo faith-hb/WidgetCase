@@ -8,7 +8,7 @@ package com.doyou.plugin
 class WidgetCaseExtension {
 
     void widgetCase() {
-        println("wo shi yi ge bing")
+        println("hello widget case.")
     }
 
     // 签名配置信息

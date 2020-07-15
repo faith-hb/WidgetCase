@@ -1,8 +1,10 @@
+apply from: "../config.gradle"
+
 repositories {
     google()
     jcenter()
 }
 
 dependencies {
-    implementation 'com.android.tools.build:gradle:3.4.2'
+    implementation "com.android.tools.build:gradle:${rootProject.ext.pluginVer.gradleVersion}"
 }

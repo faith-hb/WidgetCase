@@ -1,1 +1,2 @@
-include ':app', ':hawkeye_widget'
+include ':app'
+include ':hawkeye_widget'

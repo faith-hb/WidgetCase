@@ -46,5 +46,3 @@ dependencies {
 
     implementation "com.faithhb:toolslib:${outer.toolslib}"
 }
-
-//apply from: './upload.gradle'
