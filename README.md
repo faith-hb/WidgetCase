@@ -23,7 +23,7 @@ Library中部分控件来自HenCoder plus 3期课程内容，HenCoder是一个�
 <img src="screenshots/main.jpg" width="280" height="606"/>   <img src="screenshots/main_menu.jpg" width="280" height="606"/>   <img src="screenshots/main_btm.jpg" width="280" height="606"/>
 
 ##### 峰值图>>>[TaperChart & TaperChartLayout & HorTaperChart] & 渐变曲线>>>[GradientLine]
-![image](http://47.93.38.184/github/widgetcase/taperchart.gif)  ![image](http://47.93.38.184/github/widgetcase/hortapercharts.gif)  ![image](http://47.93.38.184/github/widgetcase/gradientline.gif)
+![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/hortapercharts.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientline.gif)
 
 #####  (波浪加载控件)[CircleWaveView] & (仿网易一元夺宝下拉效果)[RefreshView]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/circlewaveview.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/refreshview.gif)
