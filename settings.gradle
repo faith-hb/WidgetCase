@@ -1,5 +1,5 @@
 include ':app'
-include ':hawkeye_widget'
+include ':lib-widget'
 include ':lib-tools'
 
 

@@ -5,8 +5,8 @@ ext {
     ]
 
     release = [
-            versionName: '1.1.6',
-            versionCode: 116
+            versionName: '1.2.0',
+            versionCode: 120
     ]
 
     setup = [
