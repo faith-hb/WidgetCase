@@ -5,9 +5,14 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
-import com.dongni.tools.Common
+import com.doyou.cv.utils.LogUtil
 import com.doyou.cvc.R
-import kotlinx.android.synthetic.main.activity_section_probar.*
+import kotlinx.android.synthetic.main.activity_section_probar.animBtn
+import kotlinx.android.synthetic.main.activity_section_probar.animSpb
+import kotlinx.android.synthetic.main.activity_section_probar.gradientSb
+import kotlinx.android.synthetic.main.activity_section_probar.gradientSpb
+import kotlinx.android.synthetic.main.activity_section_probar.normalSb
+import kotlinx.android.synthetic.main.activity_section_probar.normalSpb
 
 /**
  * 水平分段进度条
@@ -42,14 +47,12 @@ class SectionProBarActivity : AppCompatActivity(),SeekBar.OnSeekBarChangeListene
     }
 
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-        Common.log_d("onProgressChanged", "progress = $progress->fromUser = $fromUser->seekId = ${seekBar!!.id}")
-        when(seekBar!!.id){
+        LogUtil.logD("onProgressChanged", "progress = $progress->fromUser = $fromUser->seekId = ${seekBar!!.id}")
+        when(seekBar.id){
             R.id.normalSb ->{
-                Common.log_d("onProgressChanged","R.id.normalSpb")
                 normalSpb.progress = progress
             }
             R.id.gradientSb ->{
-                Common.log_d("onProgressChanged","R.id.gradientSb")
                 gradientSpb.progress = progress
             }
         }

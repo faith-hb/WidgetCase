@@ -4,15 +4,21 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.dongni.tools.Common
 import com.doyou.cv.bean.CircleBean
+import com.doyou.cv.utils.LogUtil
 import com.doyou.cvc.R
-import kotlinx.android.synthetic.main.activity_legend_ringview.*
-import java.text.DecimalFormat
+import kotlinx.android.synthetic.main.activity_legend_ringview.btn
+import kotlinx.android.synthetic.main.activity_legend_ringview.lrv_left
+import kotlinx.android.synthetic.main.activity_legend_ringview.lrv_one
+import kotlinx.android.synthetic.main.activity_legend_ringview.lrv_right
+import kotlinx.android.synthetic.main.activity_legend_ringview.lrv_three
+import kotlinx.android.synthetic.main.activity_legend_ringview.lrv_two
 
 class LegendRingViewActivity : AppCompatActivity() {
 
-    private val percentFormat = DecimalFormat("#.##%")
+    companion object {
+        private const val TAG = "LegendRingViewActivity"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +30,8 @@ class LegendRingViewActivity : AppCompatActivity() {
 
     private fun syncRingViewData() {
         lrv_one.setCircleColors(Color.BLACK, Color.CYAN, Color.GREEN, Color.YELLOW)
-        var valueSum = 60
-        var mList: MutableList<CircleBean> = ArrayList()
+        val valueSum = 60
+        val mList: MutableList<CircleBean> = ArrayList()
         var cb: CircleBean
         val rvMax = lrv_one.max
         var startPro = 0f
@@ -44,12 +50,12 @@ class LegendRingViewActivity : AppCompatActivity() {
 
             cb.centerPro = startPro + cb.endPro / 2
             startPro += cb.endPro
-            Common.log_d("201811091554", cb.toString())
+            LogUtil.logD(TAG, cb.toString())
             mList.add(cb)
         }
         lrv_one.setData(mList)
 
-        var labels: MutableList<String> = ArrayList()
+        val labels: MutableList<String> = ArrayList()
         labels.add("项链")
         labels.add("戒指")
         labels.add("男你拿")
@@ -72,34 +78,39 @@ class LegendRingViewActivity : AppCompatActivity() {
         }
 
 
-        var mList1: MutableList<CircleBean> = ArrayList()
+        val list1: MutableList<CircleBean> = ArrayList()
         for (i in 0 until 4) { // 计算数值占圆环的比例
             cb = CircleBean()
             cb.startPro = startPro
 
-            if (i == 0){
-                cb.endPro = (12f / valueSum) * rvMax
-            }else if (i == 1){
-                cb.endPro = (32f / valueSum) * rvMax
-            }else if(i == 2){
-                cb.endPro = (16f / valueSum) * rvMax
-            }else{
-                cb.endPro = (8f / valueSum) * rvMax
+            when (i) {
+                0 -> {
+                    cb.endPro = (12f / valueSum) * rvMax
+                }
+                1 -> {
+                    cb.endPro = (32f / valueSum) * rvMax
+                }
+                2 -> {
+                    cb.endPro = (16f / valueSum) * rvMax
+                }
+                else -> {
+                    cb.endPro = (8f / valueSum) * rvMax
+                }
             }
 
             cb.centerPro = startPro + cb.endPro / 2
             startPro += cb.endPro
-            Common.log_d("201811091554", cb.toString())
-            mList1.add(cb)
+            LogUtil.logD(TAG, cb.toString())
+            list1.add(cb)
         }
 
-        var labels1: MutableList<String> = ArrayList()
+        val labels1: MutableList<String> = ArrayList()
         labels1.add("项链")
         labels1.add("戒指")
         labels1.add("男你拿")
         labels1.add("嘿嘿")
 
-        lrv_left.setData(mList1, labels1)
+        lrv_left.setData(list1, labels1)
         lrv_right.setData(mList, labels)
 //        lrv_right.setData(null, null)
 

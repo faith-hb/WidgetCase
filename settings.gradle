@@ -1,2 +1,13 @@
 include ':app'
 include ':hawkeye_widget'
+include ':lib-tools'
+
+
+// Gradle7.0及以上版本，依赖库的仓库地址配置在此
+//dependencyResolutionManagement {
+//    repositories {
+//        maven {
+//            url "https://jitpack.io"
+//        }
+//    }
+//}

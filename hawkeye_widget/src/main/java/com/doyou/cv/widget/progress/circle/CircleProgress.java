@@ -15,11 +15,11 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.dongni.tools.DensityUtil;
+import androidx.annotation.Nullable;
+
 import com.doyou.cv.R;
 import com.doyou.cv.utils.LogUtil;
-
-import androidx.annotation.Nullable;
+import com.doyou.tools.DensityUtil;
 
 /**
  * 自定义view实现环形带刻度颜色渐变的进度条

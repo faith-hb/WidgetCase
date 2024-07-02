@@ -25,8 +25,8 @@ class ColorMatrixActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setTitle(R.string.title_color_matrix)
         colorMatrix = ColorMatrix()
-        colorMatrix!!.setScale(calculate(128), calculate(128), calculate(128), calculate(128))
-        jingyIv.colorFilter = ColorMatrixColorFilter(colorMatrix)
+        colorMatrix?.setScale(calculate(128), calculate(128), calculate(128), calculate(128))
+        jingyIv.colorFilter = ColorMatrixColorFilter(colorMatrix!!)
 
         bar_R.setOnSeekBarChangeListener(this)
         bar_G.setOnSeekBarChangeListener(this)
@@ -40,7 +40,7 @@ class ColorMatrixActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener
 
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
         colorMatrix?.setScale(calculate(bar_R.progress), calculate(bar_G.progress), calculate(bar_B.progress), calculate(bar_A.progress))
-        jingyIv.colorFilter = ColorMatrixColorFilter(colorMatrix)
+        jingyIv.colorFilter = ColorMatrixColorFilter(colorMatrix!!)
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar?) {

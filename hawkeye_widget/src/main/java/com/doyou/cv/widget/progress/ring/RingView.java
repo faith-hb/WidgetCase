@@ -14,12 +14,12 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ProgressBar;
 
-import com.dongni.tools.DensityUtil;
-import com.dongni.tools.EmptyUtils;
 import com.doyou.cv.R;
 import com.doyou.cv.bean.CircleBean;
 import com.doyou.cv.bean.RingVBean;
 import com.doyou.cv.utils.LogUtil;
+import com.doyou.tools.DensityUtil;
+import com.doyou.tools.EmptyUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -136,7 +136,7 @@ public class RingView extends ProgressBar {
 
         mMode = Mode.Circle;
         mTextColor = Color.parseColor("#70A800");
-        mTextSize = DensityUtil.sp2px(context, 10);
+        mTextSize = DensityUtil.sp2px(10);
         mReachedColor = Color.parseColor("#70A800");
         mReachedHeight = DensityUtil.dp2px(2);
         mUnReachedColor = Color.parseColor("#CCCCCC");
@@ -250,7 +250,7 @@ public class RingView extends ProgressBar {
                 long moveTime = System.currentTimeMillis() - currentMS;
                 LogUtil.logD("201811161726", "moveTime = " + moveTime);
                 if (moveTime < 120) { // 点击判定条件
-                    if (EmptyUtils.isNotEmpty(mOuterRfList)) {
+                    if (EmptyUtil.isNotEmpty(mOuterRfList)) {
                         RingVBean bean;
                         int size = mOuterRfList.size();
                         for (int i = 0; i < size; i++) {
@@ -302,10 +302,10 @@ public class RingView extends ProgressBar {
     private String[] mStrs;
 
     public void setData(float progress, String... strs) {
-        if (EmptyUtils.isNotEmpty(mOuterRfList)) {
+        if (EmptyUtil.isNotEmpty(mOuterRfList)) {
             mOuterRfList.clear();
         }
-        if (EmptyUtils.isNotEmpty(mStrs)) {
+        if (EmptyUtil.isNotEmpty(mStrs)) {
             mStrs = null;
         }
         mStrs = strs;
@@ -318,10 +318,10 @@ public class RingView extends ProgressBar {
     private List<CircleBean> mList = new ArrayList<>();
 
     public void setData(List<CircleBean> beans) {
-        if (EmptyUtils.isNotEmpty(mOuterRfList)) {
+        if (EmptyUtil.isNotEmpty(mOuterRfList)) {
             mOuterRfList.clear();
         }
-        if (EmptyUtils.isNotEmpty(mList)) {
+        if (EmptyUtil.isNotEmpty(mList)) {
             mList.clear();
         }
         mList = beans;
@@ -363,7 +363,7 @@ public class RingView extends ProgressBar {
             if (mCenterBitmap == null) {
                 throw new IllegalArgumentException("图形结合模式下rv_center_bmp需要配置");
             }
-            if (EmptyUtils.isEmpty(mCenterTxt)) {
+            if (EmptyUtil.isEmpty(mCenterTxt)) {
                 throw new IllegalArgumentException("图形结合模式下rv_center_txt需要配置");
             }
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -390,7 +390,7 @@ public class RingView extends ProgressBar {
      * @param canvas
      */
     private void onDrawCircleByTwo(Canvas canvas) {
-        if (EmptyUtils.isEmpty(mStrs)) {
+        if (EmptyUtil.isEmpty(mStrs)) {
             return;
         }
         // 1.移动画布保证居中对齐
@@ -477,7 +477,7 @@ public class RingView extends ProgressBar {
     }
 
     private void onDrawCircleByMore(Canvas canvas) {
-        if (EmptyUtils.isEmpty(mList)) {
+        if (EmptyUtil.isEmpty(mList)) {
             return;
         }
 

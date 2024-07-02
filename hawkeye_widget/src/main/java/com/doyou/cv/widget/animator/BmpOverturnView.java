@@ -8,10 +8,10 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.dongni.tools.DensityUtil;
-import com.doyou.cv.utils.Util;
-
 import androidx.annotation.Nullable;
+
+import com.doyou.cv.utils.Util;
+import com.doyou.tools.DensityUtil;
 
 public class BmpOverturnView extends View {
 

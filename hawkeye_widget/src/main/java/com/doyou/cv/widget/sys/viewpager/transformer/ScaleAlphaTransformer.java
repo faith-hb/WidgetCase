@@ -2,10 +2,10 @@ package com.doyou.cv.widget.sys.viewpager.transformer;
 
 import android.view.View;
 
-import com.dongni.tools.Common;
-
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
+
+import com.doyou.cv.utils.LogUtil;
 
 /**
  * 转换器：xy缩放+透明度改变
@@ -19,7 +19,7 @@ public class ScaleAlphaTransformer implements ViewPager.PageTransformer {
 
     @Override
     public void transformPage(@NonNull View page, float position) {
-        Common.log_d("transformPage", "tag = " + page.getTag() + "->position = " + position);
+        LogUtil.logD("transformPage","tag = " + page.getTag() + "->position = " + position);
         if ((int) position < -1 || (int) position > 1) {
             return;
         }

@@ -1,7 +1,7 @@
 ext {
 
     pluginVer = [
-            gradleVersion: '3.5.3'
+            gradleVersion: '7.2.0'
     ]
 
     release = [
@@ -12,7 +12,7 @@ ext {
     setup = [
             compileSdk: 28,
             buildTools: '28.0.3',
-            minSdk    : 14,
+            minSdk    : 16,
             targetSdk : 28
     ]
 
@@ -20,10 +20,12 @@ ext {
             kotlin          : '1.3.72',
             androidX        : '1.0.0',
             appcompat       : '1.1.0-rc01',
+            annotation       : '1.1.0-rc01',
             constraintLayout: '1.1.3'
     ]
 
     outer = [
-            toolslib: '1.5.1'
+            toolslib: '1.5.1',
+            toaster: '12.6'
     ]
 }

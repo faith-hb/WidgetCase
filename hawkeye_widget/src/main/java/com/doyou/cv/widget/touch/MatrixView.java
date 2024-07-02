@@ -11,13 +11,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.OverScroller;
 
-import com.dongni.tools.DensityUtil;
-import com.doyou.cv.utils.LogUtil;
-import com.doyou.cv.utils.Util;
-
 import androidx.annotation.Nullable;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.core.view.ViewCompat;
+
+import com.doyou.cv.utils.LogUtil;
+import com.doyou.cv.utils.Util;
+import com.doyou.tools.DensityUtil;
 
 /**
  * 手势操作图片，具备功能
@@ -151,7 +151,6 @@ public class MatrixView extends View implements GestureDetector.OnGestureListene
 //                case MotionEvent.ACTION_MOVE:
 //                    mOriginalOffsetX = mBmpOffsetX + event.getX() - mDownX;
 //                    mOriginalOffsetY = mBmpOffsetY + event.getY() - mDownY;
-//                    Common.log_d("ACTION_MOVE", "mOriginalOffsetX = " + mOriginalOffsetX + "->mOriginalOffsetY = " + mOriginalOffsetY);
 //                    // 临界点处理，避免图片滑出屏幕可视区域
 //                    if (mOriginalOffsetX < 0f) {
 //                        mOriginalOffsetX = 0f;

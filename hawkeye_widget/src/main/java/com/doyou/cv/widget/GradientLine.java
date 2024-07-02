@@ -11,12 +11,12 @@ import android.graphics.PointF;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 
-import com.dongni.tools.DensityUtil;
+import androidx.annotation.Nullable;
+
 import com.doyou.cv.widget.base.BaseGradientView;
+import com.doyou.tools.DensityUtil;
 
 import java.util.List;
-
-import androidx.annotation.Nullable;
 
 /**
  * 渐变曲线自定义

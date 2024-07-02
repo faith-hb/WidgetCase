@@ -23,9 +23,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
-import com.dongni.tools.DensityUtil;
 import com.doyou.cv.R;
 import com.doyou.cv.utils.LogUtil;
+import com.doyou.tools.DensityUtil;
 
 public class RefreshView extends FrameLayout {
 

@@ -19,15 +19,15 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import com.dongni.tools.DensityUtil;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+
 import com.doyou.cv.R;
 import com.doyou.cv.utils.FormatUtil;
 import com.doyou.cv.utils.LogUtil;
+import com.doyou.tools.DensityUtil;
 
 import java.text.DecimalFormat;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 /**
  * Created by Allen on 2017/5/14.
@@ -138,12 +138,12 @@ public class CircleProgressBarView extends View {
         isDrawCenterProgressText = typedArray.getBoolean(R.styleable.CircleProgressBarView_isDrawCenterProgressText, false);
 
         centerProgressTextColor = typedArray.getColor(R.styleable.CircleProgressBarView_centerProgressTextColor, mEndColor);
-        centerProgressTextSize = typedArray.getDimensionPixelOffset(R.styleable.CircleProgressBarView_centerProgressTextSize, DensityUtil.sp2px(mContext,centerProgressTextSize));
+        centerProgressTextSize = typedArray.getDimensionPixelOffset(R.styleable.CircleProgressBarView_centerProgressTextSize, DensityUtil.sp2px(centerProgressTextSize));
         lineWidth = typedArray.getDimensionPixelOffset(R.styleable.CircleProgressBarView_lineWidth, DensityUtil.dp2px(1));
         lineColor = typedArray.getColor(R.styleable.CircleProgressBarView_lineColor, circleBgColor);
         targetNumColor = typedArray.getColor(R.styleable.CircleProgressBarView_targetNumColor, targetNumColor);
-        targetNumSize = typedArray.getDimensionPixelSize(R.styleable.CircleProgressBarView_targetNumSize, DensityUtil.sp2px(mContext,20));
-        targetTextSize = typedArray.getDimensionPixelSize(R.styleable.CircleProgressBarView_targetTextSize, DensityUtil.sp2px(mContext,12));
+        targetNumSize = typedArray.getDimensionPixelSize(R.styleable.CircleProgressBarView_targetNumSize, DensityUtil.sp2px(20));
+        targetTextSize = typedArray.getDimensionPixelSize(R.styleable.CircleProgressBarView_targetTextSize, DensityUtil.sp2px(12));
         targetTextColor = typedArray.getColor(R.styleable.CircleProgressBarView_targetTextColor, targetTextColor);
         targetText = typedArray.getString(R.styleable.CircleProgressBarView_target_text);
         typedArray.recycle();

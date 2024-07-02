@@ -8,9 +8,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import com.dongni.tools.DensityUtil;
-
 import androidx.annotation.Nullable;
+
+import com.doyou.tools.DensityUtil;
 
 /**
  * Created by Allen on 2018/1/31.

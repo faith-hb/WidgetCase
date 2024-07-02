@@ -14,19 +14,19 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.dongni.tools.DensityUtil;
-import com.dongni.tools.EmptyUtils;
-import com.dongni.tools.ToastUtils;
+import androidx.annotation.Nullable;
+
 import com.doyou.cv.R;
 import com.doyou.cv.bean.TaperChartBean;
 import com.doyou.cv.utils.LogUtil;
 import com.doyou.cv.utils.Util;
+import com.doyou.tools.DensityUtil;
+import com.doyou.tools.EmptyUtil;
+import com.hjq.toast.Toaster;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.Nullable;
 
 /**
  * 锥形统计图
@@ -184,7 +184,7 @@ public class TaperChart extends View {
 
         mNullPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mNullPaint.setColor(Color.rgb(200, 200, 200));
-        mNullPaint.setTextSize(DensityUtil.sp2px(mContext,12f));
+        mNullPaint.setTextSize(DensityUtil.sp2px(12f));
 
         mPointPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPointPaint.setColor(Color.RED);
@@ -299,7 +299,7 @@ public class TaperChart extends View {
         mXValues.clear();
         mYValues.clear();
 
-        if (EmptyUtils.isEmpty(xValues) || EmptyUtils.isEmpty(yValues)) { // 暂无数据
+        if (EmptyUtil.isEmpty(xValues) || EmptyUtil.isEmpty(yValues)) { // 暂无数据
             invalidate();
             return;
         }
@@ -569,23 +569,18 @@ public class TaperChart extends View {
         float oneH = (mCanvasH - mOffBtm - mPaint.getStrokeWidth()) / y_max;
         PointF pf;
 
-        if (EmptyUtils.isNotEmpty(mList)) {
+        if (EmptyUtil.isNotEmpty(mList)) {
             mList.clear();
         }
 
         String key;
         float value;
         float pf_y = mCanvasH - mOffBtm;
-
-
-        //////
-//        PointF pfDebug = new PointF();
-
         switch (x_count) {
             case 2:
             case 3:
-                int[] colors = null;
-                if (EmptyUtils.isNotEmpty(mTaperColors)) {
+                int[] colors;
+                if (EmptyUtil.isNotEmpty(mTaperColors)) {
                     if (mTaperColors.size() != x_count) {
                         throw new IllegalArgumentException("颜色值的数量和图形数量请保证相等");
                     }
@@ -625,8 +620,8 @@ public class TaperChart extends View {
 //                canvas.drawPoint(pfDebug.x,pfDebug.y,mTextPaint);
                 break;
             case 4:
-                int[] four_colors = null;
-                if (EmptyUtils.isNotEmpty(mTaperColors)) {
+                int[] four_colors;
+                if (EmptyUtil.isNotEmpty(mTaperColors)) {
                     four_colors = new int[]{mTaperColors.get(0), mTaperColors.get(1)};
                 } else {
                     four_colors = new int[]{COLORS[2], COLORS[1]};
@@ -651,8 +646,8 @@ public class TaperChart extends View {
                 }
                 break;
             case 6:
-                int[] sex_colors = null;
-                if (EmptyUtils.isNotEmpty(mTaperColors)) {
+                int[] sex_colors;
+                if (EmptyUtil.isNotEmpty(mTaperColors)) {
                     sex_colors = new int[]{mTaperColors.get(0), mTaperColors.get(1)};
                 } else {
                     sex_colors = new int[]{COLORS[2], COLORS[1]};
@@ -882,7 +877,7 @@ public class TaperChart extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (EmptyUtils.isEmpty(mXValues) || EmptyUtils.isEmpty(mYValues)) {
+        if (EmptyUtil.isEmpty(mXValues) || EmptyUtil.isEmpty(mYValues)) {
             drawEmptyData(canvas);
             return;
         }
@@ -914,14 +909,14 @@ public class TaperChart extends View {
                 long moveTime = System.currentTimeMillis() - currentMS;
                 LogUtil.logD("201811161726", "moveTime = " + moveTime);
                 if (moveTime < 120) { // 点击判定条件
-                    if (EmptyUtils.isNotEmpty(mList)) {
+                    if (EmptyUtil.isNotEmpty(mList)) {
                         TaperChartBean bean;
                         int size = mList.size();
                         for (int i = 0; i < size; i++) {
                             bean = mList.get(i);
                             if (bean.isInChartArea(bean.getRectF(), downX, downY)) {
                                 bean = mList.get(i);
-                                if (EmptyUtils.isNotEmpty(mHints)) { // 传入了文案，优先用传入的
+                                if (EmptyUtil.isNotEmpty(mHints)) { // 传入了文案，优先用传入的
                                     int hSize = mHints.size();
                                     String result = "";
                                     for (int j = 0; j < hSize; j++) {
@@ -930,33 +925,34 @@ public class TaperChart extends View {
                                             break;
                                         }
                                     }
-                                    if (EmptyUtils.isNotEmpty(result)) {
-                                        ToastUtils.showLongToast(mContext, result);
+                                    if (EmptyUtil.isNotEmpty(result)) {
+                                        Toaster.showLong(result);
                                     } else {
                                         if (mIsShowDebug) {
-                                            ToastUtils.showLongToast(mContext, "没匹配到数据，请检查传入的数据是否有误...");
+                                            Toaster.showLong("没匹配到数据，请检查传入的数据是否有误...");
                                         }
                                     }
                                 } else { // 否则，默认
                                     if (mYAxisIsPercent) {
-                                        ToastUtils.showLongToast(mContext, bean.getxValue() + "：" + pointTwoFormat.format(bean.getyValue()) + "%");
+                                        Toaster.showLong(bean.getxValue() + "：" + pointTwoFormat.format(bean.getyValue()) + "%");
                                     } else {
                                         if (mHintIsRatio) {
-                                            if(TextUtils.isEmpty(mDwStr)){
-                                                ToastUtils.showLongToast(mContext, bean.getxValue() + "："
+                                            if (TextUtils.isEmpty(mDwStr)) {
+                                                Toaster.showLong(bean.getxValue() + "："
                                                         + pointFormat.format(bean.getyValue()) + "，占比："
                                                         + percentFormat.format(bean.getyValue() / mTotalValue));
-                                            }else{
-                                                ToastUtils.showLongToast(mContext, bean.getxValue() + "："
+                                            } else {
+                                                Toaster.showLong(bean.getxValue() + "："
                                                         + pointFormat.format(bean.getyValue()) + "，占比："
                                                         + percentFormat.format(bean.getyValue() / mTotalValue) + mDwStr);
                                             }
                                         } else {
-                                            if(TextUtils.isEmpty(mDwStr)){
-                                                ToastUtils.showLongToast(mContext, bean.getxValue() + "："
+                                            if (TextUtils.isEmpty(mDwStr)) {
+                                                Toaster.showLong(bean.getxValue() + "："
                                                         + pointFormat.format(bean.getyValue()));
-                                            }else{
-                                                ToastUtils.showLongToast(mContext, bean.getxValue() + "："
+
+                                            } else {
+                                                Toaster.showLong(bean.getxValue() + "："
                                                         + pointFormat.format(bean.getyValue()) + mDwStr);
                                             }
                                         }

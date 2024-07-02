@@ -13,10 +13,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import com.dongni.tools.DensityUtil;
-import com.doyou.cv.R;
-
 import androidx.annotation.Nullable;
+
+import com.doyou.cv.R;
+import com.doyou.tools.DensityUtil;
 
 /**
  * 横向渐变进度条

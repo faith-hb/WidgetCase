@@ -8,10 +8,10 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.dongni.tools.DensityUtil;
-import com.doyou.cv.utils.Util;
-
 import androidx.annotation.Nullable;
+
+import com.doyou.cv.utils.Util;
+import com.doyou.tools.DensityUtil;
 
 /**
  * 自定义图文混排控件

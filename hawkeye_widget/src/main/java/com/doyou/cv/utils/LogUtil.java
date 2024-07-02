@@ -11,7 +11,7 @@ import com.doyou.cv.BuildConfig;
  */
 public final class LogUtil {
 
-    public static final boolean DBG = BuildConfig.BUILD_TYPE.equals("debug");
+    public static final boolean DBG = BuildConfig.DEBUG;
 
     public static void logD(String tag, String msg) {
         if (DBG) {

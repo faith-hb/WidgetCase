@@ -1,8 +1,5 @@
 package com.doyou.cvc.activity
 
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -13,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.dongni.tools.EmptyUtils
-import com.dongni.tools.ToastUtils
 import com.doyou.cvc.R
 import com.doyou.cvc.activity.animator.BmpOverturnActivity
 import com.doyou.cvc.activity.colorfilter.ColorMainActivity
@@ -29,14 +24,38 @@ import com.doyou.cvc.utils.AppUtils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.content_menu_main.*
+import com.hjq.toast.Toaster
+import kotlinx.android.synthetic.main.content_menu_main.circleBtnTv
+import kotlinx.android.synthetic.main.content_menu_main.colorMainTv
+import kotlinx.android.synthetic.main.content_menu_main.cpbvTv
+import kotlinx.android.synthetic.main.content_menu_main.ctmSvTv
+import kotlinx.android.synthetic.main.content_menu_main.gpbTv
+import kotlinx.android.synthetic.main.content_menu_main.gradientTv
+import kotlinx.android.synthetic.main.content_menu_main.hcpvTv
+import kotlinx.android.synthetic.main.content_menu_main.horTv
+import kotlinx.android.synthetic.main.content_menu_main.hssvTv
+import kotlinx.android.synthetic.main.content_menu_main.htcTv
+import kotlinx.android.synthetic.main.content_menu_main.imgOverturnTv
+import kotlinx.android.synthetic.main.content_menu_main.imgTxtTv
+import kotlinx.android.synthetic.main.content_menu_main.lrvTv
+import kotlinx.android.synthetic.main.content_menu_main.matrixTv
+import kotlinx.android.synthetic.main.content_menu_main.refreshTv
+import kotlinx.android.synthetic.main.content_menu_main.ringvTv
+import kotlinx.android.synthetic.main.content_menu_main.selPtoBarTv
+import kotlinx.android.synthetic.main.content_menu_main.spbTv
+import kotlinx.android.synthetic.main.content_menu_main.tcTv
+import kotlinx.android.synthetic.main.content_menu_main.timeRulerTv
+import kotlinx.android.synthetic.main.content_menu_main.vpTransTv
+import kotlinx.android.synthetic.main.content_menu_main.waveTv
 
 class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
-    /**
-     * 开源库地址
-     */
-    private val WIDGETCASE_GITHUB_URL = "https://github.com/faith-hb/WidgetCase"
+    companion object {
+        /**
+         * 开源库地址
+         */
+        private const val WIDGET_CASE_GITHUB_URL = "https://github.com/faith-hb/WidgetCase"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,14 +110,6 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
         ctmSvTv.setOnClickListener(this)
         vpTransTv.setOnClickListener(this)
         imgOverturnTv.setOnClickListener(this)
-    }
-
-    private fun copyContent(str:String?){
-        if (EmptyUtils.isNotEmpty(str)){
-            var cm = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            var clipData = ClipData.newPlainText("Label",str)
-            cm.primaryClip = clipData
-        }
     }
 
     override fun onClick(v: View?) {
@@ -198,16 +209,14 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_wechat -> {
-                // Handle the camera action
                 AppUtils.copyContent(this,"faith-hb")
-                ToastUtils.showLongToast(this, "老铁，加我微信能拉近我们的距离(^_^)")
+                Toaster.showLong("微信号已复制，前往微信加好友吧(^_^)")
             }
             R.id.nav_qq -> {
                 AppUtils.copyContent(this,"907167515")
-                ToastUtils.showLongToast(this, "哥们，不加好友怎么聊ಠ_ಠ")
+                Toaster.showLong("QQ号已复制，前往QQ加好友吧(^_^)")
             }
 //            R.id.nav_slideshow -> {
 //
@@ -216,11 +225,11 @@ class MenuMainActivity : AppCompatActivity(), View.OnClickListener, NavigationVi
 //
 //            }
             R.id.nav_share -> {
-                ToastUtils.showShortToast(this,"敬请期待...")
+                Toaster.showShort("敬请期待...")
             }
             R.id.nav_github -> {
-                AppUtils.openUrlByBrowser(this,WIDGETCASE_GITHUB_URL)
-                ToastUtils.showLongToast(this, "亲，给星星的银都是爷凸^-^凸")
+                AppUtils.openUrlByBrowser(this,WIDGET_CASE_GITHUB_URL)
+                Toaster.showLong("喜欢就支持一下吧凸^-^凸")
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)

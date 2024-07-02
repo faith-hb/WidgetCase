@@ -10,12 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.dongni.tools.DensityUtil;
-import com.dongni.tools.EmptyUtils;
 import com.doyou.cv.R;
 import com.doyou.cv.bean.TaperChartBean;
 import com.doyou.cv.utils.LogUtil;
 import com.doyou.cv.utils.Util;
+import com.doyou.tools.DensityUtil;
+import com.doyou.tools.EmptyUtil;
 
 import java.util.List;
 
@@ -71,7 +71,7 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
 
         mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setColor(Color.rgb(153, 153, 153));
-        mTextPaint.setTextSize(DensityUtil.sp2px(mContext, 10));
+        mTextPaint.setTextSize(DensityUtil.sp2px(10));
 
         mPointPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPointPaint.setStyle(Paint.Style.STROKE);
@@ -87,12 +87,12 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
      * 设置峰值图颜色值（优先setData之前调用）
      * @param colors
      */
-    public void setColors(int... colors){
-        if(EmptyUtils.isEmpty(colors)){
+    public void setColors(int... colors) {
+        if (EmptyUtil.isEmpty(colors)) {
             return;
         }
-        if(EmptyUtils.isEmpty(mChart)){
-            new IllegalArgumentException("TaperChart控件不能为空...");
+        if (EmptyUtil.isEmpty(mChart)) {
+            throw new IllegalArgumentException("TaperChart控件不能为空...");
         }
         mChart.setTaperColors(colors);
     }
@@ -116,7 +116,7 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
     public void setData(List<String> xValues, List<Float> yValues, List<String> labels) {
         mIsComparison = false;
         mChart.setData(xValues, yValues);
-        if (EmptyUtils.isNotEmpty(mLabels)) {
+        if (EmptyUtil.isNotEmpty(mLabels)) {
             mLabels.clear();
         }
         mLabels = labels;
@@ -132,7 +132,7 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
     public void setData(List<String> xValues, List<Float> yValues, List<String> labels,String dw) {
         mIsComparison = false;
         mChart.setData(xValues, yValues,dw);
-        if (EmptyUtils.isNotEmpty(mLabels)) {
+        if (EmptyUtil.isNotEmpty(mLabels)) {
             mLabels.clear();
         }
         mLabels = labels;
@@ -150,14 +150,14 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
     public void setData(List<String> xValues, List<Float> yValues, String[] labels, String dw, List<String> btmLabels,boolean isComparison) {
         mIsComparison = isComparison;
         mChart.setData(xValues, yValues, labels, dw);
-        if (EmptyUtils.isNotEmpty(mLabels)) {
+        if (EmptyUtil.isNotEmpty(mLabels)) {
             mLabels.clear();
         }
         mLabels = btmLabels;
     }
 
     public void setEmpty() {
-        if (EmptyUtils.isNotEmpty(mLabels)) {
+        if (EmptyUtil.isNotEmpty(mLabels)) {
             mLabels.clear();
         }
         mChart.setEmpty();
@@ -175,7 +175,7 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
     private void drawEmptyData(Canvas canvas) {
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setColor(Color.rgb(200, 200, 200));
-        paint.setTextSize(DensityUtil.sp2px(mContext,12f));
+        paint.setTextSize(DensityUtil.sp2px(12f));
 
         int canvasW = canvas.getWidth();
         int canvasH = canvas.getHeight();
@@ -210,10 +210,10 @@ public class TaperChartLayout extends LinearLayout implements TaperChart.DrawDat
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (EmptyUtils.isEmpty(mChart.getList()) || EmptyUtils.isEmpty(mLabels)) {
+        if (EmptyUtil.isEmpty(mChart.getList()) || EmptyUtil.isEmpty(mLabels)) {
 //            drawEmptyData(canvas);
-            LogUtil.logD("201812241158","清除画布-之前的文案...");
-            canvas.drawText("",0,0,mTextPaint);
+            LogUtil.logD("201812241158", "清除画布-之前的文案...");
+            canvas.drawText("", 0, 0, mTextPaint);
             return;
         }
         int size = mLabels.size();

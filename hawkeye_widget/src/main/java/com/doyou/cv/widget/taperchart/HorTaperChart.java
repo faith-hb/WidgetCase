@@ -17,19 +17,19 @@ import android.view.ViewConfiguration;
 import android.view.animation.Interpolator;
 import android.widget.OverScroller;
 
-import com.dongni.tools.DensityUtil;
-import com.dongni.tools.EmptyUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.VelocityTrackerCompat;
+
 import com.doyou.cv.R;
 import com.doyou.cv.bean.TaperChartBean;
 import com.doyou.cv.utils.LogUtil;
 import com.doyou.cv.utils.Util;
+import com.doyou.tools.DensityUtil;
+import com.doyou.tools.EmptyUtil;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.annotation.Nullable;
-import androidx.core.view.VelocityTrackerCompat;
 
 /**
  * 峰值统计图，支持水平滑动
@@ -186,12 +186,12 @@ public class HorTaperChart extends View {
 
         mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setColor(Color.rgb(153, 153, 153));
-        mTextPaint.setTextSize(DensityUtil.sp2px(mContext, 10));
+        mTextPaint.setTextSize(DensityUtil.sp2px(10));
 //        mTextPaint.setTextAlign(Paint.Align.LEFT);
 
         mNullPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mNullPaint.setColor(Color.rgb(200, 200, 200));
-        mNullPaint.setTextSize(DensityUtil.sp2px(mContext, 12f));
+        mNullPaint.setTextSize(DensityUtil.sp2px(12f));
 
         mPointPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPointPaint.setColor(Color.RED);
@@ -246,7 +246,7 @@ public class HorTaperChart extends View {
         mXValues.clear();
         mYValues.clear();
 
-        if (EmptyUtils.isEmpty(xValues) || EmptyUtils.isEmpty(yValues)) { // 暂无数据
+        if (EmptyUtil.isEmpty(xValues) || EmptyUtil.isEmpty(yValues)) { // 暂无数据
             invalidate();
             return;
         }
@@ -382,7 +382,7 @@ public class HorTaperChart extends View {
         float oneH = (mCanvasH - mOffBtm - mPaint.getStrokeWidth()) / y_max;
         PointF pf;
 
-        if (EmptyUtils.isNotEmpty(mList)) {
+        if (EmptyUtil.isNotEmpty(mList)) {
             mList.clear();
         }
 
@@ -526,7 +526,7 @@ public class HorTaperChart extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (EmptyUtils.isEmpty(mXValues) || EmptyUtils.isEmpty(mYValues)) {
+        if (EmptyUtil.isEmpty(mXValues) || EmptyUtil.isEmpty(mYValues)) {
             drawEmptyData(canvas);
             return;
         }

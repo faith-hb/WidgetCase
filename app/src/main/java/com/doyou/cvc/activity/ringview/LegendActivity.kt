@@ -3,10 +3,12 @@ package com.doyou.cvc.activity.ringview
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.dongni.tools.ToastUtils
 import com.doyou.cv.bean.CircleBean
 import com.doyou.cvc.R
-import kotlinx.android.synthetic.main.activity_ringview_legend.*
+import com.hjq.toast.Toaster
+import kotlinx.android.synthetic.main.activity_ringview_legend.legendLv
+import kotlinx.android.synthetic.main.activity_ringview_legend.legendRefBtn
+import kotlinx.android.synthetic.main.activity_ringview_legend.legendRv
 import java.text.DecimalFormat
 
 /**
@@ -16,7 +18,9 @@ import java.text.DecimalFormat
  */
 class LegendActivity : AppCompatActivity() {
 
-    private val percentFormat = DecimalFormat("#.##%")
+    companion object {
+        private val percentFormat = DecimalFormat("#.##%")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +31,7 @@ class LegendActivity : AppCompatActivity() {
         setLegendData()
         legendRefBtn.setOnClickListener {
             showRingView()
-            var labels: MutableList<String> = ArrayList()
+            val labels: MutableList<String> = ArrayList()
             labels.add("手镯")
             labels.add("胸针")
             labels.add("其他")
@@ -35,14 +39,14 @@ class LegendActivity : AppCompatActivity() {
         }
 
         legendLv.setLegendListener {
-            ToastUtils.showShortToast(this, "点击了$it")
+            Toaster.showShort("点击了$it")
         }
     }
 
     private fun showRingView() {
         legendRv.showDebugView(false)
-        var valueSum = 60
-        var mList: MutableList<CircleBean> = ArrayList()
+        val valueSum = 60
+        val mList: MutableList<CircleBean> = ArrayList()
         var cb: CircleBean
         val rvMax = legendRv.max
         var startPro = 0f
@@ -65,12 +69,12 @@ class LegendActivity : AppCompatActivity() {
         legendRv.setData(mList)
         legendRv.setCenterTxt("20~29岁", "女性")
         legendRv.setListener { label ->
-            ToastUtils.showShortToast(this, label)
+            Toaster.showShort(label)
         }
     }
 
     private fun setLegendData() {
-        var labels: MutableList<String> = ArrayList()
+        val labels: MutableList<String> = ArrayList()
         labels.add("项链")
         labels.add("戒指")
         labels.add("男你拿")

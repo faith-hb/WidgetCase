@@ -19,12 +19,17 @@ allprojects {
     repositories {
         google()
         jcenter()
+        // JitPack 远程仓库：https://jitpack.io
         maven {
-            url 'http://47.93.38.184:8081/nexus/content/repositories/faithhb/'
+            url 'https://jitpack.io'
         }
-        maven {
-            url 'http://47.93.38.184:8081/nexus/content/repositories/github/' // widget发布版本已切换到该地址
-        }
+        // 47.93.38.184 服务器已弃用
+//        maven {
+//            url 'http://47.93.38.184:8081/nexus/content/repositories/faithhb/'
+//        }
+//        maven {
+//            url 'http://47.93.38.184:8081/nexus/content/repositories/github/' // widget发布版本已切换到该地址
+//        }
     }
 }
 

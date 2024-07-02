@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
-import com.dongni.tools.EmptyUtils;
+import com.doyou.tools.EmptyUtil;
 
 /**
  * 工具类
@@ -23,7 +23,7 @@ public final class AppUtils {
      * @param content
      */
     public static void copyContent(Context context, String content) {
-        if (EmptyUtils.isNotEmpty(content)) {
+        if (EmptyUtil.isNotEmpty(content)) {
             ClipboardManager cm = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clipData = ClipData.newPlainText("Label", content);
             cm.setPrimaryClip(clipData);

@@ -57,12 +57,16 @@ class ColorHueActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener {
         mLightnessMatrix!!.reset()
         mLightnessMatrix!!.setScale(lightnessValue, lightnessValue, lightnessValue, 1f)
 
-        colorMatrix!!.reset()
-        // 效果叠加
-        colorMatrix!!.postConcat(mHueMatrix)
-        colorMatrix!!.postConcat(mSaturationMatrix)
-        colorMatrix!!.postConcat(mLightnessMatrix)
-        jingyHueIv.colorFilter = ColorMatrixColorFilter(colorMatrix)
+        colorMatrix?.apply {
+            reset()
+            // 效果叠加
+            postConcat(mHueMatrix)
+            postConcat(mSaturationMatrix)
+            postConcat(mLightnessMatrix)
+        }
+        colorMatrix?.let {
+            jingyHueIv.colorFilter = ColorMatrixColorFilter(it)
+        }
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar?) {

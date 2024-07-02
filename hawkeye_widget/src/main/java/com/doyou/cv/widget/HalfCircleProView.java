@@ -15,12 +15,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import com.dongni.tools.DensityUtil;
+import androidx.annotation.Nullable;
+
 import com.doyou.cv.R;
 import com.doyou.cv.utils.FormatUtil;
 import com.doyou.cv.utils.LogUtil;
-
-import androidx.annotation.Nullable;
+import com.doyou.tools.DensityUtil;
 
 /**
  * 油表控件

@@ -1,16 +1,13 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
-
-    compileSdkVersion setup.compileSdk
-    buildToolsVersion = setup.buildTools
+    compileSdk setup.compileSdk
 
     defaultConfig {
         minSdkVersion setup.minSdk
         targetSdkVersion setup.targetSdk
-        versionCode release.versionCode
-        versionName release.versionName
-
     }
 
     buildTypes {
@@ -25,6 +22,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
@@ -36,13 +34,30 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    /**
+     * 官方依赖库
+     */
     implementation "androidx.appcompat:appcompat:${versions.appcompat}"
-    implementation "androidx.annotation:annotation:${versions.appcompat}"
+    implementation "androidx.annotation:annotation:${versions.annotation}"
     implementation 'com.google.android.material:material:1.0.0'
     implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
+
+    /**
+     * 测试依赖库
+     */
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation "com.faithhb:toolslib:${outer.toolslib}"
+    /**
+     * 私有依赖库
+     */
+//    implementation "com.faithhb:toolslib:${outer.toolslib}"
+    implementation project(':lib-tools')
+
+    /**
+     * 三方库
+     */
+    // 吐司框架：https://github.com/getActivity/Toaster
+    implementation "com.github.getActivity:Toaster:${outer.toaster}"
 }

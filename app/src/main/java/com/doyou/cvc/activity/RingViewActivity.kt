@@ -5,18 +5,29 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.dongni.tools.Common
-import com.dongni.tools.ToastUtils
 import com.doyou.cv.bean.CircleBean
+import com.doyou.cv.utils.LogUtil
 import com.doyou.cvc.R
 import com.doyou.cvc.activity.ringview.DoubleTxtActivity
 import com.doyou.cvc.activity.ringview.LegendActivity
-import kotlinx.android.synthetic.main.activity_ringview.*
+import com.hjq.toast.Toaster
+import kotlinx.android.synthetic.main.activity_ringview.doubleTxtBtn
+import kotlinx.android.synthetic.main.activity_ringview.legendBtn
+import kotlinx.android.synthetic.main.activity_ringview.refeshBtn
+import kotlinx.android.synthetic.main.activity_ringview.ringv
+import kotlinx.android.synthetic.main.activity_ringview.ringv1
+import kotlinx.android.synthetic.main.activity_ringview.ringv2
+import kotlinx.android.synthetic.main.activity_ringview.ringv3
+import kotlinx.android.synthetic.main.activity_ringview.ringv4
 import java.text.DecimalFormat
 
 class RingViewActivity : AppCompatActivity() {
 
     private val percentFormat = DecimalFormat("#.##%")
+
+    companion object {
+        private const val TAG = "RingViewActivity"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +36,7 @@ class RingViewActivity : AppCompatActivity() {
         supportActionBar?.setTitle(R.string.title_ring_view)
         syncRingViewData()
         refeshBtn.setOnClickListener {
-            ToastUtils.showShortToast(applicationContext,"刷新下")
+            Toaster.showShort("刷新下")
             ringv3.setCenterTxtColor(Color.rgb(255,124,12))
             showRingView3()
         }
@@ -52,7 +63,7 @@ class RingViewActivity : AppCompatActivity() {
         ringv1.setData(progress1, "第三个".plus(' ').plus(percentFormat.format(progress1 / 100)),
                 "第四个".plus(' ').plus(percentFormat.format((100 - progress1) / 100)))
         ringv1.setListener { label ->
-            ToastUtils.showShortToast(this, label)
+            Toaster.showShort(label)
         }
 
         ringv2.showDebugView(true)
@@ -75,12 +86,12 @@ class RingViewActivity : AppCompatActivity() {
             cb.centerPro = startPro + cb.endPro / 2
             cb.desc = "di" + i + "ge"
             startPro += cb.endPro
-            Common.log_d("201811091554", cb.toString())
+            LogUtil.logD("201811091554", cb.toString())
             mList.add(cb)
         }
         ringv2.setData(mList)
         ringv2.setListener { label ->
-            ToastUtils.showShortToast(this, label)
+            Toaster.showShort(label)
         }
 
         showRingView3()
@@ -155,8 +166,8 @@ class RingViewActivity : AppCompatActivity() {
 
     private fun showRingView4(){
         ringv4.showDebugView(false)
-        var valueSum = 60
-        var mList: MutableList<CircleBean> = ArrayList<CircleBean>()
+        val valueSum = 60
+        val list: MutableList<CircleBean> = ArrayList<CircleBean>()
         var cb: CircleBean
         val rvMax = ringv4.max
         var startPro = 0f
@@ -175,10 +186,10 @@ class RingViewActivity : AppCompatActivity() {
 
             cb.centerPro = startPro + cb.endPro / 2
             startPro += cb.endPro
-            mList.add(cb)
+            list.add(cb)
         }
         ringv4.setCenterTxt("20~29岁","男性")
-        ringv4.setData(mList)
+        ringv4.setData(list)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

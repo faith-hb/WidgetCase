@@ -4,11 +4,14 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.dongni.tools.Common
+import androidx.core.content.ContextCompat
 import com.doyou.cv.callback.Rotatable
+import com.doyou.cv.utils.LogUtil
 import com.doyou.cvc.R
 import com.doyou.cvc.activity.listener.OrientationListener
-import kotlinx.android.synthetic.main.activity_circlebtn.*
+import kotlinx.android.synthetic.main.activity_circlebtn.audioCb
+import kotlinx.android.synthetic.main.activity_circlebtn.cameraCb
+import kotlinx.android.synthetic.main.activity_circlebtn.videoCb
 
 class CircleBtnActivity : AppCompatActivity(),OrientationListener.Callback {
 
@@ -26,16 +29,28 @@ class CircleBtnActivity : AppCompatActivity(),OrientationListener.Callback {
         mOrientationListener!!.callback = this
         mOrientationListener!!.enable() // 必须要调用此方法，不然旋转监听无效
 
-        videoCb.setStroke(STROKE_WIDTH,resources.getColor(R.color.default_bg_normal_color))
-        videoCb.setBackgroundDisabledColor(resources.getColor(R.color.bg_disabled_color))
+        videoCb.setStroke(
+            STROKE_WIDTH,
+            ContextCompat.getColor(this, R.color.default_bg_normal_color)
+        )
+        videoCb.setBackgroundDisabledColor(ContextCompat.getColor(this, R.color.bg_disabled_color))
         videoCb.setImageResource(R.mipmap.call_answer_video)
 
-        audioCb.setStroke(STROKE_WIDTH,resources.getColor(R.color.default_bg_normal_color))
-        audioCb.setBackgroundDisabledColor(resources.getColor(R.color.bg_normal_color))
+        audioCb.setStroke(
+            STROKE_WIDTH, ContextCompat.getColor(
+                this,
+                R.color.default_bg_normal_color
+            )
+        )
+        audioCb.setBackgroundDisabledColor(ContextCompat.getColor(this, R.color.bg_normal_color))
         audioCb.setImageResource(R.mipmap.call_answer_audio)
 
-        cameraCb.setStroke(STROKE_WIDTH,resources.getColor(R.color.default_bg_normal_color))
-        cameraCb.setBackgroundDisabledColor(resources.getColor(R.color.bg_pressed_color))
+        cameraCb.setStroke(
+            STROKE_WIDTH, ContextCompat.getColor(
+                this, R.color.default_bg_normal_color
+            )
+        )
+        cameraCb.setBackgroundDisabledColor(ContextCompat.getColor(this, R.color.bg_pressed_color))
         cameraCb.setImageResource(R.mipmap.call_camera_on_normal)
     }
 
@@ -45,21 +60,19 @@ class CircleBtnActivity : AppCompatActivity(),OrientationListener.Callback {
     }
 
     override fun orientationChanged(orientation: Int, previousOrientation: Int) {
-        Common.log_d("回调", "orientationChanged:orientation = $orientation->previousOrientation = $previousOrientation")
+        LogUtil.logD("回调", "orientationChanged:orientation = $orientation->previousOrientation = $previousOrientation")
         updateButtons(orientation)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        Common.log_d("旋转", "onConfigurationChanged")
+        LogUtil.logD("旋转", "onConfigurationChanged")
     }
 
-    private fun updateButtons(orientation: Int){
-        var indicators = arrayOf<Rotatable>(videoCb,audioCb,cameraCb)
+    private fun updateButtons(orientation: Int) {
+        val indicators = arrayOf<Rotatable>(videoCb, audioCb, cameraCb)
         for (indicator in indicators) {
-            if (indicator != null) {
-                indicator!!.setOrientation(orientation * 90, true)
-            }
+            indicator.setOrientation(orientation * 90, true)
         }
     }
 

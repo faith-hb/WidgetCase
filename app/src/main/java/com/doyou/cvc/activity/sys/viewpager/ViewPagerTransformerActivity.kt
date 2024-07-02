@@ -3,9 +3,9 @@ package com.doyou.cvc.activity.sys.viewpager
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.dongni.tools.DensityUtil
 import com.doyou.cv.widget.sys.viewpager.transformer.ScaleAlphaTransformer
 import com.doyou.cvc.R
+import com.doyou.tools.DensityUtil
 import kotlinx.android.synthetic.main.activity_viewpage_transformer.*
 
 /**

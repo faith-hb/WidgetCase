@@ -15,6 +15,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
  */
 public class DragFloatActionButton extends FloatingActionButton {
 
+    private static final String TAG = "DragFloatActionButton";
+
     /**
      * 自定义点击接口
      */
@@ -41,19 +43,9 @@ public class DragFloatActionButton extends FloatingActionButton {
         super(context, attrs, defStyleAttr);
     }
 
-//    @Override
-//    public boolean dispatchTouchEvent(MotionEvent event) {
-//        Common.log_d("201809281348","view->dispatchTouchEvent -> action = " + event.getAction());
-//        /**
-//         * super.dispatchTouchEvent(event)不能放到log里面执行，会影响事件的正常传递，比如此处：return true会不起效果
-//         */
-////        Common.log_d("201809281348","view->dispatchTouchEvent -> action = " + super.dispatchTouchEvent(event));
-//        return super.dispatchTouchEvent(event);
-//    }
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        LogUtil.logD("201809281348", "view->onTouchEvent ->action = " + event.getAction());
+        LogUtil.logD(TAG, "view->onTouchEvent ->action = " + event.getAction());
         final int rawX = (int) event.getRawX();
         final int rawY = (int) event.getRawY();
         switch (event.getAction()) {

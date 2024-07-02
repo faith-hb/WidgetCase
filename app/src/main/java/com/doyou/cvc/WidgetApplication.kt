@@ -1,13 +1,13 @@
 package com.doyou.cvc
 
 import android.app.Application
+import com.hjq.toast.Toaster
 
-import com.dongni.tools.Common
 
 class WidgetApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Common.init(this, true)
+        Toaster.init(this)
     }
 }

@@ -11,10 +11,10 @@ import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.dongni.tools.DensityUtil;
-import com.doyou.cv.utils.LogUtil;
-
 import androidx.annotation.Nullable;
+
+import com.doyou.cv.utils.LogUtil;
+import com.doyou.tools.DensityUtil;
 
 /**
  * 圆形背景水波纹进度效果

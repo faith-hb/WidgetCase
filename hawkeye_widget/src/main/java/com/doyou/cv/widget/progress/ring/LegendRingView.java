@@ -10,19 +10,19 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.dongni.tools.DensityUtil;
-import com.dongni.tools.EmptyUtils;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.doyou.cv.R;
 import com.doyou.cv.bean.CircleBean;
 import com.doyou.cv.utils.LogUtil;
 import com.doyou.cv.widget.PointView;
 import com.doyou.cv.widget.base.CircleCenterStyle;
 import com.doyou.cv.widget.progress.circle.CircleView;
+import com.doyou.tools.DensityUtil;
+import com.doyou.tools.EmptyUtil;
 
 import java.util.List;
-
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 /**
  * 自定义分段圆环（内含图例）
@@ -85,12 +85,12 @@ public class LegendRingView extends ConstraintLayout {
         mCirclePaddingTop = ta.getDimensionPixelSize(R.styleable.LegendRingView_lrv_circle_paddingTop,0);
         mCirclePaddingBottom = ta.getDimensionPixelSize(R.styleable.LegendRingView_lrv_circle_paddingBottom,0);
         mCenterStr = ta.getString(R.styleable.LegendRingView_lrv_circle_center_txt);
-        mCenterTxtSize = ta.getDimensionPixelSize(R.styleable.LegendRingView_lrv_circle_center_txt_size,DensityUtil.sp2px(context, 12));
+        mCenterTxtSize = ta.getDimensionPixelSize(R.styleable.LegendRingView_lrv_circle_center_txt_size,DensityUtil.sp2px(12));
         mCenterTxtColor = ta.getColor(R.styleable.LegendRingView_lrv_circle_center_txt_color,Color.rgb(42, 42, 42));
         mlabelColor = ta.getColor(R.styleable.LegendRingView_lrv_legend_font_color,Color.rgb(42, 42, 42));
-        mLabelSize = ta.getDimensionPixelSize(R.styleable.LegendRingView_lrv_legend_font_size,DensityUtil.sp2px(context,12));
+        mLabelSize = ta.getDimensionPixelSize(R.styleable.LegendRingView_lrv_legend_font_size,DensityUtil.sp2px(12));
         mColumnWidth = ta.getDimensionPixelOffset(R.styleable.LegendRingView_lrv_legend_columnW,DensityUtil.dp2px(42));
-        mLegendVerMargin = ta.getDimensionPixelOffset(R.styleable.LegendRingView_lrv_legend_vertical_margin,DensityUtil.sp2px(context,8));
+        mLegendVerMargin = ta.getDimensionPixelOffset(R.styleable.LegendRingView_lrv_legend_vertical_margin,DensityUtil.sp2px(8));
         mLegendLabelAndPointMargin = ta.getDimensionPixelOffset(R.styleable.LegendRingView_lrv_legend_labelAndPoint_margin,DensityUtil.dp2px(4));
         mLegendOffsetLeft = ta.getDimensionPixelOffset(R.styleable.LegendRingView_lrv_offset_left,0);
         ta.recycle();
@@ -185,7 +185,7 @@ public class LegendRingView extends ConstraintLayout {
     }
 
     public void setData(final List<CircleBean> list, final List<String> legends) {
-        if (EmptyUtils.isEmpty(list) && EmptyUtils.isEmpty(legends)) {
+        if (EmptyUtil.isEmpty(list) && EmptyUtil.isEmpty(legends)) {
             // 先清空之前的子view
             mLrvLayout.removeAllViews();
             mCircleView.setEmpty();

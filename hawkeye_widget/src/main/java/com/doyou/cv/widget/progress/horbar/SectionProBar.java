@@ -11,10 +11,10 @@ import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 
-import com.dongni.tools.DensityUtil;
 import com.doyou.cv.R;
 import com.doyou.cv.bean.GradientColor;
 import com.doyou.cv.utils.LogUtil;
+import com.doyou.tools.DensityUtil;
 
 
 /**
