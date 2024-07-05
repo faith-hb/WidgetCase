@@ -15,8 +15,12 @@ import kotlinx.android.synthetic.main.activity_circlebtn.videoCb
 
 class CircleBtnActivity : AppCompatActivity(),OrientationListener.Callback {
 
-    private val STROKE_WIDTH = 2
     private var mOrientationListener:OrientationListener? = null
+
+    companion object {
+        private const val TAG = "CircleBtnActivity"
+        const val STROKE_WIDTH = 2
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,13 +64,13 @@ class CircleBtnActivity : AppCompatActivity(),OrientationListener.Callback {
     }
 
     override fun orientationChanged(orientation: Int, previousOrientation: Int) {
-        LogUtil.logD("回调", "orientationChanged:orientation = $orientation->previousOrientation = $previousOrientation")
+        LogUtil.logD(TAG, "orientationChanged:orientation = $orientation->previousOrientation = $previousOrientation")
         updateButtons(orientation)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        LogUtil.logD("旋转", "onConfigurationChanged")
+        LogUtil.logD(TAG, "旋转=>onConfigurationChanged")
     }
 
     private fun updateButtons(orientation: Int) {
