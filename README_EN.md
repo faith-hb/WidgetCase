@@ -3,7 +3,7 @@
 <!--https://shields.io/-->
 <!--[![auc][aucsvg]][auc] [![api][apisvg]][api] [![License][licensesvg]][license]-->
 
-[![](https://img.shields.io/badge/widget-1.1.6-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-5.1.1-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
+[![](https://img.shields.io/badge/widget-1.2.0-green.svg)](https://github.com/faith-hb/WidgetCase/) [![](https://img.shields.io/badge/platform-android-blue.svg)](https://github.com/faith-hb/WidgetCase) ![](https://img.shields.io/badge/Gradle-7.5-orange.svg) ![](https://img.shields.io/badge/maven-2.0-lightgrey.svg)
 
 > [中文文档](https://github.com/faith-hb/WidgetCase/blob/master/README.md)
 
@@ -18,7 +18,7 @@ in this look forward to more like-minded code friends to join, we work together 
 
 
 ##### Function directory
-<img src="screenshots/main.jpg" width="280" height="606"/>   <img src="screenshots/main_menu.jpg" width="280" height="606"/>   <img src="screenshots/main_btm.jpg" width="280" height="606"/>
+<img src="screenshots/main_btm.jpg" width="280" height="606"/>   <img src="screenshots/main_menu.jpg" width="280" height="606"/>
 
 ##### Peak figure>>>[TaperChart & TaperChartLayout & HorTaperChart] & The gradient curve>>>[GradientLine]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/hortapercharts.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientline.gif)
