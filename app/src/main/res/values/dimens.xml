@@ -2,6 +2,7 @@
 <resources>
 
     <dimen name="page_font_size">12sp</dimen>
+    <dimen name="font_size_14">14sp</dimen>
 
     <!--峰值图图高-->
     <dimen name="taper_chart_h">240dp</dimen>
@@ -13,8 +14,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
-    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="nav_header_height">246dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_32">32dp</dimen>
 
     <dimen name="timerulerpick_width">24dp</dimen>
     <dimen name="timerulerpick_height">144dp</dimen>

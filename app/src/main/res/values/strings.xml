@@ -37,7 +37,9 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">景 阳</string>
-    <string name="nav_header_subtitle">hongbinghp@gmail.com</string>
+    <string name="nav_header_subtitle">Email：hongbinghp@gmail.com</string>
+    <string name="nav_header_experience">全栈工程师：移动端12年的开发经验</string>
+    <string name="nav_header_company">目前就职于：浙江智行合一科技有限公司</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 

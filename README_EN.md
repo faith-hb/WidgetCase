@@ -18,7 +18,7 @@ in this look forward to more like-minded code friends to join, we work together 
 
 
 ##### Function directory
-<img src="screenshots/main_btm.jpg" width="280" height="606"/>   <img src="screenshots/main_menu.jpg" width="280" height="606"/>
+<img src="screenshots/main_btm.jpg" width="280" height="606"/>
 
 ##### Peak figure>>>[TaperChart & TaperChartLayout & HorTaperChart] & The gradient curve>>>[GradientLine]
 ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/taperchart.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/hortapercharts.gif)  ![image](https://github.com/faith-hb/WidgetCase/blob/master/screenshots/gradientline.gif)
